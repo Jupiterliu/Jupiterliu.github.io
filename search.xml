@@ -137,170 +137,6 @@
       </tags>
   </entry>
   <entry>
-    <title>TLS-Attacker框架：项目复现</title>
-    <url>/2021/04/24/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/</url>
-    <content><![CDATA[<h1 id="Paper：Systematic-Fuzzing-and-Testing-of-TLS-Libraries"><a href="#Paper：Systematic-Fuzzing-and-Testing-of-TLS-Libraries" class="headerlink" title="Paper：Systematic Fuzzing and Testing of TLS Libraries"></a>Paper：Systematic Fuzzing and Testing of TLS Libraries</h1><h2 id="开源项目如何分析"><a href="#开源项目如何分析" class="headerlink" title="开源项目如何分析"></a>开源项目如何分析</h2><p>参考：<a href="https://zhuanlan.zhihu.com/p/107884473">知乎专栏：开源项目源码如何入手</a></p>
-<ol>
-<li>先把Maven的各个模块的<strong>作用</strong>以及之间的<strong>关系</strong>弄清楚，有<code>Attacks</code>、<code>TLS-Client</code>、<code>TLS-Core</code>、<code>TLS-Forensics</code>、<code>TLS-Mitm</code>、<code>TLS-Server</code>、<code>TraceTool</code>、<code>Transport</code>、<code>Utils</code>这<strong>9</strong>大模块</li>
-<li>分析源码先从<strong>父类</strong>或者<strong>父接口</strong>开始分析，这里有很多，需要记录和分析</li>
-<li>阅读源码前找到<strong>启动类</strong>，分析知道<code>Attacks</code>、<code>TLS-Client</code>、<code>TLS-Forensics</code>、<code>TLS-Mitm</code>、<code>TLS-Server</code>、<code>TraceTool</code>这<strong>6</strong>个模块中都有主启动类<code>Main</code>，至于其他<strong>3</strong>个模块<code>TLS-Core</code>、<code>Transport</code>、<code>Utils</code>则是基础组件类。</li>
-<li>阅读源码时要分清<strong>主干</strong>和<strong>枝节</strong>代码，找到启动类的启动入口，就可以一步一步进行调试分析，先阅读<strong>主干代码</strong></li>
-<li>阅读代码时分清<strong>主次模块</strong>，也就是先看有用的模块，其他不相关的可以不看</li>
-<li>充分利用源码项目的<strong>测试类</strong>，一般框架会进行大量的测试，可以通过这些测试类辅助学习源码。可以知道每一个模块下面的<code>src</code>文件都有一个<code>main</code>和<code>test</code>文件夹，<code>test</code>文件夹中对<code>main</code>文件夹中的部分类进行了测试，比如<code>Attacks</code>模块下面<code>test</code>中对<code>main</code>中的<code>MangerAttackPlaintext类</code>进行了测试，变成了<code>MangerAttackPlaintextTest类</code>。根据<code>test</code>文件夹，可以自己编写对应<strong>类</strong>的<strong>测试类</strong>，来进行测试辅助分析。Exp:有些模块没有<code>test</code>测试文件夹，如<code>TLS-Forensics</code>和<code>TraceTool</code>模块</li>
-<li>会一些<strong>调试技巧</strong>，可以看这两篇文章：<a href="https://mp.weixin.qq.com/s/Lc-B3B17TQdHqgIPwwISew">Intellij IDEA 调试功能总结</a>，<a href="https://mp.weixin.qq.com/s/qFuAQH8UBxQPVOTV8atICQ">真香！用 IDEA 神器看源码，效率真高！</a>，<a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247494507&idx=2&sn=50764e6f24f3f48738770154d032dde4&scene=21#wechat_redirect">安利一个IDEA骚操作:一键生成方法的序列图</a>。也要多用全局搜索快捷键-<strong>双击Shift</strong>；<code>control+H</code>可以查看所选类被哪些类实现了；<code>command+7</code>查看当前类的结构；<code>command+O</code>快速检索类/搜索类，等同于<code>双击Shift</code>；<code>command+shift+F</code>实现关键字搜索；<code>command+option+鼠标左键</code>实现查看方法 / 类的实现类，展开成一个列表；<code>command+fn+鼠标左键</code>查看选中的方法被使用的情况/在哪些地方被用到；<code>选中类-&gt;右键-&gt;选择-图</code>来查看图表形式的<strong>类</strong>继承链；<code>选中方法-&gt;右键-&gt;选中SequenceDiagram</code>来一键生成<strong>方法</strong>的序列图；<code>左下角Statistic</code>来显示项目的代码统计情况。<a href="https://blog.csdn.net/qq_35246620/article/details/64157559">IntelliJIDEA常见文件类型的图标介绍</a>-通过看类或方法前面的图标获得一些基本信息。</li>
-<li><strong>单步调试</strong>，<strong>设断点</strong>，<strong>步入</strong>，直到底层运行，结合<strong>wiresahrk</strong>抓包进行分析。</li>
-</ol>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><strong>源代码</strong>行数最多的前<strong>5</strong>个<strong>类</strong>：</p>
-<p><code>Config</code>, <code>TlsContext</code>, <code>CipherSuite</code>, <code>DefaultChooser</code>, <code>WorkflowConfigurationFactory</code></p>
-<h3 id="Main类"><a href="#Main类" class="headerlink" title="Main类"></a>Main类</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">GeneralDelegate generalDelegate = <span class="keyword">new</span> GeneralAttackDelegate();</span><br><span class="line"><span class="comment">// 类的执行顺序：Delegate.java--&gt;GeneralDelegate.java--&gt;GeneralAttackDelegate.java，然后返回</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">PaddingOracleCommandConfig paddingOracle = <span class="keyword">new</span> PaddingOracleCommandConfig(generalDelegate);</span><br><span class="line"><span class="comment">// 类的执行顺序：TLSDelegateConfig.java--&gt;PaddingOracleCommandConfig.java，然后返回</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">attacker = <span class="keyword">new</span> PaddingOracleAttacker(paddingOracle, paddingOracle.createConfig());</span><br><span class="line"><span class="comment">// 类的执行顺序：ConfigIO.java--&gt;Config.java--&gt;TLSDelegateConfig.java--&gt;PaddingOracleCommandConfig.java，然后返回</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Boolean result = attacker.checkVulnerability();</span><br><span class="line"><span class="comment">// 类的执行顺序：Attacker.java（checkVulnerability()（isSkipConnectionCheck()--&gt;canConnect()--&gt;isVulnerable()））</span></span><br><span class="line"><span class="comment">// PaddingOracleAttack.java（isVulnerable()--&gt;createVectorResponseList()）</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Config类"><a href="#Config类" class="headerlink" title="Config类"></a>Config类</h3><p><code>Config类</code>实现了<code>Serializable接口</code>，参考<a href="https://www.jianshu.com/p/4935a87976e5">谈谈实现Serializable接口的作用和必要性</a>。</p>
-<h4 id="Package的本地方法Config"><a href="#Package的本地方法Config" class="headerlink" title="Package的本地方法Config()"></a>Package的本地方法Config()</h4><p><code>OutboundConnection类</code>、<code>InboundConnection类</code></p>
-<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/OutboundConnection.png"></p>
-<p><code>WorkflowTraceType类</code></p>
-<p>除了上面的<strong>类</strong>，还有许多默认参数的<strong>定义</strong>与<strong>赋值</strong>，其中很多没用到，且大多数有其构造的<strong>get</strong>和<strong>set方法</strong>。</p>
-<h4 id="createConfig-createConfig-File-f-createConfig-InputStream-stream"><a href="#createConfig-createConfig-File-f-createConfig-InputStream-stream" class="headerlink" title="createConfig(), createConfig(File f), createConfig(InputStream stream)"></a>createConfig(), createConfig(File f), createConfig(InputStream stream)</h4><p>上面的3个方法的功能分别是从<strong>缓存</strong>、<strong>文件f</strong>、<strong>输入流stream</strong>中获取<strong>Config配置信息</strong>。</p>
-<p><code>ConfigCache类</code></p>
-<p><code>InputStream类</code>：这个抽象类是表示输入字节流的所有类的超类。需要定义InputStream子类的应用程序必须始终提供返回下一个输入字节的方法。</p>
-<p><code>ConfigIO类</code></p>
-<h4 id="createCopy"><a href="#createCopy" class="headerlink" title="createCopy()"></a>createCopy()</h4><p><code>ByteArrayOutputStream类</code>：<strong>继承自</strong><code>OutputStream类</code>,该类实现了一个输出流，其中的数据被写入字节数组。当数据写入缓冲区时，缓冲区会自动增长。可以使用toByteArray()和toString()检索数据。关闭ByteArrayOutputStream没有任何效果。此类中的方法可以在流关闭后调用，而不会生成IOException。</p>
-<p><code>ByteArrayInputStream类</code>：<strong>继承自</strong><code>InputStream类</code>，ByteArrayInputStream包含一个内部缓冲区，该缓冲区包含可以从流中读取的字节。内部计数器跟踪要由读取方法提供的下一个字节。关闭ByteArrayInputStream没有任何效果。此类中的方法可以在流关闭后调用，而不会生成IOException。</p>
-<h4 id="Config类分析总结"><a href="#Config类分析总结" class="headerlink" title="Config类分析总结"></a>Config类分析总结</h4><ol>
-<li>首先是3个<code>createConfig()</code>方法；然后就是很多的<strong>Boolean方法</strong>，判断是否要这个<strong>扩展</strong>等等，方法一般是<code>is</code>开头；</li>
-<li>接下来是一些<strong>常量</strong>的定义赋值以及对应的<code>set</code>和<code>get</code>构造方法；这部分<strong>最多</strong>;</li>
-<li>最后是简单的几个<strong>常量</strong>，但是没有对其进行<code>set</code>和<code>get</code>方法构造。</li>
-</ol>
-<h1 id="TLS-Attacker框架添加GmSSL（当前版本）"><a href="#TLS-Attacker框架添加GmSSL（当前版本）" class="headerlink" title="TLS-Attacker框架添加GmSSL（当前版本）"></a>TLS-Attacker框架添加GmSSL（当前版本）</h1><h2 id="TLS-Core模块的修改"><a href="#TLS-Core模块的修改" class="headerlink" title="TLS-Core模块的修改"></a>TLS-Core模块的修改</h2><h3 id="ProtocolVersion-java类"><a href="#ProtocolVersion-java类" class="headerlink" title="ProtocolVersion.java类"></a>ProtocolVersion.java类</h3><p>在枚举中添加国密SSL协议及其对应的版本号值（0x0101），如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GM SSL</span></span><br><span class="line">GmTLS(<span class="keyword">new</span> <span class="keyword">byte</span>[] &#123; (<span class="keyword">byte</span>) <span class="number">0x01</span>, (<span class="keyword">byte</span>) <span class="number">0x01</span> &#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="AlgorithmResolver-java类"><a href="#AlgorithmResolver-java类" class="headerlink" title="AlgorithmResolver.java类"></a>AlgorithmResolver.java类</h3><p>在方法getKeyExchangeAlgorithm(CipherSuite cipherSuite)中添加针对两个国密算法组件的密钥交换算法if判断语句，如下：</p>
-<p>还没添加 明天周六添加</p>
-<h2 id="TLS-Attacks模块的修改"><a href="#TLS-Attacks模块的修改" class="headerlink" title="TLS-Attacks模块的修改"></a>TLS-Attacks模块的修改</h2><h3 id="PaddingOracleCommandConfig-java类"><a href="#PaddingOracleCommandConfig-java类" class="headerlink" title="PaddingOracleCommandConfig.java类"></a>PaddingOracleCommandConfig.java类</h3><p>在<code>createConfig(Config config)</code>方法中将密码组件替换成了两个国密算法组件，如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">cipherSuites.add(CipherSuite.ECC_SM4_CBC_SM3);</span><br><span class="line">cipherSuites.add(CipherSuite.ECDHE_SM4_CBC_SM3);</span><br></pre></td></tr></table></figure>
-
-<h1 id="TLS-ATTACkER框架添加GMSSL（前版本的修改-已无效）"><a href="#TLS-ATTACkER框架添加GMSSL（前版本的修改-已无效）" class="headerlink" title="TLS-ATTACkER框架添加GMSSL（前版本的修改-已无效）"></a>TLS-ATTACkER框架添加GMSSL（前版本的修改-已无效）</h1><blockquote>
-<p>❗️❗️❗️从TLS-Attacker的Github官网更新了TLS-Attacker所有源文件，所有之前的修改在以前的TLS-Attacker框架上，现在对新的框架进行修改，桌面的TLS-Attacker项目文件❗️❗️❗️</p>
-</blockquote>
-<h2 id="TLS-CORE模块的修改"><a href="#TLS-CORE模块的修改" class="headerlink" title="TLS-CORE模块的修改"></a>TLS-CORE模块的修改</h2><h3 id="AlgorithmResolver-java"><a href="#AlgorithmResolver-java" class="headerlink" title="AlgorithmResolver.java"></a>AlgorithmResolver.java</h3><p>密码组件和密码算法解析</p>
-<p>1.获得PRF算法（伪随机数算法）：getPRFAlgorithm()方法</p>
-<p>添加<code>SM3杂凑算法</code>识别</p>
-<p>2.获得摘要算法：getDigestAlgorithm()方法</p>
-<p>添加<code>SM3摘要算法</code>识别</p>
-<p>3.获取密钥交换算法：getKeyExchangeAlgorithm()方法</p>
-<p>添加<code>ECDHE_SM2</code>和<code>ECC_SM2</code>的SM2密钥交换算法识别</p>
-<p>4.获取证书密钥类型：getCertificateKeyType()方法</p>
-<p>添加<code>SM2</code>证书识别</p>
-<p>5.获取公钥加密算法：getRequiredKeystoreAlgorithms()方法</p>
-<p>添加<code>SM2</code>公钥算法识别</p>
-<p>6.获取对称加密算法：getCipher()方法</p>
-<p>添加<code>SM4_CBC</code>对称加密算法识别</p>
-<p>7.获取批量加密算法：getBulkCipherAlgorithm()方法</p>
-<p>在<code>BulkCipherAlgorithm.java</code>类中添加<code>SM4</code>支持</p>
-<p>8.获取加密类型：getCipherType()方法</p>
-<p>添加<code>SM4</code>和<code>SMS4</code>识别到分组密码中</p>
-<p>9.获取MAC算法：getMacAlgorithm()方法</p>
-<p>添加<code>SM3</code>算法的识别</p>
-<p>10.获取HKDF算法：getHKDFAlgorithm()方法</p>
-<p>添加<code>SM3</code>的HKDF算法识别</p>
-<h3 id="BulkCipherAlgorithm-java（批量对称加密算法）"><a href="#BulkCipherAlgorithm-java（批量对称加密算法）" class="headerlink" title="BulkCipherAlgorithm.java（批量对称加密算法）"></a>BulkCipherAlgorithm.java（批量对称加密算法）</h3><p>添加了<code>SM4</code>的国密对称加密算法</p>
-<h3 id="CipherAlgorithm-java（对称加密算法-分组大小-加密模式）"><a href="#CipherAlgorithm-java（对称加密算法-分组大小-加密模式）" class="headerlink" title="CipherAlgorithm.java（对称加密算法+分组大小+加密模式）"></a>CipherAlgorithm.java（对称加密算法+分组大小+加密模式）</h3><p>添加<code>SM4-CBC</code>的加密模式，包括密钥大小，初始向量的大小，记录大小，分块大小</p>
-<h3 id="PRFAlgorithm-java"><a href="#PRFAlgorithm-java" class="headerlink" title="PRFAlgorithm.java"></a>PRFAlgorithm.java</h3><p>添加<code>TLS_PRF_SM3(MacAlgorithm.SM3)</code>的PRF伪随机函数算法</p>
-<h3 id="MacAlgorithm-java"><a href="#MacAlgorithm-java" class="headerlink" title="MacAlgorithm.java"></a>MacAlgorithm.java</h3><p>添加<code>SM3</code>的MAC算法</p>
-<p>注释：SM3主要用于<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D">数字签名</a>及验证、<a href="https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E8%AE%A4%E8%AF%81%E7%A0%81">消息认证码</a>生成及验证、随机数生成等，其算法公开[<a href="https://zh.wikipedia.org/wiki/SM3#cite_note-oscca_1199-5">5]</a>[<a href="https://zh.wikipedia.org/wiki/SM3#cite_note-6">6]</a>，安全性及效率与<a href="https://zh.wikipedia.org/wiki/SHA-2">SHA-256</a>相当</p>
-<h3 id="CipherSuite-java"><a href="#CipherSuite-java" class="headerlink" title="CipherSuite.java"></a>CipherSuite.java</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GmSSL CipherSuites  添加GM的8个密码组件</span></span><br><span class="line"><span class="comment">//TLS_ECDHE_SM4_SM3(0xE011),</span></span><br><span class="line"><span class="comment">//TLS_ECC_SM4_SM3(0xE013),</span></span><br><span class="line"><span class="comment">//TLS_IBSDH_SM4_SM3(0xE015),</span></span><br><span class="line"><span class="comment">//TLS_IBC_SM4_SM3(0xE017),</span></span><br><span class="line"><span class="comment">//TLS_RSA_SM4_SM3(0xE019),</span></span><br><span class="line"><span class="comment">//TLS_RSA_SM4_SHA1(0xE01a),</span></span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_SM3(<span class="number">0xE102</span>),</span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_GCM_SM3(<span class="number">0xE107</span>),</span><br><span class="line">TLS_ECC_SM2_WITH_SM4_CBC_SM3(<span class="number">0xE109</span>),</span><br><span class="line">TLS_ECDHE_SM2_WITH_SM4_CBC_SM3(<span class="number">0xE111</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加GmSSL支持</span></span><br><span class="line"><span class="comment">//list.add(TLS_ECDHE_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_ECC_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_IBSDH_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_IBC_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_RSA_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_RSA_SM4_SHA1);</span></span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SMS4_SM3);</span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SMS4_GCM_SM3);</span><br><span class="line">list.add(TLS_ECC_SM2_WITH_SM4_CBC_SM3);</span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SM4_CBC_SM3);</span><br></pre></td></tr></table></figure>
-
-<p>添加方法<code>usesSM3()</code>识别密码组件最后用的是SM3杂凑算法</p>
-<h3 id="DigestAlgorithm-java"><a href="#DigestAlgorithm-java" class="headerlink" title="DigestAlgorithm.java"></a>DigestAlgorithm.java</h3><p>摘要算法，添加<code>SM3</code>的摘要算法</p>
-<h3 id="KeyExchangeAlgorithm-java"><a href="#KeyExchangeAlgorithm-java" class="headerlink" title="KeyExchangeAlgorithm.java"></a>KeyExchangeAlgorithm.java</h3><p>密钥交换算法，添加<code>ECDHE_SM2</code>和<code>ECC_SM2</code>的SM2密钥交换算法</p>
-<h3 id="CertificateKeyType-java"><a href="#CertificateKeyType-java" class="headerlink" title="CertificateKeyType.java"></a>CertificateKeyType.java</h3><p>证书密钥类型，添加<code>SM2</code>证书类型</p>
-<h3 id="PublicKeyAlgorithm-java"><a href="#PublicKeyAlgorithm-java" class="headerlink" title="PublicKeyAlgorithm.java"></a>PublicKeyAlgorithm.java</h3><p>公钥算法类型，添加<code>SM2</code>公钥算法</p>
-<h3 id="HKDFAlgorithm-java"><a href="#HKDFAlgorithm-java" class="headerlink" title="HKDFAlgorithm.java"></a>HKDFAlgorithm.java</h3><p>HMAC-based Extract-and-Expand Key Derivation Function (HKDF)：基于HAMC的密钥派生函数</p>
-<p>还不知道<code>SM3</code>是否支持HKDF算法，<strong>？？？</strong>，有待查证</p>
-<p>已添加<code>TLS_HKDF_SM3</code>的SM3支持</p>
-<h2 id="TLS-ATTACKs模块的修改"><a href="#TLS-ATTACKs模块的修改" class="headerlink" title="TLS-ATTACKs模块的修改"></a>TLS-ATTACKs模块的修改</h2><h3 id="PaddingOracleCommandConfig-java"><a href="#PaddingOracleCommandConfig-java" class="headerlink" title="PaddingOracleCommandConfig.java"></a>PaddingOracleCommandConfig.java</h3><p>在重写的类createConfig(Config config)中添加GM密码组件支持</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">cipherSuites.add(CipherSuite.TLS_ECDHE_SM2_WITH_SM4_CBC_SM3);    <span class="comment">//添加GmSSL的CBC密码组件支持</span></span><br><span class="line">cipherSuites.add(CipherSuite.TLS_ECC_SM2_WITH_SM4_CBC_SM3);</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Blog-TLS-Attacker"><a href="#Blog-TLS-Attacker" class="headerlink" title="Blog/TLS-Attacker"></a>Blog/TLS-Attacker</h2><p><a href="https://web-in-security.blogspot.com/2019/03/playing-with-tls-attacker.html">On Web-Security and -Insecurity:Playing with TLS-Attacker</a>: 讲述了TLS-Attacker的工作流运行方式，xml文件如何编写创建</p>
-<ol>
-<li><em><strong>-config</strong></em>配置文件：配置一些密码组件，协议版本；该框架默认的config文件<a href="https://github.com/tls-attacker/TLS-Attacker/blob/master/TLS-Core/src/main/resources/default_config.xml">default_config.xml</a>，可以根据默认配置文件修改其中的一些东西。</li>
-<li><em><strong>-workflow_input</strong></em>配置文件：自定义SendAction和ReceiveAction，也即自定义TLS协议的过程需要哪些包，例如ClientHello、ServerHello；默认的workflowtrace文件<a href="https://gist.github.com/ic0ns/2475e6d514b5b117bbd7ac6826516de6#file-tls-attacker2-0-trace-xml">workflowtrace.xml</a>。</li>
-<li><em><strong>-workflow_output</strong></em>：输出整个流传输的过程</li>
-</ol>
-<p>Web-in-Security官网的PO漏洞和TLS-Attacker框架相关文章：</p>
-<ol>
-<li><p><a href="https://web-in-security.blogspot.com/2016/05/curious-padding-oracle-in-openssl-cve.html">Curious Padding oracle in OpenSSL (CVE-2016-2107)</a>：2016年5月的文章，就简单讲述了一下PO漏洞</p>
-</li>
-<li><p><a href="https://web-in-security.blogspot.com/2017/12/tls-attacker-v22-and-robot-attack.html">TLS-Attacker v2.2 and the ROBOT attack</a>：2017年12月的文章，简单讲了一下ROBOT攻击</p>
-</li>
-<li><p><a href="https://web-in-security.blogspot.com/2019/03/playing-with-tls-attacker.html">Playing with TLS-Attacker</a>：2019年3月的文章，讲述了TLS-Attacker的工作流运行方式，xml文件如何编写创建；主要是config、workflow_input的一些xml文件处理，怎么自定义</p>
-</li>
-<li><p><a href="https://web-in-security.blogspot.com/2019/03/scanning-for-padding-oracles.html">Scanning for Padding Oracle</a>：2019年3月的文章，下图是几类错误的向量</p>
-<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210529101458444.png"></p>
-</li>
-<li><p><a href="https://web-in-security.blogspot.com/2019/05/scanning-tls-server-configurations-with.html">Scanning TLS Server Configurations with Burp Suite</a>：2019年5月的文章，讲述了TLS-Scanner的使用</p>
-</li>
-</ol>
-<p>一个在线SSL服务器检测工具：<a href="https://www.ssllabs.com/ssltest/">SSLabs: SSL Server Test</a></p>
-<p>RUB大学的<a href="https://www.nds.ruhr-uni-bochum.de/chair/news/">网络和数据安全实验室官网</a></p>
-<p><a href="https://www.hackmanit.de/en/">HACKMANIT</a>: Your Specialist for Web Security and Cryptography</p>
-<p>nds.rub.de学校官网的<a href="https://mvnrepository.com/artifact/de.rub.nds">Maven仓库</a>，如下图所示：</p>
-<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528212214813.png"></p>
-<p><a href="https://robotattack.org/">The ROBOT Attack</a>：Return Of Bleichenbacher’s Oracle Threat</p>
-<h2 id="论文第5-2节：高级概述"><a href="#论文第5-2节：高级概述" class="headerlink" title="论文第5.2节：高级概述"></a>论文第5.2节：高级概述</h2><p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528150815213.png"></p>
-<p>TLS-攻击者分为多个Maven模块(参见上图)。</p>
-<ol>
-<li>可修改变量的概念位于单独的<em><strong>ModifiableVariable</strong></em>模块中，以便进一步的应用程序可以从其功能中获益。</li>
-<li><em><strong>Transport</strong></em>模块包含用于TCP和UDP的传输处理实用程序。</li>
-<li>核心模块是<em><strong>TLS</strong></em>，它包含一个TLS协议实现。这将被分成更多的包。</li>
-<li><em><strong>protocol</strong></em>包包含协议消息及其处理程序。</li>
-<li><em><strong>workflow</strong></em>包包含灵活的协议流实现，允许用户定义任意的消息顺序。<br>上图描述了更多相关的包。</li>
-<li><em><strong>Attacks</strong></em>和<em><strong>Fuzzer</strong></em>模块基于TLS功能，并定义了几种TLS攻击和模糊技术。</li>
-<li><em><strong>TestSuite</strong></em>模块定义了一个可扩展的TLS测试套件。</li>
-</ol>
-<p>TLS-Attacker当前实现了TLS 1.0、1.1、1.2和DTLS 1.2协议版本以及客户端功能，包括客户端身份验证。此外，它还实现了以下功能：</p>
-<ol>
-<li><strong>密钥交换算法</strong>：RSA，ECDH（E），DH（E）</li>
-<li><strong>加密算法</strong>：AES-CBC，3DES-CBC</li>
-<li><strong>扩展</strong>：EC，EC点格式[22]，Heartbeat [50]，最大碎片长度[31]， 服务器名称指示（SNI）[31]，签名和哈希算法</li>
-</ol>
-<h2 id="论文第5-3节：TLS模块"><a href="#论文第5-3节：TLS模块" class="headerlink" title="论文第5.3节：TLS模块"></a>论文第5.3节：TLS模块</h2><p>TLS是TLS-Attacker的核心模块。它使用可修改的变量和来自Transport模块的传输处理程序实现了完整的TLS功能。它完全依赖于标准Java加密提供程序和Bouly Castle库(1.54版)提供的加密功能。</p>
-<p>TLS模块分为几个包。<em><strong>config</strong></em>包包含用于TLS协议配置的类。TLS常量(密码套件、密钥交换算法、警报)在<em><strong>constants</strong></em>包中定义。<em><strong>crypto</strong></em>包包含TLS特定的加密功能，这些功能扩展了Java加密提供程序的基本行为。</p>
-<p><em><strong>protocol</strong></em>包实现TLS协议消息及其处理程序。每个协议消息由处理程序(负责消息处理)和消息状态(表示TLS消息的当前状态)定义。例如，<em><strong>handshake</strong></em>包包含<strong>HandshakeMessageHandler</strong>和<strong>HandshakeMessage</strong>类。抽象类<strong>HandshakeMessage</strong>包含所有握手消息(例如握手消息类型)使用的通用握手变量。<strong>ClientHelloMessage</strong>扩展了<strong>HandshakeMessage</strong>，并包括特定于<strong>ClientHello</strong>的变量，如密码套件数组或密码套件长度。请注意，所有这些变量都是可修改的，以实现高灵活性。握手消息的处理由<strong>HandshakeMessageHandler</strong>类提供。每个处理程序（handler）实现两个函数：发送TLS消息时使用的<strong>preparareMessage</strong>和解析传入消息时使用的<strong>parseMessage</strong>。</p>
-<p>对于<em><strong>record</strong></em>包中定义的TLS记录处理，实现了类似的处理程序和消息概念。</p>
-<p><em><strong>workflow</strong></em>包包含TLS协议执行器（executor）。TLS协议的执行仅取决于定义的TLS消息。TLS执行器将协议消息列表作为输入，搜索适当的消息处理程序，并让它们处理定义的消息。这种方法有两个显著的优势：</p>
-<ol>
-<li>TLS攻击者只需设置特定的TLS消息，即可定义任意消息顺序的自定义TLS协议流。</li>
-<li>可以存储处理后的TLS协议流以供进一步分析或甚至用于可重复执行。</li>
-</ol>
-<h2 id="论文第5-4节：使用TLS-Attacker接口"><a href="#论文第5-4节：使用TLS-Attacker接口" class="headerlink" title="论文第5.4节：使用TLS-Attacker接口"></a>论文第5.4节：使用TLS-Attacker接口</h2><p>在下一节中，我们将介绍如何使用TLS-Attacker接口构建自定义协议消息流，以检测Bleichenbacher攻击的漏洞。我们选择此攻击作为示例，因为它需要对TLS协议功能进行深度干预，包括修改纯填充预主密码。</p>
-<p><strong>用差不多10行代码检测Bleichenbacher’s Oracle</strong>：TLS-Attacker的设计支持对新攻击的简单定义。以下示例显示了通过显式设置填充的预主密码的明文值的自定义协议流。此代码可用于评估针对Bleichenbacher攻击的对策的正确性[23]。</p>
-<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528154828457.png"></p>
-<p>通过设置自定义预主密码，安全工程师强制TLS-Attacker使用此自定义值执行TLS握手。使用不同的Premaster秘密值执行TLS握手可以触发不同的服务器行为，从而揭示出可用于执行Bleichenbacher攻击的Oracle。请注意，使用公共TLS库构建这样的协议流需要对该库有深入的了解。另一方面，使用TLS-Attacker，安全工程师可以轻松地使用TLS-Attacker接口来定义具有特定消息修改的新协议流，并将其嵌入到他们的测试套件中。</p>
-<p>不仅仅是对Java开发人员而言。方便的XML序列化。不需要开发Java来构建带有自定义修改的任意协议流。相反，我们决定使用JAXB(Java Architecture For XML Binding)[3]来序列化和反序列化TLS协议流。这允许开发人员使用简单的XML文档定义与上面相同的协议流：</p>
-<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528155400976.png"></p>
-<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528155424340.png"></p>
-]]></content>
-      <tags>
-        <tag>github project</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TLS-Scanner项目</title>
-    <url>/2021/07/15/TLS-Scanner%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>github project</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Paper Reading: Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities</title>
     <url>/2021/04/24/Paper-Reading-Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities/</url>
     <content><![CDATA[<h1 id="「TLS-Padding-Oracle漏洞的可拓展扫描和自动分类」"><a href="#「TLS-Padding-Oracle漏洞的可拓展扫描和自动分类」" class="headerlink" title="「TLS Padding Oracle漏洞的可拓展扫描和自动分类」"></a>「TLS Padding Oracle漏洞的可拓展扫描和自动分类」</h1><p>该论文发表在第28次USS会议上，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">USS会议演讲视频</a>，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">国际密码研究协会演讲视频</a></p>
@@ -547,16 +383,11 @@
       </tags>
   </entry>
   <entry>
-    <title>TLS1.2 RFC-5246文档翻译学习</title>
-    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
-<ul>
-<li><strong>文章结构请看右边的目录</strong>👉</li>
-</ul>
-]]></content>
+    <title>TLS-Scanner项目</title>
+    <url>/2021/07/15/TLS-Scanner%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[]]></content>
       <tags>
-        <tag>RFC6246</tag>
-        <tag>TLS1.2</tag>
+        <tag>github project</tag>
       </tags>
   </entry>
   <entry>
@@ -581,6 +412,179 @@
 ]]></content>
       <tags>
         <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TLS1.2 RFC-5246文档翻译学习</title>
+    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
+<ul>
+<li><strong>文章结构请看右边的目录</strong>👉</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>RFC6246</tag>
+        <tag>TLS1.2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TLS-Attacker框架：项目复现</title>
+    <url>/2021/04/24/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/</url>
+    <content><![CDATA[<h1 id="Paper：Systematic-Fuzzing-and-Testing-of-TLS-Libraries"><a href="#Paper：Systematic-Fuzzing-and-Testing-of-TLS-Libraries" class="headerlink" title="Paper：Systematic Fuzzing and Testing of TLS Libraries"></a>Paper：Systematic Fuzzing and Testing of TLS Libraries</h1><h2 id="开源项目如何分析"><a href="#开源项目如何分析" class="headerlink" title="开源项目如何分析"></a>开源项目如何分析</h2><p>参考：<a href="https://zhuanlan.zhihu.com/p/107884473">知乎专栏：开源项目源码如何入手</a></p>
+<ol>
+<li>先把Maven的各个模块的<strong>作用</strong>以及之间的<strong>关系</strong>弄清楚，有<code>Attacks</code>、<code>TLS-Client</code>、<code>TLS-Core</code>、<code>TLS-Forensics</code>、<code>TLS-Mitm</code>、<code>TLS-Server</code>、<code>TraceTool</code>、<code>Transport</code>、<code>Utils</code>这<strong>9</strong>大模块</li>
+<li>分析源码先从<strong>父类</strong>或者<strong>父接口</strong>开始分析，这里有很多，需要记录和分析</li>
+<li>阅读源码前找到<strong>启动类</strong>，分析知道<code>Attacks</code>、<code>TLS-Client</code>、<code>TLS-Forensics</code>、<code>TLS-Mitm</code>、<code>TLS-Server</code>、<code>TraceTool</code>这<strong>6</strong>个模块中都有主启动类<code>Main</code>，至于其他<strong>3</strong>个模块<code>TLS-Core</code>、<code>Transport</code>、<code>Utils</code>则是基础组件类。</li>
+<li>阅读源码时要分清<strong>主干</strong>和<strong>枝节</strong>代码，找到启动类的启动入口，就可以一步一步进行调试分析，先阅读<strong>主干代码</strong></li>
+<li>阅读代码时分清<strong>主次模块</strong>，也就是先看有用的模块，其他不相关的可以不看</li>
+<li>充分利用源码项目的<strong>测试类</strong>，一般框架会进行大量的测试，可以通过这些测试类辅助学习源码。可以知道每一个模块下面的<code>src</code>文件都有一个<code>main</code>和<code>test</code>文件夹，<code>test</code>文件夹中对<code>main</code>文件夹中的部分类进行了测试，比如<code>Attacks</code>模块下面<code>test</code>中对<code>main</code>中的<code>MangerAttackPlaintext类</code>进行了测试，变成了<code>MangerAttackPlaintextTest类</code>。根据<code>test</code>文件夹，可以自己编写对应<strong>类</strong>的<strong>测试类</strong>，来进行测试辅助分析。Exp:有些模块没有<code>test</code>测试文件夹，如<code>TLS-Forensics</code>和<code>TraceTool</code>模块</li>
+<li>会一些<strong>调试技巧</strong>，可以看这两篇文章：<a href="https://mp.weixin.qq.com/s/Lc-B3B17TQdHqgIPwwISew">Intellij IDEA 调试功能总结</a>，<a href="https://mp.weixin.qq.com/s/qFuAQH8UBxQPVOTV8atICQ">真香！用 IDEA 神器看源码，效率真高！</a>，<a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247494507&idx=2&sn=50764e6f24f3f48738770154d032dde4&scene=21#wechat_redirect">安利一个IDEA骚操作:一键生成方法的序列图</a>。也要多用全局搜索快捷键-<strong>双击Shift</strong>；<code>control+H</code>可以查看所选类被哪些类实现了；<code>command+7</code>查看当前类的结构；<code>command+O</code>快速检索类/搜索类，等同于<code>双击Shift</code>；<code>command+shift+F</code>实现关键字搜索；<code>command+option+鼠标左键</code>实现查看方法 / 类的实现类，展开成一个列表；<code>command+fn+鼠标左键</code>查看选中的方法被使用的情况/在哪些地方被用到；<code>选中类-&gt;右键-&gt;选择-图</code>来查看图表形式的<strong>类</strong>继承链；<code>选中方法-&gt;右键-&gt;选中SequenceDiagram</code>来一键生成<strong>方法</strong>的序列图；<code>左下角Statistic</code>来显示项目的代码统计情况。<a href="https://blog.csdn.net/qq_35246620/article/details/64157559">IntelliJIDEA常见文件类型的图标介绍</a>-通过看类或方法前面的图标获得一些基本信息。</li>
+<li><strong>单步调试</strong>，<strong>设断点</strong>，<strong>步入</strong>，直到底层运行，结合<strong>wiresahrk</strong>抓包进行分析。</li>
+</ol>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><strong>源代码</strong>行数最多的前<strong>5</strong>个<strong>类</strong>：</p>
+<p><code>Config</code>, <code>TlsContext</code>, <code>CipherSuite</code>, <code>DefaultChooser</code>, <code>WorkflowConfigurationFactory</code></p>
+<h3 id="Main类"><a href="#Main类" class="headerlink" title="Main类"></a>Main类</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">GeneralDelegate generalDelegate = <span class="keyword">new</span> GeneralAttackDelegate();</span><br><span class="line"><span class="comment">// 类的执行顺序：Delegate.java--&gt;GeneralDelegate.java--&gt;GeneralAttackDelegate.java，然后返回</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">PaddingOracleCommandConfig paddingOracle = <span class="keyword">new</span> PaddingOracleCommandConfig(generalDelegate);</span><br><span class="line"><span class="comment">// 类的执行顺序：TLSDelegateConfig.java--&gt;PaddingOracleCommandConfig.java，然后返回</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">attacker = <span class="keyword">new</span> PaddingOracleAttacker(paddingOracle, paddingOracle.createConfig());</span><br><span class="line"><span class="comment">// 类的执行顺序：ConfigIO.java--&gt;Config.java--&gt;TLSDelegateConfig.java--&gt;PaddingOracleCommandConfig.java，然后返回</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Boolean result = attacker.checkVulnerability();</span><br><span class="line"><span class="comment">// 类的执行顺序：Attacker.java（checkVulnerability()（isSkipConnectionCheck()--&gt;canConnect()--&gt;isVulnerable()））</span></span><br><span class="line"><span class="comment">// PaddingOracleAttack.java（isVulnerable()--&gt;createVectorResponseList()）</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Config类"><a href="#Config类" class="headerlink" title="Config类"></a>Config类</h3><p><code>Config类</code>实现了<code>Serializable接口</code>，参考<a href="https://www.jianshu.com/p/4935a87976e5">谈谈实现Serializable接口的作用和必要性</a>。</p>
+<h4 id="Package的本地方法Config"><a href="#Package的本地方法Config" class="headerlink" title="Package的本地方法Config()"></a>Package的本地方法Config()</h4><p><code>OutboundConnection类</code>、<code>InboundConnection类</code></p>
+<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/OutboundConnection.png"></p>
+<p><code>WorkflowTraceType类</code></p>
+<p>除了上面的<strong>类</strong>，还有许多默认参数的<strong>定义</strong>与<strong>赋值</strong>，其中很多没用到，且大多数有其构造的<strong>get</strong>和<strong>set方法</strong>。</p>
+<h4 id="createConfig-createConfig-File-f-createConfig-InputStream-stream"><a href="#createConfig-createConfig-File-f-createConfig-InputStream-stream" class="headerlink" title="createConfig(), createConfig(File f), createConfig(InputStream stream)"></a>createConfig(), createConfig(File f), createConfig(InputStream stream)</h4><p>上面的3个方法的功能分别是从<strong>缓存</strong>、<strong>文件f</strong>、<strong>输入流stream</strong>中获取<strong>Config配置信息</strong>。</p>
+<p><code>ConfigCache类</code></p>
+<p><code>InputStream类</code>：这个抽象类是表示输入字节流的所有类的超类。需要定义InputStream子类的应用程序必须始终提供返回下一个输入字节的方法。</p>
+<p><code>ConfigIO类</code></p>
+<h4 id="createCopy"><a href="#createCopy" class="headerlink" title="createCopy()"></a>createCopy()</h4><p><code>ByteArrayOutputStream类</code>：<strong>继承自</strong><code>OutputStream类</code>,该类实现了一个输出流，其中的数据被写入字节数组。当数据写入缓冲区时，缓冲区会自动增长。可以使用toByteArray()和toString()检索数据。关闭ByteArrayOutputStream没有任何效果。此类中的方法可以在流关闭后调用，而不会生成IOException。</p>
+<p><code>ByteArrayInputStream类</code>：<strong>继承自</strong><code>InputStream类</code>，ByteArrayInputStream包含一个内部缓冲区，该缓冲区包含可以从流中读取的字节。内部计数器跟踪要由读取方法提供的下一个字节。关闭ByteArrayInputStream没有任何效果。此类中的方法可以在流关闭后调用，而不会生成IOException。</p>
+<h4 id="Config类分析总结"><a href="#Config类分析总结" class="headerlink" title="Config类分析总结"></a>Config类分析总结</h4><ol>
+<li>首先是3个<code>createConfig()</code>方法；然后就是很多的<strong>Boolean方法</strong>，判断是否要这个<strong>扩展</strong>等等，方法一般是<code>is</code>开头；</li>
+<li>接下来是一些<strong>常量</strong>的定义赋值以及对应的<code>set</code>和<code>get</code>构造方法；这部分<strong>最多</strong>;</li>
+<li>最后是简单的几个<strong>常量</strong>，但是没有对其进行<code>set</code>和<code>get</code>方法构造。</li>
+</ol>
+<h1 id="TLS-Attacker框架添加GmSSL（当前版本）"><a href="#TLS-Attacker框架添加GmSSL（当前版本）" class="headerlink" title="TLS-Attacker框架添加GmSSL（当前版本）"></a>TLS-Attacker框架添加GmSSL（当前版本）</h1><h2 id="TLS-Core模块的修改"><a href="#TLS-Core模块的修改" class="headerlink" title="TLS-Core模块的修改"></a>TLS-Core模块的修改</h2><h3 id="ProtocolVersion-java类"><a href="#ProtocolVersion-java类" class="headerlink" title="ProtocolVersion.java类"></a>ProtocolVersion.java类</h3><p>在枚举中添加国密SSL协议及其对应的版本号值（0x0101），如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GM SSL</span></span><br><span class="line">GmTLS(<span class="keyword">new</span> <span class="keyword">byte</span>[] &#123; (<span class="keyword">byte</span>) <span class="number">0x01</span>, (<span class="keyword">byte</span>) <span class="number">0x01</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="AlgorithmResolver-java类"><a href="#AlgorithmResolver-java类" class="headerlink" title="AlgorithmResolver.java类"></a>AlgorithmResolver.java类</h3><p>在方法getKeyExchangeAlgorithm(CipherSuite cipherSuite)中添加针对国密算法组件“ECDHE_SM4_CBC_SM3”的密钥交换算法if判断语句，如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GM TLS: ECDHE_SM2</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (cipher.startsWith(<span class="string">&quot;ECDHE_&quot;</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> KeyExchangeAlgorithm.ECDHE_SM2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="KeyExchangeAlgorithm-java类"><a href="#KeyExchangeAlgorithm-java类" class="headerlink" title="KeyExchangeAlgorithm.java类"></a>KeyExchangeAlgorithm.java类</h3><p>在枚举中添加密钥交换算法ECDHE_SM2，其中ECDHE是密钥交换算法，SM2是证书签名算法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GM: SM2</span></span><br><span class="line">ECDHE_SM2;</span><br></pre></td></tr></table></figure>
+
+<h2 id="TLS-Attacks模块的修改"><a href="#TLS-Attacks模块的修改" class="headerlink" title="TLS-Attacks模块的修改"></a>TLS-Attacks模块的修改</h2><h3 id="PaddingOracleCommandConfig-java类"><a href="#PaddingOracleCommandConfig-java类" class="headerlink" title="PaddingOracleCommandConfig.java类"></a>PaddingOracleCommandConfig.java类</h3><p>在<code>createConfig(Config config)</code>方法中将密码组件替换成了两个国密算法组件，如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Add GM cipher suites to the test list of PO cipher suites:</span></span><br><span class="line"><span class="comment">// cipherSuites.add(CipherSuite.ECC_SM4_CBC_SM3);</span></span><br><span class="line">cipherSuites.add(CipherSuite.ECDHE_SM4_CBC_SM3);</span><br></pre></td></tr></table></figure>
+
+<h1 id="TLS-ATTACkER框架添加GMSSL（前版本的修改-已无效）"><a href="#TLS-ATTACkER框架添加GMSSL（前版本的修改-已无效）" class="headerlink" title="TLS-ATTACkER框架添加GMSSL（前版本的修改-已无效）"></a>TLS-ATTACkER框架添加GMSSL（前版本的修改-已无效）</h1><blockquote>
+<p>❗️❗️❗️从TLS-Attacker的Github官网更新了TLS-Attacker所有源文件，所有之前的修改在以前的TLS-Attacker框架上，现在对新的框架进行修改，桌面的TLS-Attacker项目文件❗️❗️❗️</p>
+</blockquote>
+<h2 id="TLS-CORE模块的修改"><a href="#TLS-CORE模块的修改" class="headerlink" title="TLS-CORE模块的修改"></a>TLS-CORE模块的修改</h2><h3 id="AlgorithmResolver-java"><a href="#AlgorithmResolver-java" class="headerlink" title="AlgorithmResolver.java"></a>AlgorithmResolver.java</h3><p>密码组件和密码算法解析</p>
+<p>1.获得PRF算法（伪随机数算法）：getPRFAlgorithm()方法</p>
+<p>添加<code>SM3杂凑算法</code>识别</p>
+<p>2.获得摘要算法：getDigestAlgorithm()方法</p>
+<p>添加<code>SM3摘要算法</code>识别</p>
+<p>3.获取密钥交换算法：getKeyExchangeAlgorithm()方法</p>
+<p>添加<code>ECDHE_SM2</code>和<code>ECC_SM2</code>的SM2密钥交换算法识别</p>
+<p>4.获取证书密钥类型：getCertificateKeyType()方法</p>
+<p>添加<code>SM2</code>证书识别</p>
+<p>5.获取公钥加密算法：getRequiredKeystoreAlgorithms()方法</p>
+<p>添加<code>SM2</code>公钥算法识别</p>
+<p>6.获取对称加密算法：getCipher()方法</p>
+<p>添加<code>SM4_CBC</code>对称加密算法识别</p>
+<p>7.获取批量加密算法：getBulkCipherAlgorithm()方法</p>
+<p>在<code>BulkCipherAlgorithm.java</code>类中添加<code>SM4</code>支持</p>
+<p>8.获取加密类型：getCipherType()方法</p>
+<p>添加<code>SM4</code>和<code>SMS4</code>识别到分组密码中</p>
+<p>9.获取MAC算法：getMacAlgorithm()方法</p>
+<p>添加<code>SM3</code>算法的识别</p>
+<p>10.获取HKDF算法：getHKDFAlgorithm()方法</p>
+<p>添加<code>SM3</code>的HKDF算法识别</p>
+<h3 id="BulkCipherAlgorithm-java（批量对称加密算法）"><a href="#BulkCipherAlgorithm-java（批量对称加密算法）" class="headerlink" title="BulkCipherAlgorithm.java（批量对称加密算法）"></a>BulkCipherAlgorithm.java（批量对称加密算法）</h3><p>添加了<code>SM4</code>的国密对称加密算法</p>
+<h3 id="CipherAlgorithm-java（对称加密算法-分组大小-加密模式）"><a href="#CipherAlgorithm-java（对称加密算法-分组大小-加密模式）" class="headerlink" title="CipherAlgorithm.java（对称加密算法+分组大小+加密模式）"></a>CipherAlgorithm.java（对称加密算法+分组大小+加密模式）</h3><p>添加<code>SM4-CBC</code>的加密模式，包括密钥大小，初始向量的大小，记录大小，分块大小</p>
+<h3 id="PRFAlgorithm-java"><a href="#PRFAlgorithm-java" class="headerlink" title="PRFAlgorithm.java"></a>PRFAlgorithm.java</h3><p>添加<code>TLS_PRF_SM3(MacAlgorithm.SM3)</code>的PRF伪随机函数算法</p>
+<h3 id="MacAlgorithm-java"><a href="#MacAlgorithm-java" class="headerlink" title="MacAlgorithm.java"></a>MacAlgorithm.java</h3><p>添加<code>SM3</code>的MAC算法</p>
+<p>注释：SM3主要用于<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D">数字签名</a>及验证、<a href="https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E8%AE%A4%E8%AF%81%E7%A0%81">消息认证码</a>生成及验证、随机数生成等，其算法公开[<a href="https://zh.wikipedia.org/wiki/SM3#cite_note-oscca_1199-5">5]</a>[<a href="https://zh.wikipedia.org/wiki/SM3#cite_note-6">6]</a>，安全性及效率与<a href="https://zh.wikipedia.org/wiki/SHA-2">SHA-256</a>相当</p>
+<h3 id="CipherSuite-java"><a href="#CipherSuite-java" class="headerlink" title="CipherSuite.java"></a>CipherSuite.java</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GmSSL CipherSuites  添加GM的8个密码组件</span></span><br><span class="line"><span class="comment">//TLS_ECDHE_SM4_SM3(0xE011),</span></span><br><span class="line"><span class="comment">//TLS_ECC_SM4_SM3(0xE013),</span></span><br><span class="line"><span class="comment">//TLS_IBSDH_SM4_SM3(0xE015),</span></span><br><span class="line"><span class="comment">//TLS_IBC_SM4_SM3(0xE017),</span></span><br><span class="line"><span class="comment">//TLS_RSA_SM4_SM3(0xE019),</span></span><br><span class="line"><span class="comment">//TLS_RSA_SM4_SHA1(0xE01a),</span></span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_SM3(<span class="number">0xE102</span>),</span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_GCM_SM3(<span class="number">0xE107</span>),</span><br><span class="line">TLS_ECC_SM2_WITH_SM4_CBC_SM3(<span class="number">0xE109</span>),</span><br><span class="line">TLS_ECDHE_SM2_WITH_SM4_CBC_SM3(<span class="number">0xE111</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加GmSSL支持</span></span><br><span class="line"><span class="comment">//list.add(TLS_ECDHE_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_ECC_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_IBSDH_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_IBC_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_RSA_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_RSA_SM4_SHA1);</span></span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SMS4_SM3);</span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SMS4_GCM_SM3);</span><br><span class="line">list.add(TLS_ECC_SM2_WITH_SM4_CBC_SM3);</span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SM4_CBC_SM3);</span><br></pre></td></tr></table></figure>
+
+<p>添加方法<code>usesSM3()</code>识别密码组件最后用的是SM3杂凑算法</p>
+<h3 id="DigestAlgorithm-java"><a href="#DigestAlgorithm-java" class="headerlink" title="DigestAlgorithm.java"></a>DigestAlgorithm.java</h3><p>摘要算法，添加<code>SM3</code>的摘要算法</p>
+<h3 id="KeyExchangeAlgorithm-java"><a href="#KeyExchangeAlgorithm-java" class="headerlink" title="KeyExchangeAlgorithm.java"></a>KeyExchangeAlgorithm.java</h3><p>密钥交换算法，添加<code>ECDHE_SM2</code>和<code>ECC_SM2</code>的SM2密钥交换算法</p>
+<h3 id="CertificateKeyType-java"><a href="#CertificateKeyType-java" class="headerlink" title="CertificateKeyType.java"></a>CertificateKeyType.java</h3><p>证书密钥类型，添加<code>SM2</code>证书类型</p>
+<h3 id="PublicKeyAlgorithm-java"><a href="#PublicKeyAlgorithm-java" class="headerlink" title="PublicKeyAlgorithm.java"></a>PublicKeyAlgorithm.java</h3><p>公钥算法类型，添加<code>SM2</code>公钥算法</p>
+<h3 id="HKDFAlgorithm-java"><a href="#HKDFAlgorithm-java" class="headerlink" title="HKDFAlgorithm.java"></a>HKDFAlgorithm.java</h3><p>HMAC-based Extract-and-Expand Key Derivation Function (HKDF)：基于HAMC的密钥派生函数</p>
+<p>还不知道<code>SM3</code>是否支持HKDF算法，<strong>？？？</strong>，有待查证</p>
+<p>已添加<code>TLS_HKDF_SM3</code>的SM3支持</p>
+<h2 id="TLS-ATTACKs模块的修改"><a href="#TLS-ATTACKs模块的修改" class="headerlink" title="TLS-ATTACKs模块的修改"></a>TLS-ATTACKs模块的修改</h2><h3 id="PaddingOracleCommandConfig-java"><a href="#PaddingOracleCommandConfig-java" class="headerlink" title="PaddingOracleCommandConfig.java"></a>PaddingOracleCommandConfig.java</h3><p>在重写的类createConfig(Config config)中添加GM密码组件支持</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">cipherSuites.add(CipherSuite.TLS_ECDHE_SM2_WITH_SM4_CBC_SM3);    <span class="comment">//添加GmSSL的CBC密码组件支持</span></span><br><span class="line">cipherSuites.add(CipherSuite.TLS_ECC_SM2_WITH_SM4_CBC_SM3);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Blog-TLS-Attacker"><a href="#Blog-TLS-Attacker" class="headerlink" title="Blog/TLS-Attacker"></a>Blog/TLS-Attacker</h2><p><a href="https://web-in-security.blogspot.com/2019/03/playing-with-tls-attacker.html">On Web-Security and -Insecurity:Playing with TLS-Attacker</a>: 讲述了TLS-Attacker的工作流运行方式，xml文件如何编写创建</p>
+<ol>
+<li><em><strong>-config</strong></em>配置文件：配置一些密码组件，协议版本；该框架默认的config文件<a href="https://github.com/tls-attacker/TLS-Attacker/blob/master/TLS-Core/src/main/resources/default_config.xml">default_config.xml</a>，可以根据默认配置文件修改其中的一些东西。</li>
+<li><em><strong>-workflow_input</strong></em>配置文件：自定义SendAction和ReceiveAction，也即自定义TLS协议的过程需要哪些包，例如ClientHello、ServerHello；默认的workflowtrace文件<a href="https://gist.github.com/ic0ns/2475e6d514b5b117bbd7ac6826516de6#file-tls-attacker2-0-trace-xml">workflowtrace.xml</a>。</li>
+<li><em><strong>-workflow_output</strong></em>：输出整个流传输的过程</li>
+</ol>
+<p>Web-in-Security官网的PO漏洞和TLS-Attacker框架相关文章：</p>
+<ol>
+<li><p><a href="https://web-in-security.blogspot.com/2016/05/curious-padding-oracle-in-openssl-cve.html">Curious Padding oracle in OpenSSL (CVE-2016-2107)</a>：2016年5月的文章，就简单讲述了一下PO漏洞</p>
+</li>
+<li><p><a href="https://web-in-security.blogspot.com/2017/12/tls-attacker-v22-and-robot-attack.html">TLS-Attacker v2.2 and the ROBOT attack</a>：2017年12月的文章，简单讲了一下ROBOT攻击</p>
+</li>
+<li><p><a href="https://web-in-security.blogspot.com/2019/03/playing-with-tls-attacker.html">Playing with TLS-Attacker</a>：2019年3月的文章，讲述了TLS-Attacker的工作流运行方式，xml文件如何编写创建；主要是config、workflow_input的一些xml文件处理，怎么自定义</p>
+</li>
+<li><p><a href="https://web-in-security.blogspot.com/2019/03/scanning-for-padding-oracles.html">Scanning for Padding Oracle</a>：2019年3月的文章，下图是几类错误的向量</p>
+<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210529101458444.png"></p>
+</li>
+<li><p><a href="https://web-in-security.blogspot.com/2019/05/scanning-tls-server-configurations-with.html">Scanning TLS Server Configurations with Burp Suite</a>：2019年5月的文章，讲述了TLS-Scanner的使用</p>
+</li>
+</ol>
+<p>一个在线SSL服务器检测工具：<a href="https://www.ssllabs.com/ssltest/">SSLabs: SSL Server Test</a></p>
+<p>RUB大学的<a href="https://www.nds.ruhr-uni-bochum.de/chair/news/">网络和数据安全实验室官网</a></p>
+<p><a href="https://www.hackmanit.de/en/">HACKMANIT</a>: Your Specialist for Web Security and Cryptography</p>
+<p>nds.rub.de学校官网的<a href="https://mvnrepository.com/artifact/de.rub.nds">Maven仓库</a>，如下图所示：</p>
+<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528212214813.png"></p>
+<p><a href="https://robotattack.org/">The ROBOT Attack</a>：Return Of Bleichenbacher’s Oracle Threat</p>
+<h2 id="论文第5-2节：高级概述"><a href="#论文第5-2节：高级概述" class="headerlink" title="论文第5.2节：高级概述"></a>论文第5.2节：高级概述</h2><p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528150815213.png"></p>
+<p>TLS-攻击者分为多个Maven模块(参见上图)。</p>
+<ol>
+<li>可修改变量的概念位于单独的<em><strong>ModifiableVariable</strong></em>模块中，以便进一步的应用程序可以从其功能中获益。</li>
+<li><em><strong>Transport</strong></em>模块包含用于TCP和UDP的传输处理实用程序。</li>
+<li>核心模块是<em><strong>TLS</strong></em>，它包含一个TLS协议实现。这将被分成更多的包。</li>
+<li><em><strong>protocol</strong></em>包包含协议消息及其处理程序。</li>
+<li><em><strong>workflow</strong></em>包包含灵活的协议流实现，允许用户定义任意的消息顺序。<br>上图描述了更多相关的包。</li>
+<li><em><strong>Attacks</strong></em>和<em><strong>Fuzzer</strong></em>模块基于TLS功能，并定义了几种TLS攻击和模糊技术。</li>
+<li><em><strong>TestSuite</strong></em>模块定义了一个可扩展的TLS测试套件。</li>
+</ol>
+<p>TLS-Attacker当前实现了TLS 1.0、1.1、1.2和DTLS 1.2协议版本以及客户端功能，包括客户端身份验证。此外，它还实现了以下功能：</p>
+<ol>
+<li><strong>密钥交换算法</strong>：RSA，ECDH（E），DH（E）</li>
+<li><strong>加密算法</strong>：AES-CBC，3DES-CBC</li>
+<li><strong>扩展</strong>：EC，EC点格式[22]，Heartbeat [50]，最大碎片长度[31]， 服务器名称指示（SNI）[31]，签名和哈希算法</li>
+</ol>
+<h2 id="论文第5-3节：TLS模块"><a href="#论文第5-3节：TLS模块" class="headerlink" title="论文第5.3节：TLS模块"></a>论文第5.3节：TLS模块</h2><p>TLS是TLS-Attacker的核心模块。它使用可修改的变量和来自Transport模块的传输处理程序实现了完整的TLS功能。它完全依赖于标准Java加密提供程序和Bouly Castle库(1.54版)提供的加密功能。</p>
+<p>TLS模块分为几个包。<em><strong>config</strong></em>包包含用于TLS协议配置的类。TLS常量(密码套件、密钥交换算法、警报)在<em><strong>constants</strong></em>包中定义。<em><strong>crypto</strong></em>包包含TLS特定的加密功能，这些功能扩展了Java加密提供程序的基本行为。</p>
+<p><em><strong>protocol</strong></em>包实现TLS协议消息及其处理程序。每个协议消息由处理程序(负责消息处理)和消息状态(表示TLS消息的当前状态)定义。例如，<em><strong>handshake</strong></em>包包含<strong>HandshakeMessageHandler</strong>和<strong>HandshakeMessage</strong>类。抽象类<strong>HandshakeMessage</strong>包含所有握手消息(例如握手消息类型)使用的通用握手变量。<strong>ClientHelloMessage</strong>扩展了<strong>HandshakeMessage</strong>，并包括特定于<strong>ClientHello</strong>的变量，如密码套件数组或密码套件长度。请注意，所有这些变量都是可修改的，以实现高灵活性。握手消息的处理由<strong>HandshakeMessageHandler</strong>类提供。每个处理程序（handler）实现两个函数：发送TLS消息时使用的<strong>preparareMessage</strong>和解析传入消息时使用的<strong>parseMessage</strong>。</p>
+<p>对于<em><strong>record</strong></em>包中定义的TLS记录处理，实现了类似的处理程序和消息概念。</p>
+<p><em><strong>workflow</strong></em>包包含TLS协议执行器（executor）。TLS协议的执行仅取决于定义的TLS消息。TLS执行器将协议消息列表作为输入，搜索适当的消息处理程序，并让它们处理定义的消息。这种方法有两个显著的优势：</p>
+<ol>
+<li>TLS攻击者只需设置特定的TLS消息，即可定义任意消息顺序的自定义TLS协议流。</li>
+<li>可以存储处理后的TLS协议流以供进一步分析或甚至用于可重复执行。</li>
+</ol>
+<h2 id="论文第5-4节：使用TLS-Attacker接口"><a href="#论文第5-4节：使用TLS-Attacker接口" class="headerlink" title="论文第5.4节：使用TLS-Attacker接口"></a>论文第5.4节：使用TLS-Attacker接口</h2><p>在下一节中，我们将介绍如何使用TLS-Attacker接口构建自定义协议消息流，以检测Bleichenbacher攻击的漏洞。我们选择此攻击作为示例，因为它需要对TLS协议功能进行深度干预，包括修改纯填充预主密码。</p>
+<p><strong>用差不多10行代码检测Bleichenbacher’s Oracle</strong>：TLS-Attacker的设计支持对新攻击的简单定义。以下示例显示了通过显式设置填充的预主密码的明文值的自定义协议流。此代码可用于评估针对Bleichenbacher攻击的对策的正确性[23]。</p>
+<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528154828457.png"></p>
+<p>通过设置自定义预主密码，安全工程师强制TLS-Attacker使用此自定义值执行TLS握手。使用不同的Premaster秘密值执行TLS握手可以触发不同的服务器行为，从而揭示出可用于执行Bleichenbacher攻击的Oracle。请注意，使用公共TLS库构建这样的协议流需要对该库有深入的了解。另一方面，使用TLS-Attacker，安全工程师可以轻松地使用TLS-Attacker接口来定义具有特定消息修改的新协议流，并将其嵌入到他们的测试套件中。</p>
+<p>不仅仅是对Java开发人员而言。方便的XML序列化。不需要开发Java来构建带有自定义修改的任意协议流。相反，我们决定使用JAXB(Java Architecture For XML Binding)[3]来序列化和反序列化TLS协议流。这允许开发人员使用简单的XML文档定义与上面相同的协议流：</p>
+<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528155400976.png"></p>
+<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528155424340.png"></p>
+]]></content>
+      <tags>
+        <tag>github project</tag>
       </tags>
   </entry>
   <entry>
@@ -758,7 +762,7 @@
 </tr>
 <tr>
 <td><a href="https://www.trustasia.com/">https://www.trustasia.com</a></td>
-<td>52.81.64.209</td>
+<td>52.81.64.209/54.223.64.100</td>
 <td>443</td>
 <td>北京</td>
 <td>07-16</td>
