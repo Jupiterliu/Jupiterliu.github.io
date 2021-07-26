@@ -5064,9 +5064,6 @@ _:future,
 .katex-wrap {
   overflow: auto;
 }
-.katex-wrap::-webkit-scrollbar {
-  display: none;
-}
 .mathjax-overflow {
   overflow-x: auto;
   overflow-y: hidden;
