@@ -41,6 +41,41 @@
       </tags>
   </entry>
   <entry>
+    <title>LeetCode</title>
+    <url>/2021/04/27/LeetCode/</url>
+    <content><![CDATA[<h1>Array_35(search-insert-position)</h1>
+<p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
+<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。</p>
+<p>问题：空间复杂度高</p>
+<p><img src="/images/LeetCode/search-insert-position-1.jpg" alt=""></p>
+<h1>Array_27(remove-element)</h1>
+<p>两种方法：</p>
+<ol>
+<li>
+<p>暴力破解：双for循环O(n^2),&amp;O(1)</p>
+<p>第一个for循环用于检索数组，第二个for循环用于删除，也即数据往前移动。</p>
+</li>
+<li>
+<p>双指针法：快慢指针法O(n)&amp;O(1)，更常用于数组和链表</p>
+<p>一个for循环，一个快指针，一个慢指针，快指针往前检索，知道遍历完整个数组，然后慢指针负责慢慢检索将后面的数据复制往前移动。右指针 <em>right</em> 指向当前将要处理的元素，左指针<em>left</em> 指向下一个将要赋值的位置</p>
+</li>
+</ol>
+<p><img src="/images/LeetCode/remove-element.jpg" alt=""></p>
+<h1>ARRAY209(minimum-size-subarray-sum)</h1>
+<p>两种方法：</p>
+<p>1.暴力破解法（两个for循环）</p>
+<p>2.滑动窗口法（双指针法）</p>
+<p><img src="/images/LeetCode/image-20210618114458003.png" alt="image-20210618114458003"></p>
+<h1>参考</h1>
+<p><a href="https://leetcode-cn.com/circle/article/wGp7Y9/">LeetCode最强刷题指南</a></p>
+<p><a href="https://github.com/youngyangyang04/leetcode-master">LeetCode刷题攻略</a></p>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java多线程高并发</title>
     <url>/2021/05/24/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
     <content><![CDATA[<h1>线程简介</h1>
@@ -81,41 +116,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>LeetCode</title>
-    <url>/2021/04/27/LeetCode/</url>
-    <content><![CDATA[<h1>Array_35(search-insert-position)</h1>
-<p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
-<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。</p>
-<p>问题：空间复杂度高</p>
-<p><img src="/images/LeetCode/search-insert-position-1.jpg" alt=""></p>
-<h1>Array_27(remove-element)</h1>
-<p>两种方法：</p>
-<ol>
-<li>
-<p>暴力破解：双for循环O(n^2),&amp;O(1)</p>
-<p>第一个for循环用于检索数组，第二个for循环用于删除，也即数据往前移动。</p>
-</li>
-<li>
-<p>双指针法：快慢指针法O(n)&amp;O(1)，更常用于数组和链表</p>
-<p>一个for循环，一个快指针，一个慢指针，快指针往前检索，知道遍历完整个数组，然后慢指针负责慢慢检索将后面的数据复制往前移动。右指针 <em>right</em> 指向当前将要处理的元素，左指针<em>left</em> 指向下一个将要赋值的位置</p>
-</li>
-</ol>
-<p><img src="/images/LeetCode/remove-element.jpg" alt=""></p>
-<h1>ARRAY209(minimum-size-subarray-sum)</h1>
-<p>两种方法：</p>
-<p>1.暴力破解法（两个for循环）</p>
-<p>2.滑动窗口法（双指针法）</p>
-<p><img src="/images/LeetCode/image-20210618114458003.png" alt="image-20210618114458003"></p>
-<h1>参考</h1>
-<p><a href="https://leetcode-cn.com/circle/article/wGp7Y9/">LeetCode最强刷题指南</a></p>
-<p><a href="https://github.com/youngyangyang04/leetcode-master">LeetCode刷题攻略</a></p>
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SSL/TLS相关</title>
     <url>/2021/05/19/SSL-TLS%E7%9B%B8%E5%85%B3/</url>
     <content><![CDATA[<h1>协议底层</h1>
@@ -148,14 +148,6 @@
 ]]></content>
       <tags>
         <tag>ssl/tls</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TLS-Scanner项目</title>
-    <url>/2021/07/15/TLS-Scanner%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>github project</tag>
       </tags>
   </entry>
   <entry>
@@ -477,6 +469,14 @@
       </tags>
   </entry>
   <entry>
+    <title>TLS-Scanner项目</title>
+    <url>/2021/07/15/TLS-Scanner%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>github project</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>TLS1.2 RFC-5246文档学习</title>
     <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
@@ -635,11 +635,6 @@ HMAC_-hash(secret, A(3) + seed) + …</p>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title></title>
     <url>/images/siteicon/README.html</url>
     <content><![CDATA[<h1>Your Favicon Package</h1>
@@ -662,5 +657,10 @@ HMAC_-hash(secret, A(3) + seed) + …</p>
 </code></pre>
 <p><em>Optional</em> - Check your favicon with the <a href="https://realfavicongenerator.net/favicon_checker">favicon checker</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
