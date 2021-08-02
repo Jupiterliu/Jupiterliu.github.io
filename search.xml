@@ -116,184 +116,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SSL/TLS相关</title>
-    <url>/2021/05/19/SSL-TLS%E7%9B%B8%E5%85%B3/</url>
-    <content><![CDATA[<h1>协议底层</h1>
-<h2 id="密码算法相关">密码算法相关</h2>
-<h3 id="Bulk-Ciphers">Bulk Ciphers</h3>
-<p><a href="https://www.ibm.com/docs/en/ztpf/2021?topic=cryptography-bulk-ciphers">IBM对其的解释</a>：有Stream和Block两种cipher类型。</p>
-<h1>论文</h1>
-<h1>RFC官方文档（PDF|HTML）</h1>
-<p><a href="https://www.rfc-editor.org/info/rfc2246">RFC-2246（TLS1.0）</a></p>
-<p><a href="https://www.rfc-editor.org/info/rfc4346">RFC-4346（TLS1.1）</a></p>
-<p><a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246（TLS1.2）</a></p>
-<p><a href="https://www.rfc-editor.org/info/rfc8446">RFC-8446（TLS1.3）</a></p>
-<p><a href="https://datatracker.ietf.org/doc/html/rfc4492">RFC-4492</a>：Elliptic Curve Cryptography (ECC) Cipher Suites for Transport Layer Security (TLS)</p>
-<p><a href="https://datatracker.ietf.org/doc/html/rfc5764">RFC-5764</a>：Datagram Transport Layer Security (DTLS) Extension to Establish Keys for the Secure Real-time Transport Protocol (SRTP)–用于建立安全实时传输协议(SRTP)密钥的数据报传输层安全(DTLS)扩展</p>
-<p><a href="https://www.rfc-editor.org/info/rfc5878">RFC-5878</a>：Transport Layer Security (TLS) Authorization Extensions–传输层安全(TLS)授权扩展</p>
-<p><a href="https://www.rfc-editor.org/info/rfc5077">RFC-5077</a>：Transport Layer Security (TLS) Session Resumption without Server-Side State–无服务器端状态的传输层安全(TLS)会话恢复</p>
-<p><a href="https://datatracker.ietf.org/doc/html/rfc6091">RFC-6091</a>：Using OpenPGP Keys for Transport Layer Security (TLS) Authentication–使用OpenPGP密钥进行传输层安全(TLS)身份验证</p>
-<p><a href="https://datatracker.ietf.org/doc/html/rfc7250">RFC-7250</a>：Using Raw Public Keys in Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)–在传输层安全(TLS)和数据报传输层安全(DTLS)中使用原始公钥</p>
-<p><a href="https://datatracker.ietf.org/doc/html/rfc4279">RFC-4279</a>：Pre-Shared Key Ciphersuites for Transport Layer Security (TLS)</p>
-<p><a href="https://datatracker.ietf.org/doc/html/rfc3749">RFC-3749</a>：Transport Layer Security Protocol Compression Methods–介绍TLS协议的压缩算法</p>
-<h1>工具&amp;&amp;其他</h1>
-<p><a href="https://botan.randombit.net/">Botan：现代TLS加密库</a>，一个工具包一样，和<a href="https://www.openssl.org">OpensSSL</a>以及MatrixSSL一样，可以被调用;<a href="https://www.gnutls.org/">GnuTLS：TLS库</a>，同上一样;<a href="https://github.com/matrixssl/matrixssl">MatrixSSL</a>；<a href="https://tls.mbed.org/">Mbed TLS</a>；<a href="https://www.wolfssl.com/">wolfSSL: Embedded TLS Library</a></p>
-<p><a href="https://github.com/tlsfuzzer/tlsfuzzer">Github: TLSFuzzer</a>；<a href="https://github.com/tintinweb/scapy-ssl_tls">Github: Scapy-SSL/TLS</a>；</p>
-<p>一个在线SSL服务器检测工具：<a href="https://www.ssllabs.com/ssltest/">SSLabs: SSL Server Test</a></p>
-<p><a href="https://github.com/prbinu/tls-scan">tls-scan</a>：一个github上的TLS扫描工具</p>
-<p>在线国密SSL扫描<a href="https://myssl.com/">MySSL</a></p>
-<p>开源TLS库检测工具-Python：<a href="https://github.com/nabla-c0d3/sslyze">sslyze</a>，其<a href="https://nabla-c0d3.github.io/sslyze/documentation/">官方文档</a></p>
-<p><a href="http://ccsinjection.lepidum.co.jp/">针对OpenSSL的CCS注入漏洞</a>；</p>
-<p><a href="https://github.com/FiloSottile/CVE-2016-2107">PO漏洞Github实现</a>；</p>
-]]></content>
-      <tags>
-        <tag>ssl/tls</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TLS1.2 RFC-5246文档学习</title>
-    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
-<ul>
-<li><strong>文章结构请看右边的目录</strong>👉</li>
-</ul>
-<p>文档指定了TLS协议的1.2版本，与TLS协议的1.1版本进行了对比，同时对1.2版本做了详细的介绍。</p>
-<h1>介绍</h1>
-<p>TLS协议由两层组成：TLS握手协议TLS记录协议。其具有两个基本属性：连接私有（加密）和可靠（完整性检测-MAC）。</p>
-<p>TLS记录协议用于封装各种高层协议，TLS握手协议就是高层协议之一，如下图所示。TLS握手协议允许客户端和服务端在发送第一个字节的数据之前协商好双方的加密算法和密钥等关键要素。TLS握手协议具有的连接安全性：身份验证（公钥算法）、安全的共享密钥协商（无法MITM）和可靠的协商。</p>
-<p><img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/wpsRnVoNr.png" alt=""></p>
-<p>TLS协议是独立于应用程序协议的，如下图所示，更高级别的协议可以透明的覆盖在TLS协议之上。</p>
-<p><img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20210726193027796-7299029.png" alt=""></p>
-<h2 id="要求的专业术语">要求的专业术语</h2>
-<p>在<a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC-2119文档</a>中进行查看相关术语，比如“MUST”、“SHALL”、“SHOULD”等等。</p>
-<h2 id="与TLSv1-1的不同之处">与TLSv1.1的不同之处</h2>
-<p>主要是密码算法协商的改进，对TLSv1.1版本感兴趣的可以看看，这里省略。</p>
-<h1>目标</h1>
-<p>TLS协议被应用的目标，4个点，优先级往下依次是：密码安全、互操作性、可拓展性（框架加其他算法和公钥等等）、相对效率。</p>
-<h1>此文档的目标</h1>
-<p>该文档主要面向两类人：想要实现该协议的人和进行密码分析的人。因此许多依赖于算法的数据结构和规则在文档中就可以看到。此外该文档不提供服务或则接口定义的相关细节，这也可以说是为了安全着想。</p>
-<h1>文档展示的编程语言</h1>
-<p>文档用的是类“C”的语言语法，仅适用于此文档。</p>
-<h2 id="基础块的大小">基础块的大小</h2>
-<p>基本数据块大小是1个字节8比特，也就是1Byte=8bits。</p>
-<h2 id="其他定义">其他定义</h2>
-<p>注释表达“/*    */”；可选项用两个双括号定义“[[    ]]”</p>
-<h2 id="向量">向量</h2>
-<h2 id="数组">数组</h2>
-<h2 id="枚举">枚举</h2>
-<h2 id="结构体类型">结构体类型</h2>
-<h3 id="结构体变体">结构体变体</h3>
-<h2 id="加密属性">加密属性</h2>
-<h2 id="常量">常量</h2>
-<h1>HMAC和伪随机函数</h1>
-<p>TLS记录层使用带有密钥的MAC（消息认证码）来保证消息的完整性。PRF（伪随机函数）将秘密（secret）、种子（seed）和识别标签（A(i)）作为输入，然后产生任意长度的输出。在本节中，基于HMAC定义一个PRF。</p>
-<p>首先定一个数据扩展函数P_hash(secret, data)，公式计算如下，其中HMAC_hash()是散列函数，它拓展一个secret和seed来得到任意长度的输出。其中“+”表示数据之间的串联，A(i)函数的定义是：A(0)=seed, A(i)=HMAC_hash(secret, A(i-1)).</p>
-<p>P_-hash(secret, seed) = HMAC_-hash(secret, A(1) + seed) + \HMAC_-hash(secret, A(2) + seed) +\<br>
-HMAC_-hash(secret, A(3) + seed) + …</p>
-<p><em>Example:</em> 利用上述函数产生特定长度的数据。如果HMAC_hash()函数是P_SHA256()，一个该函数产生32字节，也就是256比特长度的数据，现在要产生一个80字节长度的数据，则需要用P_SHA256()函数迭代3次到A(3)最终产生96字节长度的数据，这时把最后16字节去除，剩下的80字节数据即为所得数据。</p>
-<p>TLS协议的PRF函数通过P_hash加入密钥参数来创建，如下公式所示。其中label参数是ASCII字符串，</p>
-<p>PRF(secret, label, seed) = P_-<hash>(secret, label + seed)</p>
-<p><em>Example:</em> 字符串中间带有空格的话，也需要讲空格转换成ASCII值，也即转换为0x20的十六进制表达。</p>
-<h1>TLS记录协议</h1>
-<p>TLS记录协议传输消息，首先对数据进行分块，然后可选的进行压缩，接下来加上MAC字段，最后加密后进行传输发送。记录协议接收消息就是反过来，解密、验证、解压缩、重组，然后发送给更高级别的客户端。</p>
-<p>该文档描述了4种使用记录协议的协议：握手协议（Handshake）、警报协议（Alert）、更改密码规范协议（ChangeCipherSpec）和应用数据协议（Application Data）。</p>
-<p>同时为了TLS协议的扩展，记录协议可以支持附加内容，而该内容的规范和值在后面第12节讲述。所以当TLS协议接收到意外的记录类型，将会发送一个“unexpected_message”警报。</p>
-<h2 id="连接状态">连接状态</h2>
-<p>TLS的连接状态就是TLS记录协议的操作环境，它指定了压缩算法、加密算法和MAC算法，除此之外，这些算法的参数都是已知的。逻辑上来说，现在又4种突出的连接状态：当前读状态和当前写状态、挂起读状态和挂起写状态。所有记录在当前读写状态下进行，通过后面提供的值来设置TLS连接读写状态的安全参数：连接端类型（server或client）、PRF算法、大量数据加密算法、MAC算法、压缩算法、主密钥（48字节）、客户端随机数（32字节）、服务器随机数（32字节）。</p>
-<p>TLS记录层通过使用安全的参数来生成下面6个项的值：客户端和服务器的写入MAC值、加密值、向量IV。服务器在接收和处理记录时使用客户端的写入参数，反之亦然。用于生成上面6个项的值的算法在后面6.3节中描述介绍。</p>
-<p>每个连接状态包含以下参数：压缩状态、密码状态、MAC密钥、序列号。</p>
-<h2 id="记录层">记录层</h2>
-<p>TLS记录层以非空任意长度块的形式接收高层协议的未解释数据。</p>
-<h3 id="分段">分段</h3>
-<p>记录层将信息块分段为TLSPlainText记录，其中Application Data的数据长度可以是0字节，但是其他三个协议的数据长度不能为0字节。协议版本、记录内容类型和TLSPliaintext的数据结构和枚举类型定义如下：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      uint8 major;</span><br><span class="line">      uint8 minor;</span><br><span class="line">&#125; ProtocolVersion;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line">      change_cipher_spec(<span class="number">20</span>), alert(<span class="number">21</span>), </span><br><span class="line">      handshake(<span class="number">22</span>), application_data(<span class="number">23</span>), (<span class="number">255</span>)</span><br><span class="line">&#125; ContentType;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      ContentType type;</span><br><span class="line">      ProtocolVersion version;</span><br><span class="line">      uint16 length;</span><br><span class="line">      opaque fragment[TLSPlaintext.length];</span><br><span class="line">&#125; TLSPlaintext;</span><br></pre></td></tr></table></figure>
-<h3 id="记录压缩和解压缩">记录压缩和解压缩</h3>
-<p><a href="https://datatracker.ietf.org/doc/html/rfc3749">RFC-3749</a>文档介绍了TLS的压缩算法。</p>
-<p>TLSPlaintext经过压缩之后就会变成TLSCompressed的结构体类型，TLSCommpressed消息类型的结构体定义如下所示：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      ContentType type; <span class="comment">/* same as TLSPlaintext.type */</span> </span><br><span class="line">      ProtocolVersion version;<span class="comment">/* same as TLSPlaintext.version */</span> </span><br><span class="line">      uint16 length;</span><br><span class="line">      opaque fragment[TLSCompressed.length];</span><br><span class="line">&#125; TLSCompressed;</span><br></pre></td></tr></table></figure>
-<h3 id="记录载荷保护（加密和认证）">记录载荷保护（加密和认证）</h3>
-<p>加密和MAC将TLSCompressed消息结构转换为TLSCiphertext结构类型，TLSCiphertext的结构体定义如下：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      ContentType type;</span><br><span class="line">      ProtocolVersion version;</span><br><span class="line">      uint16 length;</span><br><span class="line">      select (SecurityParameters.cipher_type) &#123;</span><br><span class="line">              <span class="keyword">case</span> stream: GenericStreamCipher;</span><br><span class="line">              <span class="keyword">case</span> block:  GenericBlockCipher;</span><br><span class="line">              <span class="keyword">case</span> aead:   GenericAEADCipher;</span><br><span class="line">      &#125; fragment;</span><br><span class="line">&#125; TLSCiphertext;</span><br></pre></td></tr></table></figure>
-<h4 id="空或者标准流密码">空或者标准流密码</h4>
-<h4 id="CBC分组密码">CBC分组密码</h4>
-<h4 id="AEAD密码">AEAD密码</h4>
-<h2 id="密钥计算">密钥计算</h2>
-<p>通过TLS握手协议得到的相关安全参数以及算法来生成各种密钥。对主密钥进行拓展，可以拓展出客户端/服务器写入MAC密钥、客户端/服务器写入加密密钥。注意有些AEAD加密方式可能会要另外生成客户端/服务器写入IV（向量）。</p>
-<p>当密钥和MAC密钥生成之后，主密钥将作为一个墒源。通过下面的计算方式来得到密钥材料，直到得到足够的输出：</p>
-<p>key_block = PRF(SecurityParameters.master_secret, “key expansion”,</p>
-<p>SecurityParameters.server_random + SecurityParameters.client_random);</p>
-<p>然后将上面得到的key_block密钥进行分块，分别得到下面的密钥块：</p>
-<p>client_write_MAC_key[SecurityParameters.mac_key_length] server_write_MAC_key[SecurityParameters.mac_key_length] client_write_key[SecurityParameters.enc_key_length] server_write_key[SecurityParameters.enc_key_length] client_write_IV[SecurityParameters.fixed_iv_length] server_write_IV[SecurityParameters.fixed_iv_length]</p>
-<p>例子：当前需要数据长度最长的密码组件是AES_256_CBC_SHA256，该密码组件需要2个32字节长度的密钥和2个32字节长度的MAC密钥。</p>
-<h1>TLS握手协议</h1>
-<p>TLS握手协议负责协商会话，包括以下组成：会话标识符、对等证书、压缩方式、密码组件及规范、主密钥、会话恢复。</p>
-<h2 id="变更密码规范协议">变更密码规范协议</h2>
-<p>该协议是为用信号通知加密策略中的转换。在当前连接状态下进行加密和压缩（注意无填充），其协议值为1，结构体如下所示：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      <span class="class"><span class="keyword">enum</span> &#123;</span> change_cipher_spec(<span class="number">1</span>), (<span class="number">255</span>) &#125; type;</span><br><span class="line">&#125; ChangeCipherSpec;</span><br></pre></td></tr></table></figure>
-<p>客户端和服务器端都发送ChangeCipherSpec消息，告知对方将使用协商好的CipherSpec和密钥进行通信。具体的状态转换参考第6.1节（连接状态）。ChangeCipherSpec消息的发送在握手协商之后，在Finished消息之前。</p>
-<h2 id="警报协议">警报协议</h2>
-<p>警报就是其字面意思，在会话发生错误时发送相应的警报消息。警报消息也是在当前连接状态下进行加密和压缩。其各种枚举类型和结构体定义如下：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span> warning(<span class="number">1</span>), fatal(<span class="number">2</span>), (<span class="number">255</span>) &#125; AlertLevel;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line">  close_notify(<span class="number">0</span>),</span><br><span class="line">  unexpected_message(<span class="number">10</span>), </span><br><span class="line">  bad_record_mac(<span class="number">20</span>), </span><br><span class="line">  decryption_failed_RESERVED(<span class="number">21</span>), </span><br><span class="line">  record_overflow(<span class="number">22</span>), </span><br><span class="line">  decompression_failure(<span class="number">30</span>), </span><br><span class="line">  handshake_failure(<span class="number">40</span>), </span><br><span class="line">  no_certificate_RESERVED(<span class="number">41</span>), </span><br><span class="line">  bad_certificate(<span class="number">42</span>), </span><br><span class="line">  unsupported_certificate(<span class="number">43</span>), </span><br><span class="line">  certificate_revoked(<span class="number">44</span>), </span><br><span class="line">  certificate_expired(<span class="number">45</span>), </span><br><span class="line">  certificate_unknown(<span class="number">46</span>), </span><br><span class="line">  illegal_parameter(<span class="number">47</span>), </span><br><span class="line">  unknown_ca(<span class="number">48</span>), </span><br><span class="line">  access_denied(<span class="number">49</span>), </span><br><span class="line">  decode_error(<span class="number">50</span>), </span><br><span class="line">  decrypt_error(<span class="number">51</span>),</span><br><span class="line">  export_restriction_RESERVED(<span class="number">60</span>), </span><br><span class="line">  protocol_version(<span class="number">70</span>), </span><br><span class="line">  insufficient_security(<span class="number">71</span>), </span><br><span class="line">  internal_error(<span class="number">80</span>), </span><br><span class="line">  user_canceled(<span class="number">90</span>), </span><br><span class="line">  no_renegotiation(<span class="number">100</span>), </span><br><span class="line">  unsupported_extension(<span class="number">110</span>), (<span class="number">255</span>)</span><br><span class="line">&#125; AlertDescription;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">  AlertLevel level;</span><br><span class="line">  AlertDescription description;</span><br><span class="line">&#125; Alert;</span><br></pre></td></tr></table></figure>
-<h3 id="关闭警报">关闭警报</h3>
-<p>客户端和服务器任何一方都可以通过close_notify(0)消息来中断会话连接。</p>
-<h3 id="错误警报">错误警报</h3>
-<p>TLS协议中的错误处理非常简单，定义了上面结构体中的错误，这里讲述一下handshake_failure(40)错误警报，这个错误表示发送方在所给定可选的情况下无法协商一组可以接受的安全参数，同时这也是一个致命错误。</p>
-<p>新的警报定义及值将有IANA（互联网号码分配局）分配，详细见后面第12节。</p>
-<h2 id="握手协议概述">握手协议概述</h2>
-<p>该协议运行在TLS记录协议之上，协商协议版本、密码组件、加密算法，进行可选的相互验证以及生成共享密钥。</p>
-<p>TLS握手协议包括以下步骤：</p>
-<ol>
-<li>交换Hello Message，就算法达成一致，交换随机数，并检查会话恢复；</li>
-<li>交换必要的加密参数，允许客户端和服务器就预主密钥达成一致；</li>
-<li>交换证书和加密信息，允许客户端和服务器进行自身身份验证；</li>
-<li>从预主密钥生成主密钥并交换随机数；</li>
-<li>向TLS记录层提供安全参数；</li>
-<li>允许客户端和服务器验证对等方是否计算了安全正确的参数，以及判断握手是否被篡改。</li>
-</ol>
-<p>如下图所示，为TLS握手协议的流程，其中*表示可选消息：<br>
-<img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20210731164643586-7721205.png" alt=""></p>
-<p>注意：其中ChangeCipherSpec消息是一个独立的TLS协议内容类型，是为了避免管道停滞，并不是TLS握手协议消息，注意区分。</p>
-<p>关于会话恢复，客户端将要回复的会话ID发送给服务器，服务器检查缓存是否匹配一次来判断是否恢复会话，流程如下所示：</p>
-<p><img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20210731165408582-7721650.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>RFC6246</tag>
-        <tag>TLS1.2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TLS-Scanner项目</title>
-    <url>/2021/07/15/TLS-Scanner%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>github project</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>「送你一朵小红花」</title>
-    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
-    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg" alt=""></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC17.JPG" alt="LHC17"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC16.JPG" alt="LHC16"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC15.JPG" alt="LHC15"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC14.JPG" alt="LHC14"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC13.jpg" alt="LHC13"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC12.jpg" alt="LHC12"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC11.jpg" alt="LHC11"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC10.JPG" alt="LHC10"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC9.jpg" alt="LHC9"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC8.jpg" alt="LHC8"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC6.GIF" alt="LHC6"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC5.jpg" alt="LHC5"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC4.JPG" alt="LHC4"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC3.jpg" alt="LHC3"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/run&amp;start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
-]]></content>
-      <tags>
-        <tag>movie</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Paper Reading: Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities</title>
     <url>/2021/04/24/Paper-Reading-Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities/</url>
     <content><![CDATA[<h1>「TLS Padding Oracle漏洞的可拓展扫描和自动分类」</h1>
@@ -612,9 +434,195 @@ HMAC_-hash(secret, A(3) + seed) + …</p>
       </tags>
   </entry>
   <entry>
+    <title>SSL/TLS相关</title>
+    <url>/2021/05/19/SSL-TLS%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<h1>协议底层</h1>
+<h2 id="密码算法相关">密码算法相关</h2>
+<h3 id="Bulk-Ciphers">Bulk Ciphers</h3>
+<p><a href="https://www.ibm.com/docs/en/ztpf/2021?topic=cryptography-bulk-ciphers">IBM对其的解释</a>：有Stream和Block两种cipher类型。</p>
+<h1>论文</h1>
+<h1>RFC官方文档（PDF|HTML）</h1>
+<p><a href="https://www.rfc-editor.org/info/rfc2246">RFC-2246（TLS1.0）</a></p>
+<p><a href="https://www.rfc-editor.org/info/rfc4346">RFC-4346（TLS1.1）</a></p>
+<p><a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246（TLS1.2）</a></p>
+<p><a href="https://www.rfc-editor.org/info/rfc8446">RFC-8446（TLS1.3）</a></p>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc4492">RFC-4492</a>：Elliptic Curve Cryptography (ECC) Cipher Suites for Transport Layer Security (TLS)</p>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc5764">RFC-5764</a>：Datagram Transport Layer Security (DTLS) Extension to Establish Keys for the Secure Real-time Transport Protocol (SRTP)–用于建立安全实时传输协议(SRTP)密钥的数据报传输层安全(DTLS)扩展</p>
+<p><a href="https://www.rfc-editor.org/info/rfc5878">RFC-5878</a>：Transport Layer Security (TLS) Authorization Extensions–传输层安全(TLS)授权扩展</p>
+<p><a href="https://www.rfc-editor.org/info/rfc5077">RFC-5077</a>：Transport Layer Security (TLS) Session Resumption without Server-Side State–无服务器端状态的传输层安全(TLS)会话恢复</p>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc6091">RFC-6091</a>：Using OpenPGP Keys for Transport Layer Security (TLS) Authentication–使用OpenPGP密钥进行传输层安全(TLS)身份验证</p>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc7250">RFC-7250</a>：Using Raw Public Keys in Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)–在传输层安全(TLS)和数据报传输层安全(DTLS)中使用原始公钥</p>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc4279">RFC-4279</a>：Pre-Shared Key Ciphersuites for Transport Layer Security (TLS)</p>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc3749">RFC-3749</a>：Transport Layer Security Protocol Compression Methods–介绍TLS协议的压缩算法</p>
+<h1>工具&amp;&amp;其他</h1>
+<p><a href="https://botan.randombit.net/">Botan：现代TLS加密库</a>，一个工具包一样，和<a href="https://www.openssl.org">OpensSSL</a>以及MatrixSSL一样，可以被调用;<a href="https://www.gnutls.org/">GnuTLS：TLS库</a>，同上一样;<a href="https://github.com/matrixssl/matrixssl">MatrixSSL</a>；<a href="https://tls.mbed.org/">Mbed TLS</a>；<a href="https://www.wolfssl.com/">wolfSSL: Embedded TLS Library</a></p>
+<p><a href="https://github.com/tlsfuzzer/tlsfuzzer">Github: TLSFuzzer</a>；<a href="https://github.com/tintinweb/scapy-ssl_tls">Github: Scapy-SSL/TLS</a>；</p>
+<p>一个在线SSL服务器检测工具：<a href="https://www.ssllabs.com/ssltest/">SSLabs: SSL Server Test</a></p>
+<p><a href="https://github.com/prbinu/tls-scan">tls-scan</a>：一个github上的TLS扫描工具</p>
+<p>在线国密SSL扫描<a href="https://myssl.com/">MySSL</a></p>
+<p>开源TLS库检测工具-Python：<a href="https://github.com/nabla-c0d3/sslyze">sslyze</a>，其<a href="https://nabla-c0d3.github.io/sslyze/documentation/">官方文档</a></p>
+<p><a href="http://ccsinjection.lepidum.co.jp/">针对OpenSSL的CCS注入漏洞</a>；</p>
+<p><a href="https://github.com/FiloSottile/CVE-2016-2107">PO漏洞Github实现</a>；</p>
+]]></content>
+      <tags>
+        <tag>ssl/tls</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TLS-Scanner项目</title>
+    <url>/2021/07/15/TLS-Scanner%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>github project</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TLS1.2 RFC-5246文档学习</title>
+    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
+<ul>
+<li><strong>文章结构请看右边的目录</strong>👉</li>
+</ul>
+<p>文档指定了TLS协议的1.2版本，与TLS协议的1.1版本进行了对比，同时对1.2版本做了详细的介绍。</p>
+<h1>介绍</h1>
+<p>TLS协议由两层组成：TLS握手协议TLS记录协议。其具有两个基本属性：连接私有（加密）和可靠（完整性检测-MAC）。</p>
+<p>TLS记录协议用于封装各种高层协议，TLS握手协议就是高层协议之一，如下图所示。TLS握手协议允许客户端和服务端在发送第一个字节的数据之前协商好双方的加密算法和密钥等关键要素。TLS握手协议具有的连接安全性：身份验证（公钥算法）、安全的共享密钥协商（无法MITM）和可靠的协商。</p>
+<p><img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/wpsRnVoNr.png" alt=""></p>
+<p>TLS协议是独立于应用程序协议的，如下图所示，更高级别的协议可以透明的覆盖在TLS协议之上。</p>
+<p><img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20210726193027796-7299029.png" alt=""></p>
+<h2 id="要求的专业术语">要求的专业术语</h2>
+<p>在<a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC-2119文档</a>中进行查看相关术语，比如“MUST”、“SHALL”、“SHOULD”等等。</p>
+<h2 id="与TLSv1-1的不同之处">与TLSv1.1的不同之处</h2>
+<p>主要是密码算法协商的改进，对TLSv1.1版本感兴趣的可以看看，这里省略。</p>
+<h1>目标</h1>
+<p>TLS协议被应用的目标，4个点，优先级往下依次是：密码安全、互操作性、可拓展性（框架加其他算法和公钥等等）、相对效率。</p>
+<h1>此文档的目标</h1>
+<p>该文档主要面向两类人：想要实现该协议的人和进行密码分析的人。因此许多依赖于算法的数据结构和规则在文档中就可以看到。此外该文档不提供服务或则接口定义的相关细节，这也可以说是为了安全着想。</p>
+<h1>文档展示的编程语言</h1>
+<p>文档用的是类“C”的语言语法，仅适用于此文档。</p>
+<h2 id="基础块的大小">基础块的大小</h2>
+<p>基本数据块大小是1个字节8比特，也就是1Byte=8bits。</p>
+<h2 id="其他定义">其他定义</h2>
+<p>注释表达“/*    */”；可选项用两个双括号定义“[[    ]]”</p>
+<h2 id="向量">向量</h2>
+<h2 id="数组">数组</h2>
+<h2 id="枚举">枚举</h2>
+<h2 id="结构体类型">结构体类型</h2>
+<h3 id="结构体变体">结构体变体</h3>
+<h2 id="加密属性">加密属性</h2>
+<h2 id="常量">常量</h2>
+<h1>HMAC和伪随机函数</h1>
+<p>TLS记录层使用带有密钥的MAC（消息认证码）来保证消息的完整性。PRF（伪随机函数）将秘密（secret）、种子（seed）和识别标签（A(i)）作为输入，然后产生任意长度的输出。在本节中，基于HMAC定义一个PRF。</p>
+<p>首先定一个数据扩展函数P_hash(secret, data)，公式计算如下，其中HMAC_hash()是散列函数，它拓展一个secret和seed来得到任意长度的输出。其中“+”表示数据之间的串联，A(i)函数的定义是：A(0)=seed, A(i)=HMAC_hash(secret, A(i-1)).</p>
+<p>P_-hash(secret, seed) = HMAC_-hash(secret, A(1) + seed) + \HMAC_-hash(secret, A(2) + seed) +\<br>
+HMAC_-hash(secret, A(3) + seed) + …</p>
+<p><em>Example:</em> 利用上述函数产生特定长度的数据。如果HMAC_hash()函数是P_SHA256()，一个该函数产生32字节，也就是256比特长度的数据，现在要产生一个80字节长度的数据，则需要用P_SHA256()函数迭代3次到A(3)最终产生96字节长度的数据，这时把最后16字节去除，剩下的80字节数据即为所得数据。</p>
+<p>TLS协议的PRF函数通过P_hash加入密钥参数来创建，如下公式所示。其中label参数是ASCII字符串，</p>
+<p>PRF(secret, label, seed) = P_-<hash>(secret, label + seed)</p>
+<p><em>Example:</em> 字符串中间带有空格的话，也需要讲空格转换成ASCII值，也即转换为0x20的十六进制表达。</p>
+<h1>TLS记录协议</h1>
+<p>TLS记录协议传输消息，首先对数据进行分块，然后可选的进行压缩，接下来加上MAC字段，最后加密后进行传输发送。记录协议接收消息就是反过来，解密、验证、解压缩、重组，然后发送给更高级别的客户端。</p>
+<p>该文档描述了4种使用记录协议的协议：握手协议（Handshake）、警报协议（Alert）、更改密码规范协议（ChangeCipherSpec）和应用数据协议（Application Data）。</p>
+<p>同时为了TLS协议的扩展，记录协议可以支持附加内容，而该内容的规范和值在后面第12节讲述。所以当TLS协议接收到意外的记录类型，将会发送一个“unexpected_message”警报。</p>
+<h2 id="连接状态">连接状态</h2>
+<p>TLS的连接状态就是TLS记录协议的操作环境，它指定了压缩算法、加密算法和MAC算法，除此之外，这些算法的参数都是已知的。逻辑上来说，现在又4种突出的连接状态：当前读状态和当前写状态、挂起读状态和挂起写状态。所有记录在当前读写状态下进行，通过后面提供的值来设置TLS连接读写状态的安全参数：连接端类型（server或client）、PRF算法、大量数据加密算法、MAC算法、压缩算法、主密钥（48字节）、客户端随机数（32字节）、服务器随机数（32字节）。</p>
+<p>TLS记录层通过使用安全的参数来生成下面6个项的值：客户端和服务器的写入MAC值、加密值、向量IV。服务器在接收和处理记录时使用客户端的写入参数，反之亦然。用于生成上面6个项的值的算法在后面6.3节中描述介绍。</p>
+<p>每个连接状态包含以下参数：压缩状态、密码状态、MAC密钥、序列号。</p>
+<h2 id="记录层">记录层</h2>
+<p>TLS记录层以非空任意长度块的形式接收高层协议的未解释数据。</p>
+<h3 id="分段">分段</h3>
+<p>记录层将信息块分段为TLSPlainText记录，其中Application Data的数据长度可以是0字节，但是其他三个协议的数据长度不能为0字节。协议版本、记录内容类型和TLSPliaintext的数据结构和枚举类型定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      uint8 major;</span><br><span class="line">      uint8 minor;</span><br><span class="line">&#125; ProtocolVersion;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line">      change_cipher_spec(<span class="number">20</span>), alert(<span class="number">21</span>), </span><br><span class="line">      handshake(<span class="number">22</span>), application_data(<span class="number">23</span>), (<span class="number">255</span>)</span><br><span class="line">&#125; ContentType;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      ContentType type;</span><br><span class="line">      ProtocolVersion version;</span><br><span class="line">      uint16 length;</span><br><span class="line">      opaque fragment[TLSPlaintext.length];</span><br><span class="line">&#125; TLSPlaintext;</span><br></pre></td></tr></table></figure>
+<h3 id="记录压缩和解压缩">记录压缩和解压缩</h3>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc3749">RFC-3749</a>文档介绍了TLS的压缩算法。</p>
+<p>TLSPlaintext经过压缩之后就会变成TLSCompressed的结构体类型，TLSCommpressed消息类型的结构体定义如下所示：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      ContentType type; <span class="comment">/* same as TLSPlaintext.type */</span> </span><br><span class="line">      ProtocolVersion version;<span class="comment">/* same as TLSPlaintext.version */</span> </span><br><span class="line">      uint16 length;</span><br><span class="line">      opaque fragment[TLSCompressed.length];</span><br><span class="line">&#125; TLSCompressed;</span><br></pre></td></tr></table></figure>
+<h3 id="记录载荷保护（加密和认证）">记录载荷保护（加密和认证）</h3>
+<p>加密和MAC将TLSCompressed消息结构转换为TLSCiphertext结构类型，TLSCiphertext的结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      ContentType type;</span><br><span class="line">      ProtocolVersion version;</span><br><span class="line">      uint16 length;</span><br><span class="line">      select (SecurityParameters.cipher_type) &#123;</span><br><span class="line">              <span class="keyword">case</span> stream: GenericStreamCipher;</span><br><span class="line">              <span class="keyword">case</span> block:  GenericBlockCipher;</span><br><span class="line">              <span class="keyword">case</span> aead:   GenericAEADCipher;</span><br><span class="line">      &#125; fragment;</span><br><span class="line">&#125; TLSCiphertext;</span><br></pre></td></tr></table></figure>
+<h4 id="空或者标准流密码">空或者标准流密码</h4>
+<h4 id="CBC分组密码">CBC分组密码</h4>
+<h4 id="AEAD密码">AEAD密码</h4>
+<h2 id="密钥计算">密钥计算</h2>
+<p>通过TLS握手协议得到的相关安全参数以及算法来生成各种密钥。对主密钥进行拓展，可以拓展出客户端/服务器写入MAC密钥、客户端/服务器写入加密密钥。注意有些AEAD加密方式可能会要另外生成客户端/服务器写入IV（向量）。</p>
+<p>当密钥和MAC密钥生成之后，主密钥将作为一个墒源。通过下面的计算方式来得到密钥材料，直到得到足够的输出：</p>
+<p>key_block = PRF(SecurityParameters.master_secret, “key expansion”,</p>
+<p>SecurityParameters.server_random + SecurityParameters.client_random);</p>
+<p>然后将上面得到的key_block密钥进行分块，分别得到下面的密钥块：</p>
+<p>client_write_MAC_key[SecurityParameters.mac_key_length] server_write_MAC_key[SecurityParameters.mac_key_length] client_write_key[SecurityParameters.enc_key_length] server_write_key[SecurityParameters.enc_key_length] client_write_IV[SecurityParameters.fixed_iv_length] server_write_IV[SecurityParameters.fixed_iv_length]</p>
+<p>例子：当前需要数据长度最长的密码组件是AES_256_CBC_SHA256，该密码组件需要2个32字节长度的密钥和2个32字节长度的MAC密钥。</p>
+<h1>TLS握手协议</h1>
+<p>TLS握手协议负责协商会话，包括以下组成：会话标识符、对等证书、压缩方式、密码组件及规范、主密钥、会话恢复。</p>
+<h2 id="变更密码规范协议">变更密码规范协议</h2>
+<p>该协议是为用信号通知加密策略中的转换。在当前连接状态下进行加密和压缩（注意无填充），其协议值为1，结构体如下所示：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      <span class="class"><span class="keyword">enum</span> &#123;</span> change_cipher_spec(<span class="number">1</span>), (<span class="number">255</span>) &#125; type;</span><br><span class="line">&#125; ChangeCipherSpec;</span><br></pre></td></tr></table></figure>
+<p>客户端和服务器端都发送ChangeCipherSpec消息，告知对方将使用协商好的CipherSpec和密钥进行通信。具体的状态转换参考第6.1节（连接状态）。ChangeCipherSpec消息的发送在握手协商之后，在Finished消息之前。</p>
+<h2 id="警报协议">警报协议</h2>
+<p>警报就是其字面意思，在会话发生错误时发送相应的警报消息。警报消息也是在当前连接状态下进行加密和压缩。其各种枚举类型和结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span> warning(<span class="number">1</span>), fatal(<span class="number">2</span>), (<span class="number">255</span>) &#125; AlertLevel;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line">  close_notify(<span class="number">0</span>),</span><br><span class="line">  unexpected_message(<span class="number">10</span>), </span><br><span class="line">  bad_record_mac(<span class="number">20</span>), </span><br><span class="line">  decryption_failed_RESERVED(<span class="number">21</span>), </span><br><span class="line">  record_overflow(<span class="number">22</span>), </span><br><span class="line">  decompression_failure(<span class="number">30</span>), </span><br><span class="line">  handshake_failure(<span class="number">40</span>), </span><br><span class="line">  no_certificate_RESERVED(<span class="number">41</span>), </span><br><span class="line">  bad_certificate(<span class="number">42</span>), </span><br><span class="line">  unsupported_certificate(<span class="number">43</span>), </span><br><span class="line">  certificate_revoked(<span class="number">44</span>), </span><br><span class="line">  certificate_expired(<span class="number">45</span>), </span><br><span class="line">  certificate_unknown(<span class="number">46</span>), </span><br><span class="line">  illegal_parameter(<span class="number">47</span>), </span><br><span class="line">  unknown_ca(<span class="number">48</span>), </span><br><span class="line">  access_denied(<span class="number">49</span>), </span><br><span class="line">  decode_error(<span class="number">50</span>), </span><br><span class="line">  decrypt_error(<span class="number">51</span>),</span><br><span class="line">  export_restriction_RESERVED(<span class="number">60</span>), </span><br><span class="line">  protocol_version(<span class="number">70</span>), </span><br><span class="line">  insufficient_security(<span class="number">71</span>), </span><br><span class="line">  internal_error(<span class="number">80</span>), </span><br><span class="line">  user_canceled(<span class="number">90</span>), </span><br><span class="line">  no_renegotiation(<span class="number">100</span>), </span><br><span class="line">  unsupported_extension(<span class="number">110</span>), (<span class="number">255</span>)</span><br><span class="line">&#125; AlertDescription;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">  AlertLevel level;</span><br><span class="line">  AlertDescription description;</span><br><span class="line">&#125; Alert;</span><br></pre></td></tr></table></figure>
+<h3 id="关闭警报">关闭警报</h3>
+<p>客户端和服务器任何一方都可以通过close_notify(0)消息来中断会话连接。</p>
+<h3 id="错误警报">错误警报</h3>
+<p>TLS协议中的错误处理非常简单，定义了上面结构体中的错误，这里讲述一下handshake_failure(40)错误警报，这个错误表示发送方在所给定可选的情况下无法协商一组可以接受的安全参数，同时这也是一个致命错误。</p>
+<p>新的警报定义及值将有IANA（互联网号码分配局）分配，详细见后面第12节。</p>
+<h2 id="握手协议概述">握手协议概述</h2>
+<p>该协议运行在TLS记录协议之上，协商协议版本、密码组件、加密算法，进行可选的相互验证以及生成共享密钥。</p>
+<p>TLS握手协议包括以下步骤：</p>
+<ol>
+<li>交换Hello Message，就算法达成一致，交换随机数，并检查会话恢复；</li>
+<li>交换必要的加密参数，允许客户端和服务器就预主密钥达成一致；</li>
+<li>交换证书和加密信息，允许客户端和服务器进行自身身份验证；</li>
+<li>从预主密钥生成主密钥并交换随机数；</li>
+<li>向TLS记录层提供安全参数；</li>
+<li>允许客户端和服务器验证对等方是否计算了安全正确的参数，以及判断握手是否被篡改。</li>
+</ol>
+<p>如下图所示，为TLS握手协议的流程，其中*表示可选消息：<br>
+<img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20210731164643586-7721205.png" alt=""></p>
+<p>注意：其中ChangeCipherSpec消息是一个独立的TLS协议内容类型，是为了避免管道停滞，并不是TLS握手协议消息，注意区分。</p>
+<p>关于会话恢复，客户端将要回复的会话ID发送给服务器，服务器检查缓存是否匹配一次来判断是否恢复会话，流程如下所示：</p>
+<p><img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20210731165408582-7721650.png" alt=""></p>
+]]></content>
+      <tags>
+        <tag>RFC6246</tag>
+        <tag>TLS1.2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>「送你一朵小红花」</title>
+    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
+    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg" alt=""></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC17.JPG" alt="LHC17"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC16.JPG" alt="LHC16"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC15.JPG" alt="LHC15"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC14.JPG" alt="LHC14"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC13.jpg" alt="LHC13"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC12.jpg" alt="LHC12"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC11.jpg" alt="LHC11"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC10.JPG" alt="LHC10"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC9.jpg" alt="LHC9"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC8.jpg" alt="LHC8"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC6.GIF" alt="LHC6"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC5.jpg" alt="LHC5"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC4.JPG" alt="LHC4"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC3.jpg" alt="LHC3"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/run&amp;start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
+]]></content>
+      <tags>
+        <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
     <title></title>
     <url>/manifest.json</url>
     <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p>关于我：</p>
+<p>一名在读的打工人，每天的事就是科研科研</p>
+<p>同时分享自己在读的生活和一些日常</p>
+]]></content>
   </entry>
   <entry>
     <title>archives</title>
@@ -625,14 +633,6 @@ HMAC_-hash(secret, A(3) + seed) + …</p>
     <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>about</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<p>关于我：</p>
-<p>一名在读的打工人，每天的事就是科研科研</p>
-<p>同时分享自己在读的生活和一些日常</p>
-]]></content>
   </entry>
   <entry>
     <title>tags</title>
