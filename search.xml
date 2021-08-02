@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo博客搭建记录</title>
+    <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1>
+<p>最开始，我使用的是Next主题，在网上找过许多答案，其中一种针对Next主题以前的一个问题所进行的修改：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214">vendors文件修改</a>，但是vendors文件夹问题在随后的Next版本中得到了解决。</p>
+<p>如今又出现这样的问题，我根据网上的各种回答进行了许多地方的一个修改，这里做个总结：</p>
+<ol>
+<li>首先是在本地deploy之前，先执行<strong>hexo clean</strong>，来清除相关缓存，然后hexo g &amp;&amp; hexo d（可以多执行几遍）</li>
+<li>在之前搭建github主页时，github默认给我设置的分支是main，看到过网上的一个解决方案是将分支名从main改成master（github分支权限问题？？？）</li>
+<li><strong>清除浏览器的缓存</strong>，在我的实际刷新来看，这个办法应该是最有用的，我用chrome和safari都验证过了。<a href="https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html">清除Chrome浏览器指定网页缓存</a>，每次加载网站都能重新载入。</li>
+<li>Hexo本地网站根目录下面的_config.yml文件配置不对。在deploy设置中branch选项的值应该和你在github项目的分支保持一致。至于配置文件的url设置，个人认为没影响，在我的使用来看，这个url主要是影响网站sitemap.xml文件的生成和有效性。</li>
+</ol>
+<h1>问题2:Hexo博客页面加载缓慢或者卡顿</h1>
+<p>现在，我使用的是<a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly主题</a>，所做的更改基本都是<a href="https://butterfly.js.org/">Jerry的教程</a>建议的</p>
+<ol>
+<li>
+<p>最直观的方法就是在加载网页后，F12打开浏览器的开发者模式，选到Console，然后就能看到加载Hexo网页时出现了哪些错误。下图是我第一次打开Console时出现的错误图：</p>
+<p><img src="/images/Hexo-blog-build-record/chrome-F12-Console-errors.jpg" alt=""></p>
+<p>然后就可以根据错误对主题或者站点配置文件进行响应的改动，记得改动之前备份。</p>
+</li>
+<li>
+<p>删除一些无关的插件，<a href="https://www.dazhuanlan.com/2019/10/12/5da110cdd9a7b/">卸载 hexo 插件</a></p>
+</li>
+</ol>
+<h1>问题3:Hexo和Typora图像存储和设置问题</h1>
+<p>已解决-个人觉得很好的一个回答：<a href="https://yinyoupoet.github.io/2019/09/03/hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">typora + hexo博客中插入图片</a></p>
+<h1>增加数学Math公式的CSS样式</h1>
+<p>这里我添加KaTex数学公式编辑器，根据ButterFly主体配置文档的<a href="https://butterfly.js.org/posts/ceeb73f/#Math-%E6%95%B8%E5%AD%B8">Math数学</a>进行KaTex配置安装。</p>
+<h1>参考：</h1>
+<ol>
+<li><a href="https://www.jianshu.com/p/c9d3a53fb8e3">Hexo页面加载性能优化</a></li>
+<li><a href="https://link.jianshu.com/?t=http://www.ieclipse.cn/2016/08/29/Web/Hexo-deploy-lines/">Hexo博客双线部署</a></li>
+<li><a href="https://gaomf.cn/2015/11/01/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/">Hexo博客优化加载速度</a></li>
+<li><a href="https://blog.csdn.net/weixin_44676935/article/details/107440479">Hexo博客因图标失效导致加载过慢（icarus主题）</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java多线程高并发</title>
     <url>/2021/05/24/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
     <content><![CDATA[<h1>线程简介</h1>
@@ -76,238 +116,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客搭建记录</title>
-    <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1>
-<p>最开始，我使用的是Next主题，在网上找过许多答案，其中一种针对Next主题以前的一个问题所进行的修改：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214">vendors文件修改</a>，但是vendors文件夹问题在随后的Next版本中得到了解决。</p>
-<p>如今又出现这样的问题，我根据网上的各种回答进行了许多地方的一个修改，这里做个总结：</p>
-<ol>
-<li>首先是在本地deploy之前，先执行<strong>hexo clean</strong>，来清除相关缓存，然后hexo g &amp;&amp; hexo d（可以多执行几遍）</li>
-<li>在之前搭建github主页时，github默认给我设置的分支是main，看到过网上的一个解决方案是将分支名从main改成master（github分支权限问题？？？）</li>
-<li><strong>清除浏览器的缓存</strong>，在我的实际刷新来看，这个办法应该是最有用的，我用chrome和safari都验证过了。<a href="https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html">清除Chrome浏览器指定网页缓存</a>，每次加载网站都能重新载入。</li>
-<li>Hexo本地网站根目录下面的_config.yml文件配置不对。在deploy设置中branch选项的值应该和你在github项目的分支保持一致。至于配置文件的url设置，个人认为没影响，在我的使用来看，这个url主要是影响网站sitemap.xml文件的生成和有效性。</li>
-</ol>
-<h1>问题2:Hexo博客页面加载缓慢或者卡顿</h1>
-<p>现在，我使用的是<a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly主题</a>，所做的更改基本都是<a href="https://butterfly.js.org/">Jerry的教程</a>建议的</p>
-<ol>
-<li>
-<p>最直观的方法就是在加载网页后，F12打开浏览器的开发者模式，选到Console，然后就能看到加载Hexo网页时出现了哪些错误。下图是我第一次打开Console时出现的错误图：</p>
-<p><img src="/images/Hexo-blog-build-record/chrome-F12-Console-errors.jpg" alt=""></p>
-<p>然后就可以根据错误对主题或者站点配置文件进行响应的改动，记得改动之前备份。</p>
-</li>
-<li>
-<p>删除一些无关的插件，<a href="https://www.dazhuanlan.com/2019/10/12/5da110cdd9a7b/">卸载 hexo 插件</a></p>
-</li>
-</ol>
-<h1>问题3:Hexo和Typora图像存储和设置问题</h1>
-<p>已解决-个人觉得很好的一个回答：<a href="https://yinyoupoet.github.io/2019/09/03/hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">typora + hexo博客中插入图片</a></p>
-<h1>增加数学Math公式的CSS样式</h1>
-<p>这里我添加KaTex数学公式编辑器，根据ButterFly主体配置文档的<a href="https://butterfly.js.org/posts/ceeb73f/#Math-%E6%95%B8%E5%AD%B8">Math数学</a>进行KaTex配置安装。</p>
-<h1>参考：</h1>
-<ol>
-<li><a href="https://www.jianshu.com/p/c9d3a53fb8e3">Hexo页面加载性能优化</a></li>
-<li><a href="https://link.jianshu.com/?t=http://www.ieclipse.cn/2016/08/29/Web/Hexo-deploy-lines/">Hexo博客双线部署</a></li>
-<li><a href="https://gaomf.cn/2015/11/01/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/">Hexo博客优化加载速度</a></li>
-<li><a href="https://blog.csdn.net/weixin_44676935/article/details/107440479">Hexo博客因图标失效导致加载过慢（icarus主题）</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TLS-Attacker框架：项目复现</title>
-    <url>/2021/04/24/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/</url>
-    <content><![CDATA[<h1>Paper：Systematic Fuzzing and Testing of TLS Libraries</h1>
-<h2 id="开源项目如何分析">开源项目如何分析</h2>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/107884473">知乎专栏：开源项目源码如何入手</a></p>
-<ol>
-<li>先把Maven的各个模块的<strong>作用</strong>以及之间的<strong>关系</strong>弄清楚，有<code>Attacks</code>、<code>TLS-Client</code>、<code>TLS-Core</code>、<code>TLS-Forensics</code>、<code>TLS-Mitm</code>、<code>TLS-Server</code>、<code>TraceTool</code>、<code>Transport</code>、<code>Utils</code>这<strong>9</strong>大模块</li>
-<li>分析源码先从<strong>父类</strong>或者<strong>父接口</strong>开始分析，这里有很多，需要记录和分析</li>
-<li>阅读源码前找到<strong>启动类</strong>，分析知道<code>Attacks</code>、<code>TLS-Client</code>、<code>TLS-Forensics</code>、<code>TLS-Mitm</code>、<code>TLS-Server</code>、<code>TraceTool</code>这<strong>6</strong>个模块中都有主启动类<code>Main</code>，至于其他<strong>3</strong>个模块<code>TLS-Core</code>、<code>Transport</code>、<code>Utils</code>则是基础组件类。</li>
-<li>阅读源码时要分清<strong>主干</strong>和<strong>枝节</strong>代码，找到启动类的启动入口，就可以一步一步进行调试分析，先阅读<strong>主干代码</strong></li>
-<li>阅读代码时分清<strong>主次模块</strong>，也就是先看有用的模块，其他不相关的可以不看</li>
-<li>充分利用源码项目的<strong>测试类</strong>，一般框架会进行大量的测试，可以通过这些测试类辅助学习源码。可以知道每一个模块下面的<code>src</code>文件都有一个<code>main</code>和<code>test</code>文件夹，<code>test</code>文件夹中对<code>main</code>文件夹中的部分类进行了测试，比如<code>Attacks</code>模块下面<code>test</code>中对<code>main</code>中的<code>MangerAttackPlaintext类</code>进行了测试，变成了<code>MangerAttackPlaintextTest类</code>。根据<code>test</code>文件夹，可以自己编写对应<strong>类</strong>的<strong>测试类</strong>，来进行测试辅助分析。Exp:有些模块没有<code>test</code>测试文件夹，如<code>TLS-Forensics</code>和<code>TraceTool</code>模块</li>
-<li>会一些<strong>调试技巧</strong>，可以看这两篇文章：<a href="https://mp.weixin.qq.com/s/Lc-B3B17TQdHqgIPwwISew">Intellij IDEA 调试功能总结</a>，<a href="https://mp.weixin.qq.com/s/qFuAQH8UBxQPVOTV8atICQ">真香！用 IDEA 神器看源码，效率真高！</a>，<a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&amp;mid=2247494507&amp;idx=2&amp;sn=50764e6f24f3f48738770154d032dde4&amp;scene=21#wechat_redirect">安利一个IDEA骚操作:一键生成方法的序列图</a>。也要多用全局搜索快捷键-<strong>双击Shift</strong>；<code>control+H</code>可以查看所选类被哪些类实现了；<code>command+7</code>查看当前类的结构；<code>command+O</code>快速检索类/搜索类，等同于<code>双击Shift</code>；<code>command+shift+F</code>实现关键字搜索；<code>command+option+鼠标左键</code>实现查看方法 / 类的实现类，展开成一个列表；<code>command+fn+鼠标左键</code>查看选中的方法被使用的情况/在哪些地方被用到；<code>选中类-&gt;右键-&gt;选择-图</code>来查看图表形式的<strong>类</strong>继承链；<code>选中方法-&gt;右键-&gt;选中SequenceDiagram</code>来一键生成<strong>方法</strong>的序列图；<code>左下角Statistic</code>来显示项目的代码统计情况。<a href="https://blog.csdn.net/qq_35246620/article/details/64157559">IntelliJIDEA常见文件类型的图标介绍</a>-通过看类或方法前面的图标获得一些基本信息。</li>
-<li><strong>单步调试</strong>，<strong>设断点</strong>，<strong>步入</strong>，直到底层运行，结合<strong>wiresahrk</strong>抓包进行分析。</li>
-</ol>
-<h2 id="分析">分析</h2>
-<p><strong>源代码</strong>行数最多的前<strong>5</strong>个<strong>类</strong>：</p>
-<p><code>Config</code>, <code>TlsContext</code>, <code>CipherSuite</code>, <code>DefaultChooser</code>, <code>WorkflowConfigurationFactory</code></p>
-<h3 id="Main类">Main类</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">GeneralDelegate generalDelegate = <span class="keyword">new</span> GeneralAttackDelegate();</span><br><span class="line"><span class="comment">// 类的执行顺序：Delegate.java--&gt;GeneralDelegate.java--&gt;GeneralAttackDelegate.java，然后返回</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">PaddingOracleCommandConfig paddingOracle = <span class="keyword">new</span> PaddingOracleCommandConfig(generalDelegate);</span><br><span class="line"><span class="comment">// 类的执行顺序：TLSDelegateConfig.java--&gt;PaddingOracleCommandConfig.java，然后返回</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">attacker = <span class="keyword">new</span> PaddingOracleAttacker(paddingOracle, paddingOracle.createConfig());</span><br><span class="line"><span class="comment">// 类的执行顺序：ConfigIO.java--&gt;Config.java--&gt;TLSDelegateConfig.java--&gt;PaddingOracleCommandConfig.java，然后返回</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Boolean result = attacker.checkVulnerability();</span><br><span class="line"><span class="comment">// 类的执行顺序：Attacker.java（checkVulnerability()（isSkipConnectionCheck()--&gt;canConnect()--&gt;isVulnerable()））</span></span><br><span class="line"><span class="comment">// PaddingOracleAttack.java（isVulnerable()--&gt;createVectorResponseList()）</span></span><br></pre></td></tr></table></figure>
-<h3 id="Config类">Config类</h3>
-<p><code>Config类</code>实现了<code>Serializable接口</code>，参考<a href="https://www.jianshu.com/p/4935a87976e5">谈谈实现Serializable接口的作用和必要性</a>。</p>
-<h4 id="Package的本地方法Config">Package的本地方法Config()</h4>
-<p><code>OutboundConnection类</code>、<code>InboundConnection类</code></p>
-<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/OutboundConnection.png" alt=""></p>
-<p><code>WorkflowTraceType类</code></p>
-<p>除了上面的<strong>类</strong>，还有许多默认参数的<strong>定义</strong>与<strong>赋值</strong>，其中很多没用到，且大多数有其构造的<strong>get</strong>和<strong>set方法</strong>。</p>
-<h4 id="createConfig-createConfig-File-f-createConfig-InputStream-stream">createConfig(), createConfig(File f), createConfig(InputStream stream)</h4>
-<p>上面的3个方法的功能分别是从<strong>缓存</strong>、<strong>文件f</strong>、<strong>输入流stream</strong>中获取<strong>Config配置信息</strong>。</p>
-<p><code>ConfigCache类</code></p>
-<p><code>InputStream类</code>：这个抽象类是表示输入字节流的所有类的超类。需要定义InputStream子类的应用程序必须始终提供返回下一个输入字节的方法。</p>
-<p><code>ConfigIO类</code></p>
-<h4 id="createCopy">createCopy()</h4>
-<p><code>ByteArrayOutputStream类</code>：<strong>继承自</strong><code>OutputStream类</code>,该类实现了一个输出流，其中的数据被写入字节数组。当数据写入缓冲区时，缓冲区会自动增长。可以使用toByteArray()和toString()检索数据。关闭ByteArrayOutputStream没有任何效果。此类中的方法可以在流关闭后调用，而不会生成IOException。</p>
-<p><code>ByteArrayInputStream类</code>：<strong>继承自</strong><code>InputStream类</code>，ByteArrayInputStream包含一个内部缓冲区，该缓冲区包含可以从流中读取的字节。内部计数器跟踪要由读取方法提供的下一个字节。关闭ByteArrayInputStream没有任何效果。此类中的方法可以在流关闭后调用，而不会生成IOException。</p>
-<h4 id="Config类分析总结">Config类分析总结</h4>
-<ol>
-<li>首先是3个<code>createConfig()</code>方法；然后就是很多的<strong>Boolean方法</strong>，判断是否要这个<strong>扩展</strong>等等，方法一般是<code>is</code>开头；</li>
-<li>接下来是一些<strong>常量</strong>的定义赋值以及对应的<code>set</code>和<code>get</code>构造方法；这部分<strong>最多</strong>;</li>
-<li>最后是简单的几个<strong>常量</strong>，但是没有对其进行<code>set</code>和<code>get</code>方法构造。</li>
-</ol>
-<h1>TLS-Attacker框架添加GmSSL（当前版本✅）</h1>
-<h2 id="TLS-Core模块的修改">TLS-Core模块的修改</h2>
-<h3 id="ProtocolVersion-java类">ProtocolVersion.java类</h3>
-<p>在枚举中添加国密SSL协议-GMSSL10及其对应的版本号值（0x0101），如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GM SSL</span></span><br><span class="line">GMSSL10(<span class="keyword">new</span> <span class="keyword">byte</span>[] &#123; (<span class="keyword">byte</span>) <span class="number">0x01</span>, (<span class="keyword">byte</span>) <span class="number">0x01</span> &#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="CipherSuite-java类">CipherSuite.java类</h3>
-<p>在密码算法组件枚举类中添加国密的几个组件，如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Add GM cipher suites below:</span></span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_SM3(<span class="number">0xE102</span>),</span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_GCM_SM3(<span class="number">0xE107</span>),</span><br><span class="line"><span class="comment">// RSA</span></span><br><span class="line">RSA_SM4_CBC_SM3(<span class="number">0xE019</span>),</span><br><span class="line">RSA_SM4_GCM_SM3(<span class="number">0xE059</span>),</span><br><span class="line">RSA_SM4_CBC_SHA256(<span class="number">0xE01c</span>),</span><br><span class="line">RSA_SM4_GCM_SHA256(<span class="number">0xE05a</span>),</span><br><span class="line"><span class="comment">// IBSDH &amp;&amp; IBC --&gt; SM9</span></span><br><span class="line">IBSDH_SM4_CBC_SM3(<span class="number">0xE015</span>),</span><br><span class="line">IBSDH_SM4_GCM_SM3(<span class="number">0xE055</span>),</span><br><span class="line">IBC_SM4_CBC_SM3(<span class="number">0xE017</span>),</span><br><span class="line">IBC_SM4_GCM_SM3(<span class="number">0xE057</span>),</span><br><span class="line"><span class="comment">// ECC &amp;&amp; ECDHE --&gt; SM2</span></span><br><span class="line">ECC_SM4_CBC_SM3(<span class="number">0xE013</span>),</span><br><span class="line">ECC_SM4_GCM_SM3(<span class="number">0xE053</span>),</span><br><span class="line">ECDHE_SM4_CBC_SM3(<span class="number">0xE011</span>),</span><br><span class="line">ECDHE_SM4_GCM_SM3(<span class="number">0xE051</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="AlgorithmResolver-java类">AlgorithmResolver.java类</h3>
-<p>在方法getKeyExchangeAlgorithm(CipherSuite cipherSuite)中添加针对国密算法组件“ECDHE_SM4_CBC_SM3”的密钥交换算法if判断语句，如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GM TLS: ECDHE_SM2</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (cipher.startsWith(<span class="string">&quot;ECDHE_&quot;</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> KeyExchangeAlgorithm.ECDHE_SM2;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (cipher.startsWith(<span class="string">&quot;ECC_&quot;</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> KeyExchangeAlgorithm.ECC_SM2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="KeyExchangeAlgorithm-java类">KeyExchangeAlgorithm.java类</h3>
-<p>在枚举中添加密钥交换算法ECDHE_SM2，其中ECDHE是密钥交换算法，SM2是证书签名算法。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GM: SM2</span></span><br><span class="line">ECDHE_SM2,</span><br><span class="line">ECC_SM2;</span><br></pre></td></tr></table></figure>
-<h2 id="TLS-Attacks模块的修改">TLS-Attacks模块的修改</h2>
-<h3 id="PaddingOracleCommandConfig-java类">PaddingOracleCommandConfig.java类</h3>
-<p>在<code>createConfig(Config config)</code>方法中将密码组件替换成了两个国密算法组件，如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Add GM cipher suites to the test list of PO cipher suites:</span></span><br><span class="line">cipherSuites.add(CipherSuite.ECC_SM4_CBC_SM3);</span><br><span class="line">cipherSuites.add(CipherSuite.ECDHE_SM4_CBC_SM3);</span><br><span class="line"><span class="comment">// cipherSuites.add(CipherSuite.ECC_SM4_GCM_SM3);</span></span><br><span class="line"><span class="comment">// cipherSuites.add(CipherSuite.ECDHE_SM4_GCM_SM3);</span></span><br><span class="line"><span class="comment">// cipherSuites.add(CipherSuite.IBSDH_SM4_CBC_SM3);</span></span><br><span class="line"><span class="comment">// cipherSuites.add(CipherSuite.IBSDH_SM4_GCM_SM3);</span></span><br><span class="line"><span class="comment">// cipherSuites.add(CipherSuite.IBC_SM4_CBC_SM3);</span></span><br><span class="line"><span class="comment">// cipherSuites.add(CipherSuite.IBC_SM4_GCM_SM3);</span></span><br></pre></td></tr></table></figure>
-<h1>TLS-ATTACkER框架添加GMSSL（前版本的修改-失效❌）</h1>
-<blockquote>
-<p>❗️❗️❗️从TLS-Attacker的Github官网更新了TLS-Attacker所有源文件，所有之前的修改在以前的TLS-Attacker框架上，现在对新的框架进行修改，桌面的TLS-Attacker项目文件❗️❗️❗️</p>
-</blockquote>
-<h2 id="TLS-CORE模块的修改">TLS-CORE模块的修改</h2>
-<h3 id="AlgorithmResolver-java">AlgorithmResolver.java</h3>
-<p>密码组件和密码算法解析</p>
-<p>1.获得PRF算法（伪随机数算法）：getPRFAlgorithm()方法</p>
-<p>添加<code>SM3杂凑算法</code>识别</p>
-<p>2.获得摘要算法：getDigestAlgorithm()方法</p>
-<p>添加<code>SM3摘要算法</code>识别</p>
-<p>3.获取密钥交换算法：getKeyExchangeAlgorithm()方法</p>
-<p>添加<code>ECDHE_SM2</code>和<code>ECC_SM2</code>的SM2密钥交换算法识别</p>
-<p>4.获取证书密钥类型：getCertificateKeyType()方法</p>
-<p>添加<code>SM2</code>证书识别</p>
-<p>5.获取公钥加密算法：getRequiredKeystoreAlgorithms()方法</p>
-<p>添加<code>SM2</code>公钥算法识别</p>
-<p>6.获取对称加密算法：getCipher()方法</p>
-<p>添加<code>SM4_CBC</code>对称加密算法识别</p>
-<p>7.获取批量加密算法：getBulkCipherAlgorithm()方法</p>
-<p>在<code>BulkCipherAlgorithm.java</code>类中添加<code>SM4</code>支持</p>
-<p>8.获取加密类型：getCipherType()方法</p>
-<p>添加<code>SM4</code>和<code>SMS4</code>识别到分组密码中</p>
-<p>9.获取MAC算法：getMacAlgorithm()方法</p>
-<p>添加<code>SM3</code>算法的识别</p>
-<p>10.获取HKDF算法：getHKDFAlgorithm()方法</p>
-<p>添加<code>SM3</code>的HKDF算法识别</p>
-<h3 id="BulkCipherAlgorithm-java（批量对称加密算法）">BulkCipherAlgorithm.java（批量对称加密算法）</h3>
-<p>添加了<code>SM4</code>的国密对称加密算法</p>
-<h3 id="CipherAlgorithm-java（对称加密算法-分组大小-加密模式）">CipherAlgorithm.java（对称加密算法+分组大小+加密模式）</h3>
-<p>添加<code>SM4-CBC</code>的加密模式，包括密钥大小，初始向量的大小，记录大小，分块大小</p>
-<h3 id="PRFAlgorithm-java">PRFAlgorithm.java</h3>
-<p>添加<code>TLS_PRF_SM3(MacAlgorithm.SM3)</code>的PRF伪随机函数算法</p>
-<h3 id="MacAlgorithm-java">MacAlgorithm.java</h3>
-<p>添加<code>SM3</code>的MAC算法</p>
-<p>注释：SM3主要用于<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D">数字签名</a>及验证、<a href="https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E8%AE%A4%E8%AF%81%E7%A0%81">消息认证码</a>生成及验证、随机数生成等，其算法公开[<a href="https://zh.wikipedia.org/wiki/SM3#cite_note-oscca_1199-5">5]</a>[<a href="https://zh.wikipedia.org/wiki/SM3#cite_note-6">6]</a>，安全性及效率与<a href="https://zh.wikipedia.org/wiki/SHA-2">SHA-256</a>相当</p>
-<h3 id="CipherSuite-java">CipherSuite.java</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GmSSL CipherSuites  添加GM的8个密码组件</span></span><br><span class="line"><span class="comment">//TLS_ECDHE_SM4_SM3(0xE011),</span></span><br><span class="line"><span class="comment">//TLS_ECC_SM4_SM3(0xE013),</span></span><br><span class="line"><span class="comment">//TLS_IBSDH_SM4_SM3(0xE015),</span></span><br><span class="line"><span class="comment">//TLS_IBC_SM4_SM3(0xE017),</span></span><br><span class="line"><span class="comment">//TLS_RSA_SM4_SM3(0xE019),</span></span><br><span class="line"><span class="comment">//TLS_RSA_SM4_SHA1(0xE01a),</span></span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_SM3(<span class="number">0xE102</span>),</span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_GCM_SM3(<span class="number">0xE107</span>),</span><br><span class="line">TLS_ECC_SM2_WITH_SM4_CBC_SM3(<span class="number">0xE109</span>),</span><br><span class="line">TLS_ECDHE_SM2_WITH_SM4_CBC_SM3(<span class="number">0xE111</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加GmSSL支持</span></span><br><span class="line"><span class="comment">//list.add(TLS_ECDHE_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_ECC_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_IBSDH_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_IBC_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_RSA_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_RSA_SM4_SHA1);</span></span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SMS4_SM3);</span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SMS4_GCM_SM3);</span><br><span class="line">list.add(TLS_ECC_SM2_WITH_SM4_CBC_SM3);</span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SM4_CBC_SM3);</span><br></pre></td></tr></table></figure>
-<p>添加方法<code>usesSM3()</code>识别密码组件最后用的是SM3杂凑算法</p>
-<h3 id="DigestAlgorithm-java">DigestAlgorithm.java</h3>
-<p>摘要算法，添加<code>SM3</code>的摘要算法</p>
-<h3 id="KeyExchangeAlgorithm-java">KeyExchangeAlgorithm.java</h3>
-<p>密钥交换算法，添加<code>ECDHE_SM2</code>和<code>ECC_SM2</code>的SM2密钥交换算法</p>
-<h3 id="CertificateKeyType-java">CertificateKeyType.java</h3>
-<p>证书密钥类型，添加<code>SM2</code>证书类型</p>
-<h3 id="PublicKeyAlgorithm-java">PublicKeyAlgorithm.java</h3>
-<p>公钥算法类型，添加<code>SM2</code>公钥算法</p>
-<h3 id="HKDFAlgorithm-java">HKDFAlgorithm.java</h3>
-<p>HMAC-based Extract-and-Expand Key Derivation Function (HKDF)：基于HAMC的密钥派生函数</p>
-<p>还不知道<code>SM3</code>是否支持HKDF算法，<strong>？？？</strong>，有待查证</p>
-<p>已添加<code>TLS_HKDF_SM3</code>的SM3支持</p>
-<h2 id="TLS-ATTACKs模块的修改">TLS-ATTACKs模块的修改</h2>
-<h3 id="PaddingOracleCommandConfig-java">PaddingOracleCommandConfig.java</h3>
-<p>在重写的类createConfig(Config config)中添加GM密码组件支持</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">cipherSuites.add(CipherSuite.TLS_ECDHE_SM2_WITH_SM4_CBC_SM3);    <span class="comment">//添加GmSSL的CBC密码组件支持</span></span><br><span class="line">cipherSuites.add(CipherSuite.TLS_ECC_SM2_WITH_SM4_CBC_SM3);</span><br></pre></td></tr></table></figure>
-<h2 id="Blog-TLS-Attacker">Blog/TLS-Attacker</h2>
-<p><a href="https://web-in-security.blogspot.com/2019/03/playing-with-tls-attacker.html">On Web-Security and -Insecurity:Playing with TLS-Attacker</a>: 讲述了TLS-Attacker的工作流运行方式，xml文件如何编写创建</p>
-<ol>
-<li><em><strong>-config</strong></em>配置文件：配置一些密码组件，协议版本；该框架默认的config文件<a href="https://github.com/tls-attacker/TLS-Attacker/blob/master/TLS-Core/src/main/resources/default_config.xml">default_config.xml</a>，可以根据默认配置文件修改其中的一些东西。</li>
-<li><em><strong>-workflow_input</strong></em>配置文件：自定义SendAction和ReceiveAction，也即自定义TLS协议的过程需要哪些包，例如ClientHello、ServerHello；默认的workflowtrace文件<a href="https://gist.github.com/ic0ns/2475e6d514b5b117bbd7ac6826516de6#file-tls-attacker2-0-trace-xml">workflowtrace.xml</a>。</li>
-<li><em><strong>-workflow_output</strong></em>：输出整个流传输的过程</li>
-</ol>
-<p>Web-in-Security官网的PO漏洞和TLS-Attacker框架相关文章：</p>
-<ol>
-<li>
-<p><a href="https://web-in-security.blogspot.com/2016/05/curious-padding-oracle-in-openssl-cve.html">Curious Padding oracle in OpenSSL (CVE-2016-2107)</a>：2016年5月的文章，就简单讲述了一下PO漏洞</p>
-</li>
-<li>
-<p><a href="https://web-in-security.blogspot.com/2017/12/tls-attacker-v22-and-robot-attack.html">TLS-Attacker v2.2 and the ROBOT attack</a>：2017年12月的文章，简单讲了一下ROBOT攻击</p>
-</li>
-<li>
-<p><a href="https://web-in-security.blogspot.com/2019/03/playing-with-tls-attacker.html">Playing with TLS-Attacker</a>：2019年3月的文章，讲述了TLS-Attacker的工作流运行方式，xml文件如何编写创建；主要是config、workflow_input的一些xml文件处理，怎么自定义</p>
-</li>
-<li>
-<p><a href="https://web-in-security.blogspot.com/2019/03/scanning-for-padding-oracles.html">Scanning for Padding Oracle</a>：2019年3月的文章，下图是几类错误的向量</p>
-<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210529101458444.png" alt=""></p>
-</li>
-<li>
-<p><a href="https://web-in-security.blogspot.com/2019/05/scanning-tls-server-configurations-with.html">Scanning TLS Server Configurations with Burp Suite</a>：2019年5月的文章，讲述了TLS-Scanner的使用</p>
-</li>
-</ol>
-<p>一个在线SSL服务器检测工具：<a href="https://www.ssllabs.com/ssltest/">SSLabs: SSL Server Test</a></p>
-<p>RUB大学的<a href="https://www.nds.ruhr-uni-bochum.de/chair/news/">网络和数据安全实验室官网</a></p>
-<p><a href="https://www.hackmanit.de/en/">HACKMANIT</a>: Your Specialist for Web Security and Cryptography</p>
-<p>nds.rub.de学校官网的<a href="https://mvnrepository.com/artifact/de.rub.nds">Maven仓库</a>，如下图所示：</p>
-<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528212214813.png" alt=""></p>
-<p><a href="https://robotattack.org">The ROBOT Attack</a>：Return Of Bleichenbacher’s Oracle Threat</p>
-<h2 id="论文第5-2节：高级概述">论文第5.2节：高级概述</h2>
-<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528150815213.png" alt=""></p>
-<p>TLS-攻击者分为多个Maven模块(参见上图)。</p>
-<ol>
-<li>可修改变量的概念位于单独的<em><strong>ModifiableVariable</strong></em>模块中，以便进一步的应用程序可以从其功能中获益。</li>
-<li><em><strong>Transport</strong></em>模块包含用于TCP和UDP的传输处理实用程序。</li>
-<li>核心模块是<em><strong>TLS</strong></em>，它包含一个TLS协议实现。这将被分成更多的包。</li>
-<li><em><strong>protocol</strong></em>包包含协议消息及其处理程序。</li>
-<li><em><strong>workflow</strong></em>包包含灵活的协议流实现，允许用户定义任意的消息顺序。<br>
-上图描述了更多相关的包。</li>
-<li><em><strong>Attacks</strong></em>和<em><strong>Fuzzer</strong></em>模块基于TLS功能，并定义了几种TLS攻击和模糊技术。</li>
-<li><em><strong>TestSuite</strong></em>模块定义了一个可扩展的TLS测试套件。</li>
-</ol>
-<p>TLS-Attacker当前实现了TLS 1.0、1.1、1.2和DTLS 1.2协议版本以及客户端功能，包括客户端身份验证。此外，它还实现了以下功能：</p>
-<ol>
-<li><strong>密钥交换算法</strong>：RSA，ECDH（E），DH（E）</li>
-<li><strong>加密算法</strong>：AES-CBC，3DES-CBC</li>
-<li><strong>扩展</strong>：EC，EC点格式[22]，Heartbeat [50]，最大碎片长度[31]， 服务器名称指示（SNI）[31]，签名和哈希算法</li>
-</ol>
-<h2 id="论文第5-3节：TLS模块">论文第5.3节：TLS模块</h2>
-<p>TLS是TLS-Attacker的核心模块。它使用可修改的变量和来自Transport模块的传输处理程序实现了完整的TLS功能。它完全依赖于标准Java加密提供程序和Bouly Castle库(1.54版)提供的加密功能。</p>
-<p>TLS模块分为几个包。<em><strong>config</strong></em>包包含用于TLS协议配置的类。TLS常量(密码套件、密钥交换算法、警报)在<em><strong>constants</strong></em>包中定义。<em><strong>crypto</strong></em>包包含TLS特定的加密功能，这些功能扩展了Java加密提供程序的基本行为。</p>
-<p><em><strong>protocol</strong></em>包实现TLS协议消息及其处理程序。每个协议消息由处理程序(负责消息处理)和消息状态(表示TLS消息的当前状态)定义。例如，<em><strong>handshake</strong></em>包包含<strong>HandshakeMessageHandler</strong>和<strong>HandshakeMessage</strong>类。抽象类<strong>HandshakeMessage</strong>包含所有握手消息(例如握手消息类型)使用的通用握手变量。<strong>ClientHelloMessage</strong>扩展了<strong>HandshakeMessage</strong>，并包括特定于<strong>ClientHello</strong>的变量，如密码套件数组或密码套件长度。请注意，所有这些变量都是可修改的，以实现高灵活性。握手消息的处理由<strong>HandshakeMessageHandler</strong>类提供。每个处理程序（handler）实现两个函数：发送TLS消息时使用的<strong>preparareMessage</strong>和解析传入消息时使用的<strong>parseMessage</strong>。</p>
-<p>对于<em><strong>record</strong></em>包中定义的TLS记录处理，实现了类似的处理程序和消息概念。</p>
-<p><em><strong>workflow</strong></em>包包含TLS协议执行器（executor）。TLS协议的执行仅取决于定义的TLS消息。TLS执行器将协议消息列表作为输入，搜索适当的消息处理程序，并让它们处理定义的消息。这种方法有两个显著的优势：</p>
-<ol>
-<li>TLS攻击者只需设置特定的TLS消息，即可定义任意消息顺序的自定义TLS协议流。</li>
-<li>可以存储处理后的TLS协议流以供进一步分析或甚至用于可重复执行。</li>
-</ol>
-<h2 id="论文第5-4节：使用TLS-Attacker接口">论文第5.4节：使用TLS-Attacker接口</h2>
-<p>在下一节中，我们将介绍如何使用TLS-Attacker接口构建自定义协议消息流，以检测Bleichenbacher攻击的漏洞。我们选择此攻击作为示例，因为它需要对TLS协议功能进行深度干预，包括修改纯填充预主密码。</p>
-<p><strong>用差不多10行代码检测Bleichenbacher’s Oracle</strong>：TLS-Attacker的设计支持对新攻击的简单定义。以下示例显示了通过显式设置填充的预主密码的明文值的自定义协议流。此代码可用于评估针对Bleichenbacher攻击的对策的正确性[23]。</p>
-<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528154828457.png" alt=""></p>
-<p>通过设置自定义预主密码，安全工程师强制TLS-Attacker使用此自定义值执行TLS握手。使用不同的Premaster秘密值执行TLS握手可以触发不同的服务器行为，从而揭示出可用于执行Bleichenbacher攻击的Oracle。请注意，使用公共TLS库构建这样的协议流需要对该库有深入的了解。另一方面，使用TLS-Attacker，安全工程师可以轻松地使用TLS-Attacker接口来定义具有特定消息修改的新协议流，并将其嵌入到他们的测试套件中。</p>
-<p>不仅仅是对Java开发人员而言。方便的XML序列化。不需要开发Java来构建带有自定义修改的任意协议流。相反，我们决定使用JAXB(Java Architecture For XML Binding)[3]来序列化和反序列化TLS协议流。这允许开发人员使用简单的XML文档定义与上面相同的协议流：</p>
-<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528155400976.png" alt=""></p>
-<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528155424340.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>github project</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SSL/TLS相关</title>
     <url>/2021/05/19/SSL-TLS%E7%9B%B8%E5%85%B3/</url>
     <content><![CDATA[<h1>协议底层</h1>
@@ -327,6 +135,7 @@
 <p><a href="https://datatracker.ietf.org/doc/html/rfc6091">RFC-6091</a>：Using OpenPGP Keys for Transport Layer Security (TLS) Authentication–使用OpenPGP密钥进行传输层安全(TLS)身份验证</p>
 <p><a href="https://datatracker.ietf.org/doc/html/rfc7250">RFC-7250</a>：Using Raw Public Keys in Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)–在传输层安全(TLS)和数据报传输层安全(DTLS)中使用原始公钥</p>
 <p><a href="https://datatracker.ietf.org/doc/html/rfc4279">RFC-4279</a>：Pre-Shared Key Ciphersuites for Transport Layer Security (TLS)</p>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc3749">RFC-3749</a>：Transport Layer Security Protocol Compression Methods–介绍TLS协议的压缩算法</p>
 <h1>工具&amp;&amp;其他</h1>
 <p><a href="https://botan.randombit.net/">Botan：现代TLS加密库</a>，一个工具包一样，和<a href="https://www.openssl.org">OpensSSL</a>以及MatrixSSL一样，可以被调用;<a href="https://www.gnutls.org/">GnuTLS：TLS库</a>，同上一样;<a href="https://github.com/matrixssl/matrixssl">MatrixSSL</a>；<a href="https://tls.mbed.org/">Mbed TLS</a>；<a href="https://www.wolfssl.com/">wolfSSL: Embedded TLS Library</a></p>
 <p><a href="https://github.com/tlsfuzzer/tlsfuzzer">Github: TLSFuzzer</a>；<a href="https://github.com/tintinweb/scapy-ssl_tls">Github: Scapy-SSL/TLS</a>；</p>
@@ -339,61 +148,6 @@
 ]]></content>
       <tags>
         <tag>ssl/tls</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TLS-Scanner项目</title>
-    <url>/2021/07/15/TLS-Scanner%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>github project</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TLS1.2 RFC-5246文档学习</title>
-    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
-<ul>
-<li><strong>文章结构请看右边的目录</strong>👉</li>
-</ul>
-<p>文档指定了TLS协议的1.2版本，与TLS协议的1.1版本进行了对比，同时对1.2版本做了详细的介绍。</p>
-<h1>介绍</h1>
-<p>TLS协议由两层组成：TLS握手协议TLS记录协议。其具有两个基本属性：连接私有（加密）和可靠（完整性检测-MAC）。</p>
-<p>TLS记录协议用于封装各种高层协议，TLS握手协议就是高层协议之一，如下图所示。TLS握手协议允许客户端和服务端在发送第一个字节的数据之前协商好双方的加密算法和密钥等关键要素。TLS握手协议具有的连接安全性：身份验证（公钥算法）、安全的共享密钥协商（无法MITM）和可靠的协商。</p>
-<p><img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/wpsRnVoNr.png" alt=""></p>
-<p>TLS协议是独立于应用程序协议的，如下图所示，更高级别的协议可以透明的覆盖在TLS协议之上。</p>
-<p><img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20210726193027796-7299029.png" alt=""></p>
-<h2 id="要求的专业术语">要求的专业术语</h2>
-<p>在<a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC-2119文档</a>中进行查看相关术语，比如“MUST”、“SHALL”、“SHOULD”等等。</p>
-<h2 id="与TLSv1-1的不同之处">与TLSv1.1的不同之处</h2>
-<p>主要是密码算法协商的改进，对TLSv1.1版本感兴趣的可以看看，这里省略。</p>
-<h1>目标</h1>
-<p>TLS协议被应用的目标，4个点，优先级往下依次是：密码安全、互操作性、可拓展性（框架加其他算法和公钥等等）、相对效率。</p>
-<h1>此文档的目标</h1>
-<p>该文档主要面向两类人：想要实现该协议的人和进行密码分析的人。因此许多依赖于算法的数据结构和规则在文档中就可以看到。此外该文档不提供服务或则接口定义的相关细节，这也可以说是为了安全着想。</p>
-<h1>文档展示的编程语言</h1>
-<p>文档用的是类“C”的语言语法，仅适用于此文档。</p>
-<h2 id="基础块的大小">基础块的大小</h2>
-<p>基本数据块大小是1个字节8比特，也就是1Byte=8bits。</p>
-<h2 id="其他定义">其他定义</h2>
-<p>注释表达“/*    */”；可选项用两个双括号定义“[[    ]]”</p>
-<h2 id="向量">向量</h2>
-<h2 id="数组">数组</h2>
-<h2 id="枚举">枚举</h2>
-<h2 id="结构体类型">结构体类型</h2>
-<h3 id="结构体变体">结构体变体</h3>
-<h2 id="加密属性">加密属性</h2>
-<h2 id="常量">常量</h2>
-<h1>HMAC和伪随机函数</h1>
-<p>TLS记录层使用带有密钥的MAC（消息认证码）来保证消息的完整性。PRF（伪随机函数）将秘密（secret）、种子（seed）和识别标签（A(i)）作为输入，然后产生任意长度的输出。在本节中，基于HMAC定义一个PRF。</p>
-<p>首先定一个数据扩展函数P_hash(secret, data)，公式计算如下，其中HMAC_hash()是散列函数，它拓展一个secret和seed来得到任意长度的输出。</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>P</mi><mo>−</mo></msub><mi>h</mi><mi>a</mi><mi>s</mi><mi>h</mi><mo stretchy="false">(</mo><mi>s</mi><mi>e</mi><mi>c</mi><mi>r</mi><mi>e</mi><mi>t</mi><mo separator="true">,</mo><mi>s</mi><mi>e</mi><mi>e</mi><mi>d</mi><mo stretchy="false">)</mo><mo>=</mo><mi>H</mi><mi>M</mi><mi>A</mi><msub><mi>C</mi><mo>−</mo></msub><mi>h</mi><mi>a</mi><mi>s</mi><mi>h</mi><mo stretchy="false">(</mo><mi>s</mi><mi>e</mi><mi>c</mi><mi>r</mi><mi>e</mi><mi>t</mi><mo separator="true">,</mo><mi>A</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo><mo>+</mo><mi>s</mi><mi>e</mi><mi>e</mi><mi>d</mi><mo stretchy="false">)</mo><mo>+</mo><mi>H</mi><mi>M</mi><mi>A</mi><msub><mi>C</mi><mo>−</mo></msub><mi>h</mi><mi>a</mi><mi>s</mi><mi>h</mi><mo stretchy="false">(</mo><mi>s</mi><mi>e</mi><mi>c</mi><mi>r</mi><mi>e</mi><mi>t</mi><mo separator="true">,</mo><mi>A</mi><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo><mo>+</mo><mi>s</mi><mi>e</mi><mi>e</mi><mi>d</mi><mo stretchy="false">)</mo><mo>+</mo><mi>H</mi><mi>M</mi><mi>A</mi><msub><mi>C</mi><mo>−</mo></msub><mi>h</mi><mi>a</mi><mi>s</mi><mi>h</mi><mo stretchy="false">(</mo><mi>s</mi><mi>e</mi><mi>c</mi><mi>r</mi><mi>e</mi><mi>t</mi><mo separator="true">,</mo><mi>A</mi><mo stretchy="false">(</mo><mn>3</mn><mo stretchy="false">)</mo><mo>+</mo><mi>s</mi><mi>e</mi><mi>e</mi><mi>d</mi><mo stretchy="false">)</mo><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">P_-hash(secret, seed) = HMAC_-hash(secret, A(1) + seed) + HMAC_-hash(secret, A(2) + seed) +
-HMAC_-hash(secret, A(3) + seed) + ...
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.25833100000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mord mathnormal">ha</span><span class="mord mathnormal">s</span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">secre</span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">see</span><span class="mord mathnormal">d</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal">A</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.25833100000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mord mathnormal">ha</span><span class="mord mathnormal">s</span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">secre</span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">A</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">see</span><span class="mord mathnormal">d</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal">A</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.25833100000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mord mathnormal">ha</span><span class="mord mathnormal">s</span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">secre</span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">A</span><span class="mopen">(</span><span class="mord">2</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">see</span><span class="mord mathnormal">d</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal">A</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.25833100000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mord mathnormal">ha</span><span class="mord mathnormal">s</span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">secre</span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">A</span><span class="mopen">(</span><span class="mord">3</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">see</span><span class="mord mathnormal">d</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.10556em;vertical-align:0em;"></span><span class="mord">...</span></span></span></span></span></p>
-]]></content>
-      <tags>
-        <tag>RFC6246</tag>
-        <tag>TLS1.2</tag>
       </tags>
   </entry>
   <entry>
@@ -715,6 +469,317 @@ HMAC_-hash(secret, A(3) + seed) + ...
       </tags>
   </entry>
   <entry>
+    <title>TLS-Attacker框架：项目复现</title>
+    <url>/2021/04/24/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/</url>
+    <content><![CDATA[<h1>Paper：Systematic Fuzzing and Testing of TLS Libraries</h1>
+<h2 id="开源项目如何分析">开源项目如何分析</h2>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/107884473">知乎专栏：开源项目源码如何入手</a></p>
+<ol>
+<li>先把Maven的各个模块的<strong>作用</strong>以及之间的<strong>关系</strong>弄清楚，有<code>Attacks</code>、<code>TLS-Client</code>、<code>TLS-Core</code>、<code>TLS-Forensics</code>、<code>TLS-Mitm</code>、<code>TLS-Server</code>、<code>TraceTool</code>、<code>Transport</code>、<code>Utils</code>这<strong>9</strong>大模块</li>
+<li>分析源码先从<strong>父类</strong>或者<strong>父接口</strong>开始分析，这里有很多，需要记录和分析</li>
+<li>阅读源码前找到<strong>启动类</strong>，分析知道<code>Attacks</code>、<code>TLS-Client</code>、<code>TLS-Forensics</code>、<code>TLS-Mitm</code>、<code>TLS-Server</code>、<code>TraceTool</code>这<strong>6</strong>个模块中都有主启动类<code>Main</code>，至于其他<strong>3</strong>个模块<code>TLS-Core</code>、<code>Transport</code>、<code>Utils</code>则是基础组件类。</li>
+<li>阅读源码时要分清<strong>主干</strong>和<strong>枝节</strong>代码，找到启动类的启动入口，就可以一步一步进行调试分析，先阅读<strong>主干代码</strong></li>
+<li>阅读代码时分清<strong>主次模块</strong>，也就是先看有用的模块，其他不相关的可以不看</li>
+<li>充分利用源码项目的<strong>测试类</strong>，一般框架会进行大量的测试，可以通过这些测试类辅助学习源码。可以知道每一个模块下面的<code>src</code>文件都有一个<code>main</code>和<code>test</code>文件夹，<code>test</code>文件夹中对<code>main</code>文件夹中的部分类进行了测试，比如<code>Attacks</code>模块下面<code>test</code>中对<code>main</code>中的<code>MangerAttackPlaintext类</code>进行了测试，变成了<code>MangerAttackPlaintextTest类</code>。根据<code>test</code>文件夹，可以自己编写对应<strong>类</strong>的<strong>测试类</strong>，来进行测试辅助分析。Exp:有些模块没有<code>test</code>测试文件夹，如<code>TLS-Forensics</code>和<code>TraceTool</code>模块</li>
+<li>会一些<strong>调试技巧</strong>，可以看这两篇文章：<a href="https://mp.weixin.qq.com/s/Lc-B3B17TQdHqgIPwwISew">Intellij IDEA 调试功能总结</a>，<a href="https://mp.weixin.qq.com/s/qFuAQH8UBxQPVOTV8atICQ">真香！用 IDEA 神器看源码，效率真高！</a>，<a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&amp;mid=2247494507&amp;idx=2&amp;sn=50764e6f24f3f48738770154d032dde4&amp;scene=21#wechat_redirect">安利一个IDEA骚操作:一键生成方法的序列图</a>。也要多用全局搜索快捷键-<strong>双击Shift</strong>；<code>control+H</code>可以查看所选类被哪些类实现了；<code>command+7</code>查看当前类的结构；<code>command+O</code>快速检索类/搜索类，等同于<code>双击Shift</code>；<code>command+shift+F</code>实现关键字搜索；<code>command+option+鼠标左键</code>实现查看方法 / 类的实现类，展开成一个列表；<code>command+fn+鼠标左键</code>查看选中的方法被使用的情况/在哪些地方被用到；<code>选中类-&gt;右键-&gt;选择-图</code>来查看图表形式的<strong>类</strong>继承链；<code>选中方法-&gt;右键-&gt;选中SequenceDiagram</code>来一键生成<strong>方法</strong>的序列图；<code>左下角Statistic</code>来显示项目的代码统计情况。<a href="https://blog.csdn.net/qq_35246620/article/details/64157559">IntelliJIDEA常见文件类型的图标介绍</a>-通过看类或方法前面的图标获得一些基本信息。</li>
+<li><strong>单步调试</strong>，<strong>设断点</strong>，<strong>步入</strong>，直到底层运行，结合<strong>wiresahrk</strong>抓包进行分析。</li>
+</ol>
+<h2 id="分析">分析</h2>
+<p><strong>源代码</strong>行数最多的前<strong>5</strong>个<strong>类</strong>：</p>
+<p><code>Config</code>, <code>TlsContext</code>, <code>CipherSuite</code>, <code>DefaultChooser</code>, <code>WorkflowConfigurationFactory</code></p>
+<h3 id="Main类">Main类</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">GeneralDelegate generalDelegate = <span class="keyword">new</span> GeneralAttackDelegate();</span><br><span class="line"><span class="comment">// 类的执行顺序：Delegate.java--&gt;GeneralDelegate.java--&gt;GeneralAttackDelegate.java，然后返回</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">PaddingOracleCommandConfig paddingOracle = <span class="keyword">new</span> PaddingOracleCommandConfig(generalDelegate);</span><br><span class="line"><span class="comment">// 类的执行顺序：TLSDelegateConfig.java--&gt;PaddingOracleCommandConfig.java，然后返回</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">attacker = <span class="keyword">new</span> PaddingOracleAttacker(paddingOracle, paddingOracle.createConfig());</span><br><span class="line"><span class="comment">// 类的执行顺序：ConfigIO.java--&gt;Config.java--&gt;TLSDelegateConfig.java--&gt;PaddingOracleCommandConfig.java，然后返回</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Boolean result = attacker.checkVulnerability();</span><br><span class="line"><span class="comment">// 类的执行顺序：Attacker.java（checkVulnerability()（isSkipConnectionCheck()--&gt;canConnect()--&gt;isVulnerable()））</span></span><br><span class="line"><span class="comment">// PaddingOracleAttack.java（isVulnerable()--&gt;createVectorResponseList()）</span></span><br></pre></td></tr></table></figure>
+<h3 id="Config类">Config类</h3>
+<p><code>Config类</code>实现了<code>Serializable接口</code>，参考<a href="https://www.jianshu.com/p/4935a87976e5">谈谈实现Serializable接口的作用和必要性</a>。</p>
+<h4 id="Package的本地方法Config">Package的本地方法Config()</h4>
+<p><code>OutboundConnection类</code>、<code>InboundConnection类</code></p>
+<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/OutboundConnection.png" alt=""></p>
+<p><code>WorkflowTraceType类</code></p>
+<p>除了上面的<strong>类</strong>，还有许多默认参数的<strong>定义</strong>与<strong>赋值</strong>，其中很多没用到，且大多数有其构造的<strong>get</strong>和<strong>set方法</strong>。</p>
+<h4 id="createConfig-createConfig-File-f-createConfig-InputStream-stream">createConfig(), createConfig(File f), createConfig(InputStream stream)</h4>
+<p>上面的3个方法的功能分别是从<strong>缓存</strong>、<strong>文件f</strong>、<strong>输入流stream</strong>中获取<strong>Config配置信息</strong>。</p>
+<p><code>ConfigCache类</code></p>
+<p><code>InputStream类</code>：这个抽象类是表示输入字节流的所有类的超类。需要定义InputStream子类的应用程序必须始终提供返回下一个输入字节的方法。</p>
+<p><code>ConfigIO类</code></p>
+<h4 id="createCopy">createCopy()</h4>
+<p><code>ByteArrayOutputStream类</code>：<strong>继承自</strong><code>OutputStream类</code>,该类实现了一个输出流，其中的数据被写入字节数组。当数据写入缓冲区时，缓冲区会自动增长。可以使用toByteArray()和toString()检索数据。关闭ByteArrayOutputStream没有任何效果。此类中的方法可以在流关闭后调用，而不会生成IOException。</p>
+<p><code>ByteArrayInputStream类</code>：<strong>继承自</strong><code>InputStream类</code>，ByteArrayInputStream包含一个内部缓冲区，该缓冲区包含可以从流中读取的字节。内部计数器跟踪要由读取方法提供的下一个字节。关闭ByteArrayInputStream没有任何效果。此类中的方法可以在流关闭后调用，而不会生成IOException。</p>
+<h4 id="Config类分析总结">Config类分析总结</h4>
+<ol>
+<li>首先是3个<code>createConfig()</code>方法；然后就是很多的<strong>Boolean方法</strong>，判断是否要这个<strong>扩展</strong>等等，方法一般是<code>is</code>开头；</li>
+<li>接下来是一些<strong>常量</strong>的定义赋值以及对应的<code>set</code>和<code>get</code>构造方法；这部分<strong>最多</strong>;</li>
+<li>最后是简单的几个<strong>常量</strong>，但是没有对其进行<code>set</code>和<code>get</code>方法构造。</li>
+</ol>
+<h1>TLS-Attacker框架添加GmSSL（当前版本✅）</h1>
+<h2 id="TLS-Core模块的修改">TLS-Core模块的修改</h2>
+<h3 id="ProtocolVersion-java类">ProtocolVersion.java类</h3>
+<p>在枚举中添加国密SSL协议-GMSSL10及其对应的版本号值（0x0101），如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GM SSL</span></span><br><span class="line">GMSSL10(<span class="keyword">new</span> <span class="keyword">byte</span>[] &#123; (<span class="keyword">byte</span>) <span class="number">0x01</span>, (<span class="keyword">byte</span>) <span class="number">0x01</span> &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="CipherSuite-java类">CipherSuite.java类</h3>
+<p>在密码算法组件枚举类中添加国密的几个组件，如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Add GM cipher suites below:</span></span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_SM3(<span class="number">0xE102</span>),</span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_GCM_SM3(<span class="number">0xE107</span>),</span><br><span class="line"><span class="comment">// RSA</span></span><br><span class="line">RSA_SM4_CBC_SM3(<span class="number">0xE019</span>),</span><br><span class="line">RSA_SM4_GCM_SM3(<span class="number">0xE059</span>),</span><br><span class="line">RSA_SM4_CBC_SHA256(<span class="number">0xE01c</span>),</span><br><span class="line">RSA_SM4_GCM_SHA256(<span class="number">0xE05a</span>),</span><br><span class="line"><span class="comment">// IBSDH &amp;&amp; IBC --&gt; SM9</span></span><br><span class="line">IBSDH_SM4_CBC_SM3(<span class="number">0xE015</span>),</span><br><span class="line">IBSDH_SM4_GCM_SM3(<span class="number">0xE055</span>),</span><br><span class="line">IBC_SM4_CBC_SM3(<span class="number">0xE017</span>),</span><br><span class="line">IBC_SM4_GCM_SM3(<span class="number">0xE057</span>),</span><br><span class="line"><span class="comment">// ECC &amp;&amp; ECDHE --&gt; SM2</span></span><br><span class="line">ECC_SM4_CBC_SM3(<span class="number">0xE013</span>),</span><br><span class="line">ECC_SM4_GCM_SM3(<span class="number">0xE053</span>),</span><br><span class="line">ECDHE_SM4_CBC_SM3(<span class="number">0xE011</span>),</span><br><span class="line">ECDHE_SM4_GCM_SM3(<span class="number">0xE051</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="AlgorithmResolver-java类">AlgorithmResolver.java类</h3>
+<p>在方法getKeyExchangeAlgorithm(CipherSuite cipherSuite)中添加针对国密算法组件“ECDHE_SM4_CBC_SM3”的密钥交换算法if判断语句，如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GM TLS: ECDHE_SM2</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (cipher.startsWith(<span class="string">&quot;ECDHE_&quot;</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> KeyExchangeAlgorithm.ECDHE_SM2;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (cipher.startsWith(<span class="string">&quot;ECC_&quot;</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> KeyExchangeAlgorithm.ECC_SM2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="KeyExchangeAlgorithm-java类">KeyExchangeAlgorithm.java类</h3>
+<p>在枚举中添加密钥交换算法ECDHE_SM2，其中ECDHE是密钥交换算法，SM2是证书签名算法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GM: SM2</span></span><br><span class="line">ECDHE_SM2,</span><br><span class="line">ECC_SM2;</span><br></pre></td></tr></table></figure>
+<h2 id="TLS-Attacks模块的修改">TLS-Attacks模块的修改</h2>
+<h3 id="PaddingOracleCommandConfig-java类">PaddingOracleCommandConfig.java类</h3>
+<p>在<code>createConfig(Config config)</code>方法中将密码组件替换成了两个国密算法组件，如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Add GM cipher suites to the test list of PO cipher suites:</span></span><br><span class="line">cipherSuites.add(CipherSuite.ECC_SM4_CBC_SM3);</span><br><span class="line">cipherSuites.add(CipherSuite.ECDHE_SM4_CBC_SM3);</span><br><span class="line"><span class="comment">// cipherSuites.add(CipherSuite.ECC_SM4_GCM_SM3);</span></span><br><span class="line"><span class="comment">// cipherSuites.add(CipherSuite.ECDHE_SM4_GCM_SM3);</span></span><br><span class="line"><span class="comment">// cipherSuites.add(CipherSuite.IBSDH_SM4_CBC_SM3);</span></span><br><span class="line"><span class="comment">// cipherSuites.add(CipherSuite.IBSDH_SM4_GCM_SM3);</span></span><br><span class="line"><span class="comment">// cipherSuites.add(CipherSuite.IBC_SM4_CBC_SM3);</span></span><br><span class="line"><span class="comment">// cipherSuites.add(CipherSuite.IBC_SM4_GCM_SM3);</span></span><br></pre></td></tr></table></figure>
+<h1>TLS-ATTACkER框架添加GMSSL（前版本的修改-失效❌）</h1>
+<blockquote>
+<p>❗️❗️❗️从TLS-Attacker的Github官网更新了TLS-Attacker所有源文件，所有之前的修改在以前的TLS-Attacker框架上，现在对新的框架进行修改，桌面的TLS-Attacker项目文件❗️❗️❗️</p>
+</blockquote>
+<h2 id="TLS-CORE模块的修改">TLS-CORE模块的修改</h2>
+<h3 id="AlgorithmResolver-java">AlgorithmResolver.java</h3>
+<p>密码组件和密码算法解析</p>
+<p>1.获得PRF算法（伪随机数算法）：getPRFAlgorithm()方法</p>
+<p>添加<code>SM3杂凑算法</code>识别</p>
+<p>2.获得摘要算法：getDigestAlgorithm()方法</p>
+<p>添加<code>SM3摘要算法</code>识别</p>
+<p>3.获取密钥交换算法：getKeyExchangeAlgorithm()方法</p>
+<p>添加<code>ECDHE_SM2</code>和<code>ECC_SM2</code>的SM2密钥交换算法识别</p>
+<p>4.获取证书密钥类型：getCertificateKeyType()方法</p>
+<p>添加<code>SM2</code>证书识别</p>
+<p>5.获取公钥加密算法：getRequiredKeystoreAlgorithms()方法</p>
+<p>添加<code>SM2</code>公钥算法识别</p>
+<p>6.获取对称加密算法：getCipher()方法</p>
+<p>添加<code>SM4_CBC</code>对称加密算法识别</p>
+<p>7.获取批量加密算法：getBulkCipherAlgorithm()方法</p>
+<p>在<code>BulkCipherAlgorithm.java</code>类中添加<code>SM4</code>支持</p>
+<p>8.获取加密类型：getCipherType()方法</p>
+<p>添加<code>SM4</code>和<code>SMS4</code>识别到分组密码中</p>
+<p>9.获取MAC算法：getMacAlgorithm()方法</p>
+<p>添加<code>SM3</code>算法的识别</p>
+<p>10.获取HKDF算法：getHKDFAlgorithm()方法</p>
+<p>添加<code>SM3</code>的HKDF算法识别</p>
+<h3 id="BulkCipherAlgorithm-java（批量对称加密算法）">BulkCipherAlgorithm.java（批量对称加密算法）</h3>
+<p>添加了<code>SM4</code>的国密对称加密算法</p>
+<h3 id="CipherAlgorithm-java（对称加密算法-分组大小-加密模式）">CipherAlgorithm.java（对称加密算法+分组大小+加密模式）</h3>
+<p>添加<code>SM4-CBC</code>的加密模式，包括密钥大小，初始向量的大小，记录大小，分块大小</p>
+<h3 id="PRFAlgorithm-java">PRFAlgorithm.java</h3>
+<p>添加<code>TLS_PRF_SM3(MacAlgorithm.SM3)</code>的PRF伪随机函数算法</p>
+<h3 id="MacAlgorithm-java">MacAlgorithm.java</h3>
+<p>添加<code>SM3</code>的MAC算法</p>
+<p>注释：SM3主要用于<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D">数字签名</a>及验证、<a href="https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E8%AE%A4%E8%AF%81%E7%A0%81">消息认证码</a>生成及验证、随机数生成等，其算法公开[<a href="https://zh.wikipedia.org/wiki/SM3#cite_note-oscca_1199-5">5]</a>[<a href="https://zh.wikipedia.org/wiki/SM3#cite_note-6">6]</a>，安全性及效率与<a href="https://zh.wikipedia.org/wiki/SHA-2">SHA-256</a>相当</p>
+<h3 id="CipherSuite-java">CipherSuite.java</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GmSSL CipherSuites  添加GM的8个密码组件</span></span><br><span class="line"><span class="comment">//TLS_ECDHE_SM4_SM3(0xE011),</span></span><br><span class="line"><span class="comment">//TLS_ECC_SM4_SM3(0xE013),</span></span><br><span class="line"><span class="comment">//TLS_IBSDH_SM4_SM3(0xE015),</span></span><br><span class="line"><span class="comment">//TLS_IBC_SM4_SM3(0xE017),</span></span><br><span class="line"><span class="comment">//TLS_RSA_SM4_SM3(0xE019),</span></span><br><span class="line"><span class="comment">//TLS_RSA_SM4_SHA1(0xE01a),</span></span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_SM3(<span class="number">0xE102</span>),</span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_GCM_SM3(<span class="number">0xE107</span>),</span><br><span class="line">TLS_ECC_SM2_WITH_SM4_CBC_SM3(<span class="number">0xE109</span>),</span><br><span class="line">TLS_ECDHE_SM2_WITH_SM4_CBC_SM3(<span class="number">0xE111</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加GmSSL支持</span></span><br><span class="line"><span class="comment">//list.add(TLS_ECDHE_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_ECC_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_IBSDH_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_IBC_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_RSA_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_RSA_SM4_SHA1);</span></span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SMS4_SM3);</span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SMS4_GCM_SM3);</span><br><span class="line">list.add(TLS_ECC_SM2_WITH_SM4_CBC_SM3);</span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SM4_CBC_SM3);</span><br></pre></td></tr></table></figure>
+<p>添加方法<code>usesSM3()</code>识别密码组件最后用的是SM3杂凑算法</p>
+<h3 id="DigestAlgorithm-java">DigestAlgorithm.java</h3>
+<p>摘要算法，添加<code>SM3</code>的摘要算法</p>
+<h3 id="KeyExchangeAlgorithm-java">KeyExchangeAlgorithm.java</h3>
+<p>密钥交换算法，添加<code>ECDHE_SM2</code>和<code>ECC_SM2</code>的SM2密钥交换算法</p>
+<h3 id="CertificateKeyType-java">CertificateKeyType.java</h3>
+<p>证书密钥类型，添加<code>SM2</code>证书类型</p>
+<h3 id="PublicKeyAlgorithm-java">PublicKeyAlgorithm.java</h3>
+<p>公钥算法类型，添加<code>SM2</code>公钥算法</p>
+<h3 id="HKDFAlgorithm-java">HKDFAlgorithm.java</h3>
+<p>HMAC-based Extract-and-Expand Key Derivation Function (HKDF)：基于HAMC的密钥派生函数</p>
+<p>还不知道<code>SM3</code>是否支持HKDF算法，<strong>？？？</strong>，有待查证</p>
+<p>已添加<code>TLS_HKDF_SM3</code>的SM3支持</p>
+<h2 id="TLS-ATTACKs模块的修改">TLS-ATTACKs模块的修改</h2>
+<h3 id="PaddingOracleCommandConfig-java">PaddingOracleCommandConfig.java</h3>
+<p>在重写的类createConfig(Config config)中添加GM密码组件支持</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">cipherSuites.add(CipherSuite.TLS_ECDHE_SM2_WITH_SM4_CBC_SM3);    <span class="comment">//添加GmSSL的CBC密码组件支持</span></span><br><span class="line">cipherSuites.add(CipherSuite.TLS_ECC_SM2_WITH_SM4_CBC_SM3);</span><br></pre></td></tr></table></figure>
+<h2 id="Blog-TLS-Attacker">Blog/TLS-Attacker</h2>
+<p><a href="https://web-in-security.blogspot.com/2019/03/playing-with-tls-attacker.html">On Web-Security and -Insecurity:Playing with TLS-Attacker</a>: 讲述了TLS-Attacker的工作流运行方式，xml文件如何编写创建</p>
+<ol>
+<li><em><strong>-config</strong></em>配置文件：配置一些密码组件，协议版本；该框架默认的config文件<a href="https://github.com/tls-attacker/TLS-Attacker/blob/master/TLS-Core/src/main/resources/default_config.xml">default_config.xml</a>，可以根据默认配置文件修改其中的一些东西。</li>
+<li><em><strong>-workflow_input</strong></em>配置文件：自定义SendAction和ReceiveAction，也即自定义TLS协议的过程需要哪些包，例如ClientHello、ServerHello；默认的workflowtrace文件<a href="https://gist.github.com/ic0ns/2475e6d514b5b117bbd7ac6826516de6#file-tls-attacker2-0-trace-xml">workflowtrace.xml</a>。</li>
+<li><em><strong>-workflow_output</strong></em>：输出整个流传输的过程</li>
+</ol>
+<p>Web-in-Security官网的PO漏洞和TLS-Attacker框架相关文章：</p>
+<ol>
+<li>
+<p><a href="https://web-in-security.blogspot.com/2016/05/curious-padding-oracle-in-openssl-cve.html">Curious Padding oracle in OpenSSL (CVE-2016-2107)</a>：2016年5月的文章，就简单讲述了一下PO漏洞</p>
+</li>
+<li>
+<p><a href="https://web-in-security.blogspot.com/2017/12/tls-attacker-v22-and-robot-attack.html">TLS-Attacker v2.2 and the ROBOT attack</a>：2017年12月的文章，简单讲了一下ROBOT攻击</p>
+</li>
+<li>
+<p><a href="https://web-in-security.blogspot.com/2019/03/playing-with-tls-attacker.html">Playing with TLS-Attacker</a>：2019年3月的文章，讲述了TLS-Attacker的工作流运行方式，xml文件如何编写创建；主要是config、workflow_input的一些xml文件处理，怎么自定义</p>
+</li>
+<li>
+<p><a href="https://web-in-security.blogspot.com/2019/03/scanning-for-padding-oracles.html">Scanning for Padding Oracle</a>：2019年3月的文章，下图是几类错误的向量</p>
+<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210529101458444.png" alt=""></p>
+</li>
+<li>
+<p><a href="https://web-in-security.blogspot.com/2019/05/scanning-tls-server-configurations-with.html">Scanning TLS Server Configurations with Burp Suite</a>：2019年5月的文章，讲述了TLS-Scanner的使用</p>
+</li>
+</ol>
+<p>一个在线SSL服务器检测工具：<a href="https://www.ssllabs.com/ssltest/">SSLabs: SSL Server Test</a></p>
+<p>RUB大学的<a href="https://www.nds.ruhr-uni-bochum.de/chair/news/">网络和数据安全实验室官网</a></p>
+<p><a href="https://www.hackmanit.de/en/">HACKMANIT</a>: Your Specialist for Web Security and Cryptography</p>
+<p>nds.rub.de学校官网的<a href="https://mvnrepository.com/artifact/de.rub.nds">Maven仓库</a>，如下图所示：</p>
+<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528212214813.png" alt=""></p>
+<p><a href="https://robotattack.org">The ROBOT Attack</a>：Return Of Bleichenbacher’s Oracle Threat</p>
+<h2 id="论文第5-2节：高级概述">论文第5.2节：高级概述</h2>
+<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528150815213.png" alt=""></p>
+<p>TLS-攻击者分为多个Maven模块(参见上图)。</p>
+<ol>
+<li>可修改变量的概念位于单独的<em><strong>ModifiableVariable</strong></em>模块中，以便进一步的应用程序可以从其功能中获益。</li>
+<li><em><strong>Transport</strong></em>模块包含用于TCP和UDP的传输处理实用程序。</li>
+<li>核心模块是<em><strong>TLS</strong></em>，它包含一个TLS协议实现。这将被分成更多的包。</li>
+<li><em><strong>protocol</strong></em>包包含协议消息及其处理程序。</li>
+<li><em><strong>workflow</strong></em>包包含灵活的协议流实现，允许用户定义任意的消息顺序。<br>
+上图描述了更多相关的包。</li>
+<li><em><strong>Attacks</strong></em>和<em><strong>Fuzzer</strong></em>模块基于TLS功能，并定义了几种TLS攻击和模糊技术。</li>
+<li><em><strong>TestSuite</strong></em>模块定义了一个可扩展的TLS测试套件。</li>
+</ol>
+<p>TLS-Attacker当前实现了TLS 1.0、1.1、1.2和DTLS 1.2协议版本以及客户端功能，包括客户端身份验证。此外，它还实现了以下功能：</p>
+<ol>
+<li><strong>密钥交换算法</strong>：RSA，ECDH（E），DH（E）</li>
+<li><strong>加密算法</strong>：AES-CBC，3DES-CBC</li>
+<li><strong>扩展</strong>：EC，EC点格式[22]，Heartbeat [50]，最大碎片长度[31]， 服务器名称指示（SNI）[31]，签名和哈希算法</li>
+</ol>
+<h2 id="论文第5-3节：TLS模块">论文第5.3节：TLS模块</h2>
+<p>TLS是TLS-Attacker的核心模块。它使用可修改的变量和来自Transport模块的传输处理程序实现了完整的TLS功能。它完全依赖于标准Java加密提供程序和Bouly Castle库(1.54版)提供的加密功能。</p>
+<p>TLS模块分为几个包。<em><strong>config</strong></em>包包含用于TLS协议配置的类。TLS常量(密码套件、密钥交换算法、警报)在<em><strong>constants</strong></em>包中定义。<em><strong>crypto</strong></em>包包含TLS特定的加密功能，这些功能扩展了Java加密提供程序的基本行为。</p>
+<p><em><strong>protocol</strong></em>包实现TLS协议消息及其处理程序。每个协议消息由处理程序(负责消息处理)和消息状态(表示TLS消息的当前状态)定义。例如，<em><strong>handshake</strong></em>包包含<strong>HandshakeMessageHandler</strong>和<strong>HandshakeMessage</strong>类。抽象类<strong>HandshakeMessage</strong>包含所有握手消息(例如握手消息类型)使用的通用握手变量。<strong>ClientHelloMessage</strong>扩展了<strong>HandshakeMessage</strong>，并包括特定于<strong>ClientHello</strong>的变量，如密码套件数组或密码套件长度。请注意，所有这些变量都是可修改的，以实现高灵活性。握手消息的处理由<strong>HandshakeMessageHandler</strong>类提供。每个处理程序（handler）实现两个函数：发送TLS消息时使用的<strong>preparareMessage</strong>和解析传入消息时使用的<strong>parseMessage</strong>。</p>
+<p>对于<em><strong>record</strong></em>包中定义的TLS记录处理，实现了类似的处理程序和消息概念。</p>
+<p><em><strong>workflow</strong></em>包包含TLS协议执行器（executor）。TLS协议的执行仅取决于定义的TLS消息。TLS执行器将协议消息列表作为输入，搜索适当的消息处理程序，并让它们处理定义的消息。这种方法有两个显著的优势：</p>
+<ol>
+<li>TLS攻击者只需设置特定的TLS消息，即可定义任意消息顺序的自定义TLS协议流。</li>
+<li>可以存储处理后的TLS协议流以供进一步分析或甚至用于可重复执行。</li>
+</ol>
+<h2 id="论文第5-4节：使用TLS-Attacker接口">论文第5.4节：使用TLS-Attacker接口</h2>
+<p>在下一节中，我们将介绍如何使用TLS-Attacker接口构建自定义协议消息流，以检测Bleichenbacher攻击的漏洞。我们选择此攻击作为示例，因为它需要对TLS协议功能进行深度干预，包括修改纯填充预主密码。</p>
+<p><strong>用差不多10行代码检测Bleichenbacher’s Oracle</strong>：TLS-Attacker的设计支持对新攻击的简单定义。以下示例显示了通过显式设置填充的预主密码的明文值的自定义协议流。此代码可用于评估针对Bleichenbacher攻击的对策的正确性[23]。</p>
+<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528154828457.png" alt=""></p>
+<p>通过设置自定义预主密码，安全工程师强制TLS-Attacker使用此自定义值执行TLS握手。使用不同的Premaster秘密值执行TLS握手可以触发不同的服务器行为，从而揭示出可用于执行Bleichenbacher攻击的Oracle。请注意，使用公共TLS库构建这样的协议流需要对该库有深入的了解。另一方面，使用TLS-Attacker，安全工程师可以轻松地使用TLS-Attacker接口来定义具有特定消息修改的新协议流，并将其嵌入到他们的测试套件中。</p>
+<p>不仅仅是对Java开发人员而言。方便的XML序列化。不需要开发Java来构建带有自定义修改的任意协议流。相反，我们决定使用JAXB(Java Architecture For XML Binding)[3]来序列化和反序列化TLS协议流。这允许开发人员使用简单的XML文档定义与上面相同的协议流：</p>
+<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528155400976.png" alt=""></p>
+<p><img src="/images/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/image-20210528155424340.png" alt=""></p>
+]]></content>
+      <tags>
+        <tag>github project</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TLS-Scanner项目</title>
+    <url>/2021/07/15/TLS-Scanner%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>github project</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TLS1.2 RFC-5246文档学习</title>
+    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
+<ul>
+<li><strong>文章结构请看右边的目录</strong>👉</li>
+</ul>
+<p>文档指定了TLS协议的1.2版本，与TLS协议的1.1版本进行了对比，同时对1.2版本做了详细的介绍。</p>
+<h1>介绍</h1>
+<p>TLS协议由两层组成：TLS握手协议TLS记录协议。其具有两个基本属性：连接私有（加密）和可靠（完整性检测-MAC）。</p>
+<p>TLS记录协议用于封装各种高层协议，TLS握手协议就是高层协议之一，如下图所示。TLS握手协议允许客户端和服务端在发送第一个字节的数据之前协商好双方的加密算法和密钥等关键要素。TLS握手协议具有的连接安全性：身份验证（公钥算法）、安全的共享密钥协商（无法MITM）和可靠的协商。</p>
+<p><img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/wpsRnVoNr.png" alt=""></p>
+<p>TLS协议是独立于应用程序协议的，如下图所示，更高级别的协议可以透明的覆盖在TLS协议之上。</p>
+<p><img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20210726193027796-7299029.png" alt=""></p>
+<h2 id="要求的专业术语">要求的专业术语</h2>
+<p>在<a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC-2119文档</a>中进行查看相关术语，比如“MUST”、“SHALL”、“SHOULD”等等。</p>
+<h2 id="与TLSv1-1的不同之处">与TLSv1.1的不同之处</h2>
+<p>主要是密码算法协商的改进，对TLSv1.1版本感兴趣的可以看看，这里省略。</p>
+<h1>目标</h1>
+<p>TLS协议被应用的目标，4个点，优先级往下依次是：密码安全、互操作性、可拓展性（框架加其他算法和公钥等等）、相对效率。</p>
+<h1>此文档的目标</h1>
+<p>该文档主要面向两类人：想要实现该协议的人和进行密码分析的人。因此许多依赖于算法的数据结构和规则在文档中就可以看到。此外该文档不提供服务或则接口定义的相关细节，这也可以说是为了安全着想。</p>
+<h1>文档展示的编程语言</h1>
+<p>文档用的是类“C”的语言语法，仅适用于此文档。</p>
+<h2 id="基础块的大小">基础块的大小</h2>
+<p>基本数据块大小是1个字节8比特，也就是1Byte=8bits。</p>
+<h2 id="其他定义">其他定义</h2>
+<p>注释表达“/*    */”；可选项用两个双括号定义“[[    ]]”</p>
+<h2 id="向量">向量</h2>
+<h2 id="数组">数组</h2>
+<h2 id="枚举">枚举</h2>
+<h2 id="结构体类型">结构体类型</h2>
+<h3 id="结构体变体">结构体变体</h3>
+<h2 id="加密属性">加密属性</h2>
+<h2 id="常量">常量</h2>
+<h1>HMAC和伪随机函数</h1>
+<p>TLS记录层使用带有密钥的MAC（消息认证码）来保证消息的完整性。PRF（伪随机函数）将秘密（secret）、种子（seed）和识别标签（A(i)）作为输入，然后产生任意长度的输出。在本节中，基于HMAC定义一个PRF。</p>
+<p>首先定一个数据扩展函数P_hash(secret, data)，公式计算如下，其中HMAC_hash()是散列函数，它拓展一个secret和seed来得到任意长度的输出。其中“+”表示数据之间的串联，A(i)函数的定义是：A(0)=seed, A(i)=HMAC_hash(secret, A(i-1)).</p>
+<p>P_-hash(secret, seed) = HMAC_-hash(secret, A(1) + seed) + \HMAC_-hash(secret, A(2) + seed) +\<br>
+HMAC_-hash(secret, A(3) + seed) + …</p>
+<p><em>Example:</em> 利用上述函数产生特定长度的数据。如果HMAC_hash()函数是P_SHA256()，一个该函数产生32字节，也就是256比特长度的数据，现在要产生一个80字节长度的数据，则需要用P_SHA256()函数迭代3次到A(3)最终产生96字节长度的数据，这时把最后16字节去除，剩下的80字节数据即为所得数据。</p>
+<p>TLS协议的PRF函数通过P_hash加入密钥参数来创建，如下公式所示。其中label参数是ASCII字符串，</p>
+<p>PRF(secret, label, seed) = P_-<hash>(secret, label + seed)</p>
+<p><em>Example:</em> 字符串中间带有空格的话，也需要讲空格转换成ASCII值，也即转换为0x20的十六进制表达。</p>
+<h1>TLS记录协议</h1>
+<p>TLS记录协议传输消息，首先对数据进行分块，然后可选的进行压缩，接下来加上MAC字段，最后加密后进行传输发送。记录协议接收消息就是反过来，解密、验证、解压缩、重组，然后发送给更高级别的客户端。</p>
+<p>该文档描述了4种使用记录协议的协议：握手协议（Handshake）、警报协议（Alert）、更改密码规范协议（ChangeCipherSpec）和应用数据协议（Application Data）。</p>
+<p>同时为了TLS协议的扩展，记录协议可以支持附加内容，而该内容的规范和值在后面第12节讲述。所以当TLS协议接收到意外的记录类型，将会发送一个“unexpected_message”警报。</p>
+<h2 id="连接状态">连接状态</h2>
+<p>TLS的连接状态就是TLS记录协议的操作环境，它指定了压缩算法、加密算法和MAC算法，除此之外，这些算法的参数都是已知的。逻辑上来说，现在又4种突出的连接状态：当前读状态和当前写状态、挂起读状态和挂起写状态。所有记录在当前读写状态下进行，通过后面提供的值来设置TLS连接读写状态的安全参数：连接端类型（server或client）、PRF算法、大量数据加密算法、MAC算法、压缩算法、主密钥（48字节）、客户端随机数（32字节）、服务器随机数（32字节）。</p>
+<p>TLS记录层通过使用安全的参数来生成下面6个项的值：客户端和服务器的写入MAC值、加密值、向量IV。服务器在接收和处理记录时使用客户端的写入参数，反之亦然。用于生成上面6个项的值的算法在后面6.3节中描述介绍。</p>
+<p>每个连接状态包含以下参数：压缩状态、密码状态、MAC密钥、序列号。</p>
+<h2 id="记录层">记录层</h2>
+<p>TLS记录层以非空任意长度块的形式接收高层协议的未解释数据。</p>
+<h3 id="分段">分段</h3>
+<p>记录层将信息块分段为TLSPlainText记录，其中Application Data的数据长度可以是0字节，但是其他三个协议的数据长度不能为0字节。协议版本、记录内容类型和TLSPliaintext的数据结构和枚举类型定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      uint8 major;</span><br><span class="line">      uint8 minor;</span><br><span class="line">&#125; ProtocolVersion;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line">      change_cipher_spec(<span class="number">20</span>), alert(<span class="number">21</span>), </span><br><span class="line">      handshake(<span class="number">22</span>), application_data(<span class="number">23</span>), (<span class="number">255</span>)</span><br><span class="line">&#125; ContentType;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      ContentType type;</span><br><span class="line">      ProtocolVersion version;</span><br><span class="line">      uint16 length;</span><br><span class="line">      opaque fragment[TLSPlaintext.length];</span><br><span class="line">&#125; TLSPlaintext;</span><br></pre></td></tr></table></figure>
+<h3 id="记录压缩和解压缩">记录压缩和解压缩</h3>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc3749">RFC-3749</a>文档介绍了TLS的压缩算法。</p>
+<p>TLSPlaintext经过压缩之后就会变成TLSCompressed的结构体类型，TLSCommpressed消息类型的结构体定义如下所示：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      ContentType type; <span class="comment">/* same as TLSPlaintext.type */</span> </span><br><span class="line">      ProtocolVersion version;<span class="comment">/* same as TLSPlaintext.version */</span> </span><br><span class="line">      uint16 length;</span><br><span class="line">      opaque fragment[TLSCompressed.length];</span><br><span class="line">&#125; TLSCompressed;</span><br></pre></td></tr></table></figure>
+<h3 id="记录载荷保护（加密和认证）">记录载荷保护（加密和认证）</h3>
+<p>加密和MAC将TLSCompressed消息结构转换为TLSCiphertext结构类型，TLSCiphertext的结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      ContentType type;</span><br><span class="line">      ProtocolVersion version;</span><br><span class="line">      uint16 length;</span><br><span class="line">      select (SecurityParameters.cipher_type) &#123;</span><br><span class="line">              <span class="keyword">case</span> stream: GenericStreamCipher;</span><br><span class="line">              <span class="keyword">case</span> block:  GenericBlockCipher;</span><br><span class="line">              <span class="keyword">case</span> aead:   GenericAEADCipher;</span><br><span class="line">      &#125; fragment;</span><br><span class="line">&#125; TLSCiphertext;</span><br></pre></td></tr></table></figure>
+<h4 id="空或者标准流密码">空或者标准流密码</h4>
+<h4 id="CBC分组密码">CBC分组密码</h4>
+<h4 id="AEAD密码">AEAD密码</h4>
+<h2 id="密钥计算">密钥计算</h2>
+<p>通过TLS握手协议得到的相关安全参数以及算法来生成各种密钥。对主密钥进行拓展，可以拓展出客户端/服务器写入MAC密钥、客户端/服务器写入加密密钥。注意有些AEAD加密方式可能会要另外生成客户端/服务器写入IV（向量）。</p>
+<p>当密钥和MAC密钥生成之后，主密钥将作为一个墒源。通过下面的计算方式来得到密钥材料，直到得到足够的输出：</p>
+<p>key_block = PRF(SecurityParameters.master_secret, “key expansion”,</p>
+<p>SecurityParameters.server_random + SecurityParameters.client_random);</p>
+<p>然后将上面得到的key_block密钥进行分块，分别得到下面的密钥块：</p>
+<p>client_write_MAC_key[SecurityParameters.mac_key_length] server_write_MAC_key[SecurityParameters.mac_key_length] client_write_key[SecurityParameters.enc_key_length] server_write_key[SecurityParameters.enc_key_length] client_write_IV[SecurityParameters.fixed_iv_length] server_write_IV[SecurityParameters.fixed_iv_length]</p>
+<p>例子：当前需要数据长度最长的密码组件是AES_256_CBC_SHA256，该密码组件需要2个32字节长度的密钥和2个32字节长度的MAC密钥。</p>
+<h1>TLS握手协议</h1>
+<p>TLS握手协议负责协商会话，包括以下组成：会话标识符、对等证书、压缩方式、密码组件及规范、主密钥、会话恢复。</p>
+<h2 id="变更密码规范协议">变更密码规范协议</h2>
+<p>该协议是为用信号通知加密策略中的转换。在当前连接状态下进行加密和压缩（注意无填充），其协议值为1，结构体如下所示：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      <span class="class"><span class="keyword">enum</span> &#123;</span> change_cipher_spec(<span class="number">1</span>), (<span class="number">255</span>) &#125; type;</span><br><span class="line">&#125; ChangeCipherSpec;</span><br></pre></td></tr></table></figure>
+<p>客户端和服务器端都发送ChangeCipherSpec消息，告知对方将使用协商好的CipherSpec和密钥进行通信。具体的状态转换参考第6.1节（连接状态）。ChangeCipherSpec消息的发送在握手协商之后，在Finished消息之前。</p>
+<h2 id="警报协议">警报协议</h2>
+<p>警报就是其字面意思，在会话发生错误时发送相应的警报消息。警报消息也是在当前连接状态下进行加密和压缩。其各种枚举类型和结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span> warning(<span class="number">1</span>), fatal(<span class="number">2</span>), (<span class="number">255</span>) &#125; AlertLevel;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line">  close_notify(<span class="number">0</span>),</span><br><span class="line">  unexpected_message(<span class="number">10</span>), </span><br><span class="line">  bad_record_mac(<span class="number">20</span>), </span><br><span class="line">  decryption_failed_RESERVED(<span class="number">21</span>), </span><br><span class="line">  record_overflow(<span class="number">22</span>), </span><br><span class="line">  decompression_failure(<span class="number">30</span>), </span><br><span class="line">  handshake_failure(<span class="number">40</span>), </span><br><span class="line">  no_certificate_RESERVED(<span class="number">41</span>), </span><br><span class="line">  bad_certificate(<span class="number">42</span>), </span><br><span class="line">  unsupported_certificate(<span class="number">43</span>), </span><br><span class="line">  certificate_revoked(<span class="number">44</span>), </span><br><span class="line">  certificate_expired(<span class="number">45</span>), </span><br><span class="line">  certificate_unknown(<span class="number">46</span>), </span><br><span class="line">  illegal_parameter(<span class="number">47</span>), </span><br><span class="line">  unknown_ca(<span class="number">48</span>), </span><br><span class="line">  access_denied(<span class="number">49</span>), </span><br><span class="line">  decode_error(<span class="number">50</span>), </span><br><span class="line">  decrypt_error(<span class="number">51</span>),</span><br><span class="line">  export_restriction_RESERVED(<span class="number">60</span>), </span><br><span class="line">  protocol_version(<span class="number">70</span>), </span><br><span class="line">  insufficient_security(<span class="number">71</span>), </span><br><span class="line">  internal_error(<span class="number">80</span>), </span><br><span class="line">  user_canceled(<span class="number">90</span>), </span><br><span class="line">  no_renegotiation(<span class="number">100</span>), </span><br><span class="line">  unsupported_extension(<span class="number">110</span>), (<span class="number">255</span>)</span><br><span class="line">&#125; AlertDescription;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">  AlertLevel level;</span><br><span class="line">  AlertDescription description;</span><br><span class="line">&#125; Alert;</span><br></pre></td></tr></table></figure>
+<h3 id="关闭警报">关闭警报</h3>
+<p>客户端和服务器任何一方都可以通过close_notify(0)消息来中断会话连接。</p>
+<h3 id="错误警报">错误警报</h3>
+<p>TLS协议中的错误处理非常简单，定义了上面结构体中的错误，这里讲述一下handshake_failure(40)错误警报，这个错误表示发送方在所给定可选的情况下无法协商一组可以接受的安全参数，同时这也是一个致命错误。</p>
+<p>新的警报定义及值将有IANA（互联网号码分配局）分配，详细见后面第12节。</p>
+<h2 id="握手协议概述">握手协议概述</h2>
+<p>该协议运行在TLS记录协议之上，协商协议版本、密码组件、加密算法，进行可选的相互验证以及生成共享密钥。</p>
+<p>TLS握手协议包括以下步骤：</p>
+<ol>
+<li>交换Hello Message，就算法达成一致，交换随机数，并检查会话恢复；</li>
+<li>交换必要的加密参数，允许客户端和服务器就预主密钥达成一致；</li>
+<li>交换证书和加密信息，允许客户端和服务器进行自身身份验证；</li>
+<li>从预主密钥生成主密钥并交换随机数；</li>
+<li>向TLS记录层提供安全参数；</li>
+<li>允许客户端和服务器验证对等方是否计算了安全正确的参数，以及判断握手是否被篡改。</li>
+</ol>
+<p>如下图所示，为TLS握手协议的流程，其中*表示可选消息：<br>
+<img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20210731164643586-7721205.png" alt=""></p>
+<p>注意：其中ChangeCipherSpec消息是一个独立的TLS协议内容类型，是为了避免管道停滞，并不是TLS握手协议消息，注意区分。</p>
+<p>关于会话恢复，客户端将要回复的会话ID发送给服务器，服务器检查缓存是否匹配一次来判断是否恢复会话，流程如下所示：</p>
+<p><img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20210731165408582-7721650.png" alt=""></p>
+]]></content>
+      <tags>
+        <tag>RFC6246</tag>
+        <tag>TLS1.2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>「送你一朵小红花」</title>
     <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
     <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg" alt=""></p>
@@ -739,365 +804,6 @@ HMAC_-hash(secret, A(3) + seed) + ...
       </tags>
   </entry>
   <entry>
-    <title>国密算法/协议/工控</title>
-    <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
-    <content><![CDATA[<h1>国密标准</h1>
-<p>关注<a href="http://www.scctc.org.cn/index.aspx">国家商用密码检测中心</a>和<a href="http://openstd.samr.gov.cn/bzgk/gb/">国家标准全文公开系统</a>和<a href="http://std.samr.gov.cn/">全国标准信息公共服务平台</a>以及<a href="https://www.oscca.gov.cn/sca/index.shtml">国家密码管理局</a>和<a href="https://www.cacrnet.org.cn/">中国密码学会</a>和<a href="http://www.gmbz.org.cn/main/index.html">密码行业标准化技术委员会</a>发布的标准。</p>
-<p>🌟🌟🌟注意：<strong>GMT_0024-2014</strong>关于GM的SSL VPN标准已经是2015年的标准，现在2020-11-01已经出台新的标准，也就是<a href="http://c.gb688.cn/bzgk/gb/showGb?type=online&amp;hcno=778097598DA2761E94A5FF3F77BD66DA"><strong>GB/T 38636-2020</strong></a>标准（TLCP-传输层密码协议），其中关于密码组件有了新的描述和值，如下图所示：<br>
-<img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/image-20210713210116996.png" alt=""></p>
-<p>同时，我国的<strong>SM2/3/4/9</strong>已经成为了<strong>ISO/IEC</strong>的标准，以后应用更加广泛</p>
-<p>关于商密和RFC的一些标准文档：<a href="https://www.rfc-editor.org/rfc/rfc8998.html">RFC-8998</a>:ShangMi (SM) Cipher Suites for TLS 1.3</p>
-<h1>国密SSL/TLS</h1>
-<p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
-<p>一个在线工具：<a href="https://myssl.com/">SSL/TLS安全评估报告-在线网站检测</a>。其支持国密HTTPS的检测分析。</p>
-<p>江南天安<a href="https://github.com/jntass">Github主页-jntass</a>：提供源码下载和Nginx服务器的安装。</p>
-<p><a href="http://gmssl.org/">GmSSL</a>：支持国密的密码工具箱，GmSSL作者关志教授的Github主页：<a href="https://github.com/guanzhi">GmSSL-guanzhi</a>。其中关志教授将<a href="https://github.com/guanzhi/GM-Standards">GM-Standards</a>都列了出来，所有国密行业的标准pdf。</p>
-<p><a href="https://www.doubleca.com/test_toIndexPage.action">大宝CA数字证书测试平台</a>（工具平台/Java/服务器）：该平台有Java国密算法基本组件（JSE），有Java国密SSL算法基础套件，有国密SSL规范的Tomcat组件，有国密SSL规范Nginx服务器。❌（网站未备案，说不定过段时间就可以了）</p>
-<p><a href="https://github.com/BabaSSL/BabaSSL">阿里巴巴的BabaSSL</a>，支持国密操作的OpenSSL开源项目，其<a href="https://codeup.openanolis.cn/codeup/crypto">代码库</a>。</p>
-<p><a href="https://github.com/mrpre/atls">ATLS</a>：A light TLS implementation used for learning: TLS 1.0 TLS 1.1 TLS 1.2 TLS 1.3 GMSSL 1.1(国密SSL) based on <a href="http://libcrypto.so">libcrypto.so</a>.</p>
-<h1>实验</h1>
-<h2 id="第一次GmSSL环境搭建实验（国密SSL实验室）：">第一次GmSSL环境搭建实验（国密SSL实验室）：</h2>
-<ul>
-<li><a href="https://developer.aliyun.com/article/770830">国密SSL协议之Nginx集成</a>：结合前面的<em>国密SSL实验室</em>进行，在CentOS 7环境上实验~~（失败）~~❌❌❌</li>
-</ul>
-<ol>
-<li>先在国密SSL实验室官网下载国密Web服务器：gmssl_openssl_1.1_b4.tar.gz</li>
-<li>在CentOS8虚拟机中，解压文件到/usr/local目录下面，解压后文件为/gmssl</li>
-<li>从Nginx官网下载Nginx：nginx-1.18.0.tar.gz，将conf中的OPENSSL位置进行更改（这里改文件出了一点小差错，还好看出来并解决了）</li>
-<li>从GMSSL中生成证书，然后开启nginx服务</li>
-<li>下载360极速浏览器，访问centos服务器的地址。出错误了，在这里访问CentOS的IP地址并不能成功进行访问。这里能正常访问http但是不能访问https，无论如何都不行，也不知道是不是浏览器的问题。无法解决，换一个环境。</li>
-</ol>
-<h2 id="第二次GmSSL环境搭建实验（GmSSL-关志教授）：">第二次GmSSL环境搭建实验（GmSSL-关志教授）：</h2>
-<ul>
-<li><a href="https://cloud.tencent.com/developer/article/1597165">搭建国密SSL开发测试环境</a>：结合前面的<em><strong>GmSSL-关志教师-Github</strong></em>进行，在CentOS 7环境上进行实验**（成功）**</li>
-</ul>
-<ol>
-<li>决定换一个，换成guanzhi的GmSSL环境搭建，试一下有无用，如果在不行，就换成TaSSL的环境。</li>
-<li>先安装CentOS 7，接下来安装相关软件，Openssl、Gcc、GmSSL，环境都搭建好了，且都能成功运行测试。</li>
-<li>接下来进行server的创建，然后本地连接服务器，进行国密SSL测试</li>
-<li>出了一个问题，就是提示libcrypto.so.1.1和libssl.so.1.1文件有问题。这里打算重新安装d版本的openssl试一下是否有错误。这次重装了一次GmSSL之后，就没有出现错误了。</li>
-<li>开始打开GmSSL的服务端，试一下国密浏览器是否能连接。</li>
-<li>又出现了一个问题，就是主机上并不能访问虚拟机openssl的ip地址，这就很奇怪了，能相互ping通，但是不能在主机浏览器上进行访问，但是能在虚拟机上对本地进行连接。尝试关闭虚拟机的防火墙之后，主机能对虚拟机进行正常访问。</li>
-<li>通过在Mac上下载GmBrowser并且访问CentOS服务器的地址，成功进行国密连接。</li>
-<li>接下来，使用TLS-Attacker和TLS-Scnner对本地环境进行测试。开始着手TLS-Attacker和TLS-Scanner的熟悉和编程修改优化。</li>
-</ol>
-<h2 id="第三次GMSSL环境搭建（国密SSL实验室）">第三次GMSSL环境搭建（国密SSL实验室）</h2>
-<p>结合前面的<em>国密SSL实验室</em>进行，在CentOS 7环境上实验（<s>失败</s>）❌❌❌</p>
-<p>主要是在外部服务器上进行搭建测试，这次测试了2种搭建（特殊：这个支持CBC模式）</p>
-<ol>
-<li>
-<p>Nginx（国密版）搭建（完成）</p>
-</li>
-<li>
-<p>Apache（国密版）搭建（完成）</p>
-</li>
-<li>
-<p>国密HTTPS在线Demo（完成），Demo如下图所示：</p>
-<p><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/%E5%9B%BD%E5%AF%86HTTPS%E5%9C%A8%E7%BA%BFDemo.png" alt="国密HTTPS在线Demo"></p>
-</li>
-</ol>
-<p>问题：能访问，但是Mac上用Wireshark抓包失败</p>
-<p>分析：服务器在国外，产生的流并不是直接指向服务器地址，而是在本地代理的环境下进行了转发。</p>
-<p>解决：找到本地代理的固定口，让流量只通过这个，不更换，更好的捕获流量（5.27中午吃饭之前要解决，然后TLS-Attacker底层）</p>
-<p>结果：代理是clash，不好更改，抓包不方便，该方案取消</p>
-<h2 id="第四次GmSSL环境搭建（百度云VPS主机）">第四次GmSSL环境搭建（百度云VPS主机）</h2>
-<p>算是失败的搭建，无法检测❌❌❌</p>
-<p>完成搭建，可以抓包</p>
-<p>下一步改TLS-Attacker框架，适应国密</p>
-<p>GmSSL实验室的Nginx实验室服务器的支持的密码组件是<strong>ECC-SM4-CBC-SM3、ECDHE-SM4-CBC-SM3、ECC-SM4-GCM-SM3、ECDHE-SM4-GCM-SM3</strong>，但是并不知道密码组件所代表的值，其中两个是CBC密码模式的组件。是否可以通过<strong>Wireshark</strong>来抓取服务器的包，然后知道其所代表的值（这估计是不行的）。</p>
-<h2 id="正式实验记录（第四次搭建实验）：">正式实验记录（第四次搭建实验）：</h2>
-<p>遇到的问题：Nginx服务器的密码组件格式是ECDHE-SM4-CBC-SM3形式，而正式标准规定TLS的密码组件格式为ECDHE_SM4_CBC_SM3（下划线分割）格式，GmSSL实验室的服务器是这样，不知道现在其他的服务器是否是如此规定。可以试图修改服务器的组件表达方式。</p>
-<p>找到了/usr/local/gmssl/lib目录下的libcrypto.a文件，解压之后发现了sm2、sm3等的obj类型文件，例如sm3.o文件，该文件不可读，打开是乱码，但是百度有方法可以解码后阅读。</p>
-<ul>
-<li>最终决定对现有服务器进行测试，再自己搭建服务器进行测试，测试记录如下：</li>
-</ul>
-<p>测试并记录带有GmTLS的服务器：测试工具<a href="https://myssl.com/">MySSL</a>和<a href="https://www.ssllabs.com">SSLLab</a>：</p>
-<table>
-<thead>
-<tr>
-<th>域名</th>
-<th>IP</th>
-<th>端口</th>
-<th>地区</th>
-<th>检测日期</th>
-<th>评级</th>
-<th>GmSSL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://106.12.214.59/">https://106.12.214.59/</a></td>
-<td>106.12.214.59</td>
-<td>443</td>
-<td></td>
-<td>07-15</td>
-<td>无</td>
-<td>❌</td>
-</tr>
-<tr>
-<td><a href="https://www.ovssl.cn">https://www.ovssl.cn</a></td>
-<td>180.163.248.215</td>
-<td>443</td>
-<td>上海</td>
-<td>07-15</td>
-<td><a href="https://myssl.com/www.ovssl.cn?port=443&amp;ip=180.163.248.215">A</a></td>
-<td>❌</td>
-</tr>
-<tr>
-<td><a href="https://sm2test.ovssl.cn">https://sm2test.ovssl.cn</a></td>
-<td>180.163.248.139</td>
-<td>443</td>
-<td>沃通</td>
-<td>07-15</td>
-<td><a href="https://myssl.com/sm2test.ovssl.cn?port=443&amp;ip=180.163.248.139">B</a></td>
-<td>✅❌</td>
-</tr>
-<tr>
-<td><a href="https://ovssl.cn">https://ovssl.cn</a></td>
-<td>180.163.248.215</td>
-<td>443</td>
-<td>上海</td>
-<td>07-15</td>
-<td><a href="https://myssl.com/ovssl.cn?port=443&amp;ip=180.163.248.215">A</a></td>
-<td>❌</td>
-</tr>
-<tr>
-<td><a href="https://www.mct.gov.cn/">https://www.mct.gov.cn/</a></td>
-<td>60.165.153.71</td>
-<td>443</td>
-<td></td>
-<td>07-15</td>
-<td>无</td>
-<td>❌</td>
-</tr>
-<tr>
-<td><a href="https://demo.gmssl.cn">https://demo.gmssl.cn</a></td>
-<td>8.140.108.135</td>
-<td>443</td>
-<td></td>
-<td>07-15</td>
-<td><a href="https://myssl.com/demo.gmssl.cn?port=2443&amp;ip=8.140.108.135">T</a></td>
-<td>✅-0x0101</td>
-</tr>
-<tr>
-<td><a href="https://demo.gmssl.cn:1443">https://demo.gmssl.cn:1443</a></td>
-<td>8.140.108.135</td>
-<td>1443</td>
-<td></td>
-<td>07-15</td>
-<td><a href="https://myssl.com/demo.gmssl.cn?port=2443&amp;ip=8.140.108.135">T</a></td>
-<td>✅❌</td>
-</tr>
-<tr>
-<td><a href="https://demo.gmssl.cn:2443">https://demo.gmssl.cn:2443</a></td>
-<td>8.140.108.135</td>
-<td>2443</td>
-<td></td>
-<td>07-15</td>
-<td><a href="https://myssl.com/demo.gmssl.cn?port=2443&amp;ip=8.140.108.135">T</a></td>
-<td>✅❌</td>
-</tr>
-<tr>
-<td><a href="https://ebssec.boc.cn/">https://ebssec.boc.cn/</a></td>
-<td>219.141.191.183</td>
-<td>443</td>
-<td>中行</td>
-<td>07-15</td>
-<td><a href="https://myssl.com/wacc.boc.cn?port=443&amp;ip=112.64.122.223">A</a></td>
-<td>✅❌</td>
-</tr>
-<tr>
-<td><a href="https://www.globalsign.cn/">https://www.globalsign.cn/</a></td>
-<td>47.102.214.116</td>
-<td>443</td>
-<td>上海</td>
-<td>07-15</td>
-<td><a href="https://myssl.com/demo.gmssl.cn?port=2443&amp;ip=8.140.108.135">T</a></td>
-<td>✅❌</td>
-</tr>
-<tr>
-<td><a href="https://www.zjca.com.cn">https://www.zjca.com.cn</a></td>
-<td>60.190.254.11</td>
-<td>443</td>
-<td>杭州</td>
-<td>07-15</td>
-<td><a href="https://myssl.com/demo.gmssl.cn?port=2443&amp;ip=8.140.108.135">T</a></td>
-<td>✅❌</td>
-</tr>
-<tr>
-<td><a href="https://www.trustasia.com">https://www.trustasia.com</a></td>
-<td>52.81.64.209/54.223.64.100</td>
-<td>443</td>
-<td>北京</td>
-<td>07-16</td>
-<td><a href="https://myssl.com/ovssl.cn?port=443&amp;ip=180.163.248.215">A</a></td>
-<td>✅✅</td>
-</tr>
-<tr>
-<td><a href="https://gm.trustasia.com">https://gm.trustasia.com</a></td>
-<td>52.81.64.209</td>
-<td>443</td>
-<td>北京</td>
-<td>07-24</td>
-<td><a href="https://myssl.com/demo.gmssl.cn?port=2443&amp;ip=8.140.108.135">T</a></td>
-<td>✅✅</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>[ ] 接下来任务：修改TLS-Attacker和TLS-Scanner框架使得能够扫描上面支持GmSSL的服务器</li>
-</ul>
-<ol>
-<li>
-<p>首先测试服务器：<a href="https://sm2test.ovssl.cn">https://sm2test.ovssl.cn</a></p>
-<p>发送ClientHello之后，服务器返回的不是正常的TLSv1.2版本消息，而是SSL版本的Continuation Data消息，一般是大包分块传输，这个服务器可能不好进行测试，毕竟评级是B，挺安全的。</p>
-</li>
-<li>
-<p>测试服务器：<a href="https://demo.gmssl.cn">https://demo.gmssl.cn</a></p>
-<p>测试发现，无法抓取TLS协议数据包，因为服务器使用的TLS协议版本是GmTLS（0x0101），这个协议版本是Wireshark无法识别，且框架也无法识别的。对国密SSL协议还是不太熟悉，得经过测试修改才能进行正常通信。</p>
-</li>
-<li>
-<p>测试服务器：<a href="https://ebssec.boc.cn/">https://ebssec.boc.cn/</a></p>
-<p>测试之后，可以提前发出ClientHello消息进行通信连接，但是对方服务器并没有进行TLS握手协议消息回复，只能进行TCP的握手和挥手过程，这里很奇怪，可能是服务器协议还存在一些问题。</p>
-</li>
-<li>
-<p>测试服务器：<a href="https://demo.gmssl.cn:1443">https://demo.gmssl.cn:1443</a></p>
-<p>测试发现无法进行通信，这个1443端口是进行双向国密证书认证测试的端口，可能是因为这个无法建立连接。以后对双证书熟悉且能进行适配之后进行连接测试。同样的，2443端口也不能进行连接测试。</p>
-</li>
-<li>
-<p>测试服务器：<a href="https://www.globalsign.cn/">https://www.globalsign.cn/</a></p>
-<p>能正常发送TLSv1.2握手协议消息，但是服务器并不进行TLS握手协议消息回复，只能进行基本的TCP握手和挥手。</p>
-</li>
-<li>
-<p>测试服务器：<a href="https://www.zjca.com.cn">https://www.zjca.com.cn</a></p>
-<p>和第一个测试服务器结果一样，只能接收到Continuation Data的SSL协议消息。</p>
-</li>
-<li>
-<p>测试服务器：<a href="https://www.trustasia.com">https://www.trustasia.com</a></p>
-<p>亚洲诚信服务器可以进行正常通信，可以作为初期测试对象</p>
-<p><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/image-20210724100828452.png" alt=""></p>
-</li>
-<li>
-<p>测试服务器：<a href="https://gm.trustasia.com">https://gm.trustasia.com</a></p>
-<p><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/image-20210724095742763.png" alt=""></p>
-<p>经过测试，用Mac上的wireshark抓包无法显示GmSSLv1协议，所以会显示SSL协议的Continuation Data消息，但是通过Win10上国密版wiresahrk查看抓取的数据包就可以完全正确的显示。</p>
-</li>
-</ol>
-<h2 id="正式实验记录（第二次搭建实验）：">正式实验记录（第二次搭建实验）：</h2>
-<ol>
-<li>
-<p>先熟悉GmSSL的生成证书以及国密算法组件</p>
-<ul>
-<li>新增国密密码套件如下，有对应的16进制表示</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 ECDHE-SM1-SM3   0xE001</span><br><span class="line"> 2 ECC-SM1-SM3     0xE003</span><br><span class="line"> 3 IBSDH-SM1-SM3   0xE005</span><br><span class="line"> 4 IBC-SM1-SM3     0xE007</span><br><span class="line"> 5 RSA-SM1-SM3     0xE009</span><br><span class="line"> 6 RSA-SM1-SHA1    0xE00A</span><br><span class="line"> 7 ECDHE-SM4-SM3   0xE011</span><br><span class="line"> 8 ECC-SM4-SM3     0xE013</span><br><span class="line"> 9 IBSDH-SM4-SM3   0xE015</span><br><span class="line">10 IBC-SM4-SM3     0xE017</span><br><span class="line">11 RSA-SM4-SM3     0xE019</span><br><span class="line">12 RSA-SM4-SHA1    0xE01A</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gmssl对国标支持</span><br><span class="line"></span><br><span class="line">gmssl ciphers -V |grep GMTLS</span><br><span class="line">0xE0,0x17 - SM9-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM9 Au&#x3D;SM9 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x15 - SM9DHE-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM9DHE Au&#x3D;SM9 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x13 - SM2-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM2 Au&#x3D;SM2 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x11 - SM2DHE-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM2DHE Au&#x3D;SM2 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x1A - RSA-WITH-SMS4-SHA1 GMTLSv1.1 Kx&#x3D;RSA Au&#x3D;RSA Enc&#x3D;SMS4(128) Mac&#x3D;SHA1</span><br><span class="line">0xE0,0x19 - RSA-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;RSA Au&#x3D;RSA Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br></pre></td></tr></table></figure>
-<p>GMBroswer链接GM服务器之后网页显示的内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">s_server -key user.key -cert user_cert.pem -port 44330 -www -debug </span><br><span class="line">Secure Renegotiation IS supported</span><br><span class="line">Ciphers supported in s_server binary</span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES256-GCM-SHA384 TLSv1.2    :ECDHE-RSA-AES256-GCM-SHA384 </span><br><span class="line">TLSv1.2    :DHE-RSA-AES256-GCM-SHA384 TLSv1.2    :ECDHE-ECDSA-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :ECDHE-RSA-CHACHA20-POLY1305 TLSv1.2    :DHE-RSA-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES128-GCM-SHA256 TLSv1.2    :ECDHE-RSA-AES128-GCM-SHA256 </span><br><span class="line">TLSv1.2    :DHE-RSA-AES128-GCM-SHA256 TLSv1.2    :ECDHE-SM2-WITH-SMS4-GCM-SM3 </span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES256-SHA384 TLSv1.2    :ECDHE-RSA-AES256-SHA384   </span><br><span class="line">TLSv1.2    :DHE-RSA-AES256-SHA256     TLSv1.2    :ECDHE-ECDSA-AES128-SHA256 </span><br><span class="line">TLSv1.2    :ECDHE-RSA-AES128-SHA256   TLSv1.2    :DHE-RSA-AES128-SHA256     </span><br><span class="line">TLSv1.2    :ECDHE-SM2-WITH-SMS4-SM3   SSLv3      :ECDHE-ECDSA-AES256-SHA    </span><br><span class="line">SSLv3      :ECDHE-RSA-AES256-SHA      SSLv3      :DHE-RSA-AES256-SHA        </span><br><span class="line">SSLv3      :ECDHE-ECDSA-AES128-SHA    SSLv3      :ECDHE-RSA-AES128-SHA      </span><br><span class="line">SSLv3      :DHE-RSA-AES128-SHA        TLSv1.2    :RSA-PSK-AES256-GCM-SHA384 </span><br><span class="line">TLSv1.2    :DHE-PSK-AES256-GCM-SHA384 TLSv1.2    :RSA-PSK-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :DHE-PSK-CHACHA20-POLY1305 TLSv1.2    :ECDHE-PSK-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :AES256-GCM-SHA384         TLSv1.2    :PSK-AES256-GCM-SHA384     </span><br><span class="line">TLSv1.2    :PSK-CHACHA20-POLY1305     TLSv1.2    :RSA-PSK-AES128-GCM-SHA256 </span><br><span class="line">TLSv1.2    :DHE-PSK-AES128-GCM-SHA256 TLSv1.2    :AES128-GCM-SHA256         </span><br><span class="line">TLSv1.2    :PSK-AES128-GCM-SHA256     TLSv1.2    :AES256-SHA256             </span><br><span class="line">TLSv1.2    :AES128-SHA256             TLSv1.0    :ECDHE-PSK-AES256-CBC-SHA384 </span><br><span class="line">SSLv3      :ECDHE-PSK-AES256-CBC-SHA  SSLv3      :SRP-RSA-AES-256-CBC-SHA   </span><br><span class="line">SSLv3      :SRP-AES-256-CBC-SHA       TLSv1.0    :RSA-PSK-AES256-CBC-SHA384 </span><br><span class="line">TLSv1.0    :DHE-PSK-AES256-CBC-SHA384 SSLv3      :RSA-PSK-AES256-CBC-SHA    </span><br><span class="line">SSLv3      :DHE-PSK-AES256-CBC-SHA    SSLv3      :AES256-SHA                </span><br><span class="line">TLSv1.0    :PSK-AES256-CBC-SHA384     SSLv3      :PSK-AES256-CBC-SHA        </span><br><span class="line">TLSv1.0    :ECDHE-PSK-AES128-CBC-SHA256 SSLv3      :ECDHE-PSK-AES128-CBC-SHA  </span><br><span class="line">SSLv3      :SRP-RSA-AES-128-CBC-SHA   SSLv3      :SRP-AES-128-CBC-SHA       </span><br><span class="line">TLSv1.0    :RSA-PSK-AES128-CBC-SHA256 TLSv1.0    :DHE-PSK-AES128-CBC-SHA256 </span><br><span class="line">SSLv3      :RSA-PSK-AES128-CBC-SHA    SSLv3      :DHE-PSK-AES128-CBC-SHA    </span><br><span class="line">TLSv1.0    :ECDHE-PSK-WITH-SMS4-CBC-SM3 GMTLSv1.1  :SM9-WITH-SMS4-SM3         </span><br><span class="line">GMTLSv1.1  :SM9DHE-WITH-SMS4-SM3      GMTLSv1.1  :SM2-WITH-SMS4-SM3         </span><br><span class="line">GMTLSv1.1  :SM2DHE-WITH-SMS4-SM3      SSLv3      :AES128-SHA                </span><br><span class="line">GMTLSv1.1  :RSA-WITH-SMS4-SHA1        GMTLSv1.1  :RSA-WITH-SMS4-SM3         </span><br><span class="line">TLSv1.0    :PSK-AES128-CBC-SHA256     SSLv3      :PSK-AES128-CBC-SHA        </span><br><span class="line">SSLv3      :PSK-WITH-SMS4-CBC-SM3     </span><br><span class="line">---</span><br><span class="line">Ciphers common between both SSL end points:</span><br><span class="line">ECDHE-ECDSA-AES128-GCM-SHA256 ECDHE-RSA-AES128-GCM-SHA256 ECDHE-ECDSA-AES256-GCM-SHA384</span><br><span class="line">ECDHE-RSA-AES256-GCM-SHA384 ECDHE-ECDSA-CHACHA20-POLY1305 ECDHE-RSA-CHACHA20-POLY1305</span><br><span class="line">ECDHE-RSA-AES128-SHA       ECDHE-RSA-AES256-SHA       ECDHE-SM2-WITH-SMS4-SM3   </span><br><span class="line">AES128-GCM-SHA256          AES256-GCM-SHA384          AES128-SHA                </span><br><span class="line">AES256-SHA</span><br><span class="line">Signature Algorithms: ECDSA+SHA256:0x04+0x08:RSA+SHA256:SM2+SM3:ECDSA+SHA384:0x05+0x08:RSA+SHA384:0x06+0x08:RSA+SHA512:RSA+SHA1</span><br><span class="line">Shared Signature Algorithms: ECDSA+SHA256:RSA+SHA256:SM2+SM3:ECDSA+SHA384:RSA+SHA384:RSA+SHA512:RSA+SHA1</span><br><span class="line">Supported Elliptic Curves: 0x7A7A:X25519:P-256:P-384:SM2</span><br><span class="line">Shared Elliptic curves: X25519:P-256:P-384:SM2</span><br><span class="line">---</span><br><span class="line">New, TLSv1.2, Cipher is ECDHE-SM2-WITH-SMS4-SM3</span><br><span class="line">SSL-Session:</span><br><span class="line">    Protocol  : TLSv1.2</span><br><span class="line">    Cipher    : ECDHE-SM2-WITH-SMS4-SM3</span><br><span class="line">    Session-ID: </span><br><span class="line">    Session-ID-ctx: 01000000</span><br><span class="line">    Master-Key: 7C4F28BB5846F9DFE42BFD295E441A8520D50A3FA0E9D6C51C31AA3C153A69C46126ADE3CC77D6074F8127B2C93043A6</span><br><span class="line">    PSK identity: None</span><br><span class="line">    PSK identity hint: None</span><br><span class="line">    SRP username: None</span><br><span class="line">    Start Time: 1620646292</span><br><span class="line">    Timeout   : 7200 (sec)</span><br><span class="line">    Verify return code: 0 (ok)</span><br><span class="line">    Extended master secret: yes</span><br><span class="line">---</span><br><span class="line">   0 items in the session cache</span><br><span class="line">   0 client connects (SSL_connect())</span><br><span class="line">   0 client renegotiates (SSL_connect())</span><br><span class="line">   0 client connects that finished</span><br><span class="line">   1 server accepts (SSL_accept())</span><br><span class="line">   0 server renegotiates (SSL_accept())</span><br><span class="line">   1 server accepts that finished</span><br><span class="line">   0 session cache hits</span><br><span class="line">   1 session cache misses</span><br><span class="line">   0 session cache timeouts</span><br><span class="line">   0 callback cache hits</span><br><span class="line">   0 cache full overflows (128 allowed)</span><br><span class="line">---</span><br><span class="line">no client certificate available</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>GmSSL国密证书生成以及单向和双向认证</p>
-<p><a href="https://www.cnblogs.com/skills/p/13620478.html">GmSSL开发环境搭建及双证书生成</a>：在生成证书里面是讲的最详细也是最好的一个博客文章（注意博客生成根证书的时候命令有一处错误，Root.key应该改成CA.key）（注意里面的key和crt文件）（如果这里的证书不行，直接去国密SSL实验室进行生成就行，都有）</p>
-<ul>
-<li>实验结果：</li>
-</ul>
-<p>单证书单向双向认证都能完成进行，且在GMBroswer也可以连接；双证书的单项认证完成通信，但是双向认证可能还存在问题（源码问题），并不能如愿进行，而且双证书都不能和GMBroswer进行连接。如果需要360安全浏览器进行连接，需要在编译GmSSL修改其中的一个C文件，具体见：<a href="https://blog.csdn.net/qq_15077747/article/details/108602988?spm=1001.2014.3001.5501">gmssl编译后不支持360浏览器双向https问题</a></p>
-<ul>
-<li>实验记录：</li>
-</ul>
-<h3 id="单证书单向认证：">单证书单向认证：</h3>
-<p>抓包文件：“1-one-cert-one-auth.pcapng”</p>
-<p>首先打开服务器s_server，服务端命令和输出如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@localhost demoCA]# gmssl s_server -key .&#x2F;sm2.server&#x2F;sm2.server.sig.key.pem -cert .&#x2F;sm2.server&#x2F;sm2.server.sig.crt.pem -CAfile sm2.trust.pem -state -accept 44330</span><br><span class="line">Using default temp DH parameters</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing certificate</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing private key</span><br><span class="line">ACCEPT</span><br></pre></td></tr></table></figure>
-<p>然后s_client进行连接，客户端s_client的输出如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@localhost demoCA]# gmssl s_client -connect localhost:44330 -key .&#x2F;sm2.koper&#x2F;sm2.koper.sig.key.pem -cert .&#x2F;sm2.koper&#x2F;sm2.koper.sig.crt.pem -CAfile sm2.trust.pem -state</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing certificate</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing private key</span><br><span class="line">CONNECTED(00000003)</span><br><span class="line">SSL_connect:before SSL initialization</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client hello</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client hello</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server hello</span><br><span class="line">depth&#x3D;2 C &#x3D; CN, O &#x3D; GMSSL, OU &#x3D; PKI&#x2F;SM2, CN &#x3D; RootCA for Test</span><br><span class="line">verify return:1</span><br><span class="line">depth&#x3D;1 C &#x3D; CN, O &#x3D; GMSSL, OU &#x3D; PKI&#x2F;SM2, CN &#x3D; MiddleCA for Test</span><br><span class="line">verify return:1</span><br><span class="line">depth&#x3D;0 C &#x3D; CN, ST &#x3D; Beijing, L &#x3D; Beijing, O &#x3D; Sec, OU &#x3D; Sec, CN &#x3D; server, emailAddress &#x3D; sec@email.com</span><br><span class="line">verify return:1</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server certificate</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server key exchange</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server done</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client key exchange</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write change cipher spec</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write finished</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write finished</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server session ticket</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read change cipher spec</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read finished</span><br><span class="line">---</span><br><span class="line">Certificate chain</span><br><span class="line"> 0 s:&#x2F;C&#x3D;CN&#x2F;ST&#x3D;Beijing&#x2F;L&#x3D;Beijing&#x2F;O&#x3D;Sec&#x2F;OU&#x3D;Sec&#x2F;CN&#x3D;server&#x2F;emailAddress&#x3D;sec@email.com</span><br><span class="line">   i:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line"> 1 s:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line">   i:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line"> 2 s:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line">   i:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line">---</span><br><span class="line">Server certificate</span><br><span class="line">-----BEGIN CERTIFICATE-----</span><br><span class="line">MIICLDCCAc+gAwIBAgIGAXlllPWnMAwGCCqBHM9VAYN1BQAwSzELMAkGA1UEBhMC</span><br><span class="line">Q04xDjAMBgNVBAoTBUdNU1NMMRAwDgYDVQQLEwdQS0kvU00yMRowGAYDVQQDExFN</span><br><span class="line">aWRkbGVDQSBmb3IgVGVzdDAiGA8yMDIxMDUxMjE2MDAwMFoYDzIwMjIwNTEyMTYw</span><br><span class="line">MDAwWjB8MQswCQYDVQQGEwJDTjEQMA4GA1UECBMHQmVpamluZzEQMA4GA1UEBxMH</span><br><span class="line">QmVpamluZzEMMAoGA1UEChMDU2VjMQwwCgYDVQQLEwNTZWMxDzANBgNVBAMTBnNl</span><br><span class="line">cnZlcjEcMBoGCSqGSIb3DQEJARYNc2VjQGVtYWlsLmNvbTBZMBMGByqGSM49AgEG</span><br><span class="line">CCqBHM9VAYItA0IABBpkgKei2J+g3S&#x2F;qd&#x2F;KHQL2j6wVhHS+qD2oAxJ&#x2F;T05zIsBOI</span><br><span class="line">&#x2F;BC+&#x2F;xOYX86uk3D9V03zC3J2GNZ1le88SIb4McqjaDBmMBsGA1UdIwQUMBKAEPl&#x2F;</span><br><span class="line">VbQnlDNiplbKb8xdGv8wGQYDVR0OBBIEEDXQBbbJ66twX&#x2F;&#x2F;RjZHc4r0wEQYDVR0R</span><br><span class="line">BAowCIIGc2VydmVyMAkGA1UdEwQCMAAwDgYDVR0PAQH&#x2F;BAQDAgDAMAwGCCqBHM9V</span><br><span class="line">AYN1BQADSQAwRgIhALEqYaJDmh24cyV3mbKt+4VHBvAirFrv&#x2F;+g&#x2F;D4OeWS3YAiEA</span><br><span class="line">jUINEpX+B9UTO4onSuOslfXpsK1ZGU28YARCOjzAUq8&#x3D;</span><br><span class="line">-----END CERTIFICATE-----</span><br><span class="line">subject&#x3D;&#x2F;C&#x3D;CN&#x2F;ST&#x3D;Beijing&#x2F;L&#x3D;Beijing&#x2F;O&#x3D;Sec&#x2F;OU&#x3D;Sec&#x2F;CN&#x3D;server&#x2F;emailAddress&#x3D;sec@email.com</span><br><span class="line">issuer&#x3D;&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line">---</span><br><span class="line">No client certificate CA names sent</span><br><span class="line">Peer signing digest: SM3</span><br><span class="line">Server Temp Key: ECDH, SM2, 256 bits</span><br><span class="line">---</span><br><span class="line">SSL handshake has read 2000 bytes and written 322 bytes</span><br><span class="line">Verification: OK</span><br><span class="line">---</span><br><span class="line">New, TLSv1.2, Cipher is ECDHE-SM2-WITH-SMS4-GCM-SM3</span><br><span class="line">Server public key is 256 bit</span><br><span class="line">Secure Renegotiation IS supported</span><br><span class="line">Compression: NONE</span><br><span class="line">Expansion: NONE</span><br><span class="line">No ALPN negotiated</span><br><span class="line">SSL-Session:</span><br><span class="line">    Protocol  : TLSv1.2</span><br><span class="line">    Cipher    : ECDHE-SM2-WITH-SMS4-GCM-SM3</span><br><span class="line">    Session-ID: 120E30267852E4300EEACEE62B3C1FEDF38504FB71950A7E1567176E44EA04E0</span><br><span class="line">    Session-ID-ctx: </span><br><span class="line">    Master-Key: 6F092582E1943404E58EB37D13577FB3AE9C20308878A1055425E007A4412475C44C1C425B593C69A9EBFB47A8C56A67</span><br><span class="line">    PSK identity: None</span><br><span class="line">    PSK identity hint: None</span><br><span class="line">    SRP username: None</span><br><span class="line">    TLS session ticket lifetime hint: 7200 (seconds)</span><br><span class="line">    TLS session ticket:</span><br><span class="line">    0000 - 86 b6 ec 0e 15 ba c8 1b-58 61 5a 08 64 cf 92 e7   ........XaZ.d...</span><br><span class="line">    0010 - 3d 79 e1 1c 59 c4 c2 9b-1b bd 6d a7 80 f4 65 6d   &#x3D;y..Y.....m...em</span><br><span class="line">    0020 - 74 fd 9c 60 ce 70 4a 7d-11 35 ce d0 fd df 1a 3e   t..&#96;.pJ&#125;.5.....&gt;</span><br><span class="line">    0030 - 81 62 c1 13 b9 d6 22 cf-9a c2 8a 07 0e 81 c1 af   .b....&quot;.........</span><br><span class="line">    0040 - f3 44 a5 07 d9 d8 97 3c-fe fe f6 e0 e3 43 ac 41   .D.....&lt;.....C.A</span><br><span class="line">    0050 - e3 09 8c 69 b5 ab 2e f2-bb 85 cc 10 ca 54 a8 44   ...i.........T.D</span><br><span class="line">    0060 - e7 a2 80 2f f7 b4 21 49-46 a8 7a cd 1b b7 69 17   ...&#x2F;..!IF.z...i.</span><br><span class="line">    0070 - 10 68 5d 24 d2 09 4a 12-d2 bc 7e a8 1a af 4f f3   .h]$..J...~...O.</span><br><span class="line">    0080 - 95 94 1d aa b3 bc 06 46-61 cc 54 03 a3 88 75 6d   .......Fa.T...um</span><br><span class="line">    0090 - 37 a4 88 5b b0 25 83 54-ec ff 95 e2 4d f6 1e db   7..[.%.T....M...</span><br><span class="line"></span><br><span class="line">    Start Time: 1620974867</span><br><span class="line">    Timeout   : 7200 (sec)</span><br><span class="line">    Verify return code: 0 (ok)</span><br><span class="line">    Extended master secret: yes</span><br><span class="line">---</span><br><span class="line">Hello!</span><br></pre></td></tr></table></figure>
-<p>服务器端s_server的显示如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SSL_accept:before SSL initialization</span><br><span class="line">SSL_accept:before SSL initialization</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read client hello</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write server hello</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write certificate</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write key exchange</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write server done</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write server done</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read client key exchange</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read change cipher spec</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read finished</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write session ticket</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write change cipher spec</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write finished</span><br><span class="line">-----BEGIN SSL SESSION PARAMETERS-----</span><br><span class="line">MFoCAQECAgMDBALhBwQABDBvCSWC4ZQ0BOWOs30TV3+zrpwgMIh4oQVUJeAHpEEk</span><br><span class="line">dcRMHEJbWTxpqev7R6jFamehBgIEYJ4dE6IEAgIcIKQGBAQBAAAArQMCAQE&#x3D;</span><br><span class="line">-----END SSL SESSION PARAMETERS-----</span><br><span class="line">Shared ciphers:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-GCM-SHA256:ECDHE-SM2-WITH-SMS4-GCM-SM3:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA256:ECDHE-SM2-WITH-SMS4-SM3:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES128-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:SM9-WITH-SMS4-SM3:SM9DHE-WITH-SMS4-SM3:SM2-WITH-SMS4-SM3:SM2DHE-WITH-SMS4-SM3:AES128-SHA:RSA-WITH-SMS4-SHA1:RSA-WITH-SMS4-SM3</span><br><span class="line">Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1:SM2+SM3</span><br><span class="line">Shared Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1:SM2+SM3</span><br><span class="line">Supported Elliptic Curve Point Formats: uncompressed:ansiX962_compressed_prime:ansiX962_compressed_char2</span><br><span class="line">Supported Elliptic Curves: SM2:X25519:P-256:P-521:P-384</span><br><span class="line">Shared Elliptic curves: SM2:X25519:P-256:P-521:P-384</span><br><span class="line">CIPHER is ECDHE-SM2-WITH-SMS4-GCM-SM3</span><br><span class="line">Secure Renegotiation IS supported</span><br><span class="line">Hello!</span><br><span class="line">ERROR</span><br><span class="line">shutting down SSL</span><br><span class="line">CONNECTION CLOSED</span><br><span class="line">ACCEPT</span><br></pre></td></tr></table></figure>
-<p>分析：</p>
-<p>在<em><strong>ClientHello</strong></em>提供的国密组件有：0xe107（<strong>ECDHE-SM2-WITH-SMS4-GCM-SM3</strong>），0xe102（<strong>ECDHE-SM2-WITH-SMS4-SM3</strong>），0xe011（<strong>ECDHE-SM4-SM3</strong>），0xe013（<strong>ECC-SM4-SM3</strong>），0xe015（<strong>IBSDH-SM4-SM3</strong>），0xe017（<strong>IBC-SM4-SM3</strong>），0xe019（<strong>RSA-SM4-SM3</strong>），0xe01a（<strong>RSA-SM4-SHA1</strong>）；</p>
-<p>在<em><strong>ClientHello</strong></em>提供的国密Hash+签名算法有：0x0707（<strong>SM3+SM2</strong>）</p>
-<p>此时共同协商的密码组件是<strong>ECDHE-SM2-WITH-SMS4-GCM-SM3</strong>，在数据包中其值表示为“0xe107”，传输协议为<strong>TLSv1.2</strong>，其值为“0x0303”</p>
-<p>图解数据包：</p>
-<p><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/1-one-cert-one-auth-anlysis.jpg" alt="1-one-cert-one-auth-anlysis"></p>
-<h3 id="单证书双向认证">单证书双向认证</h3>
-<p>抓包文件：2-one-cert-two-auth.pcapng</p>
-<p>首先打开服务器s_server，服务端命令和输出如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@localhost demoCA]# gmssl s_server -key .&#x2F;sm2.server&#x2F;sm2.server.sig.key.pem -cert .&#x2F;sm2.server&#x2F;sm2.server.sig.crt.pem -CAfile sm2.trust.pem -state -accept 44330 -verify 1</span><br><span class="line">verify depth is 1</span><br><span class="line">Using default temp DH parameters</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing certificate</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing private key</span><br><span class="line">ACCEPT</span><br></pre></td></tr></table></figure>
-<p>然后s_client进行连接，客户端s_client的输出如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@localhost demoCA]# gmssl s_client -connect localhost:44330 -key .&#x2F;sm2.koper&#x2F;sm2.koper.sig.key.pem -cert .&#x2F;sm2.koper&#x2F;sm2.koper.sig.crt.pem -CAfile sm2.trust.pem -state</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing certificate</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing private key</span><br><span class="line">CONNECTED(00000003)</span><br><span class="line">SSL_connect:before SSL initialization</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client hello</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client hello</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server hello</span><br><span class="line">depth&#x3D;2 C &#x3D; CN, O &#x3D; GMSSL, OU &#x3D; PKI&#x2F;SM2, CN &#x3D; RootCA for Test</span><br><span class="line">verify return:1</span><br><span class="line">depth&#x3D;1 C &#x3D; CN, O &#x3D; GMSSL, OU &#x3D; PKI&#x2F;SM2, CN &#x3D; MiddleCA for Test</span><br><span class="line">verify return:1</span><br><span class="line">depth&#x3D;0 C &#x3D; CN, ST &#x3D; Beijing, L &#x3D; Beijing, O &#x3D; Sec, OU &#x3D; Sec, CN &#x3D; server, emailAddress &#x3D; sec@email.com</span><br><span class="line">verify return:1</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server certificate</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server key exchange</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server certificate request</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server done</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client certificate</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client key exchange</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write certificate verify</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write change cipher spec</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write finished</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write finished</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server session ticket</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read change cipher spec</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read finished</span><br><span class="line">---</span><br><span class="line">Certificate chain</span><br><span class="line"> 0 s:&#x2F;C&#x3D;CN&#x2F;ST&#x3D;Beijing&#x2F;L&#x3D;Beijing&#x2F;O&#x3D;Sec&#x2F;OU&#x3D;Sec&#x2F;CN&#x3D;server&#x2F;emailAddress&#x3D;sec@email.com</span><br><span class="line">   i:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line"> 1 s:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line">   i:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line"> 2 s:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line">   i:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line">---</span><br><span class="line">Server certificate</span><br><span class="line">-----BEGIN CERTIFICATE-----</span><br><span class="line">MIICLDCCAc+gAwIBAgIGAXlllPWnMAwGCCqBHM9VAYN1BQAwSzELMAkGA1UEBhMC</span><br><span class="line">Q04xDjAMBgNVBAoTBUdNU1NMMRAwDgYDVQQLEwdQS0kvU00yMRowGAYDVQQDExFN</span><br><span class="line">aWRkbGVDQSBmb3IgVGVzdDAiGA8yMDIxMDUxMjE2MDAwMFoYDzIwMjIwNTEyMTYw</span><br><span class="line">MDAwWjB8MQswCQYDVQQGEwJDTjEQMA4GA1UECBMHQmVpamluZzEQMA4GA1UEBxMH</span><br><span class="line">QmVpamluZzEMMAoGA1UEChMDU2VjMQwwCgYDVQQLEwNTZWMxDzANBgNVBAMTBnNl</span><br><span class="line">cnZlcjEcMBoGCSqGSIb3DQEJARYNc2VjQGVtYWlsLmNvbTBZMBMGByqGSM49AgEG</span><br><span class="line">CCqBHM9VAYItA0IABBpkgKei2J+g3S&#x2F;qd&#x2F;KHQL2j6wVhHS+qD2oAxJ&#x2F;T05zIsBOI</span><br><span class="line">&#x2F;BC+&#x2F;xOYX86uk3D9V03zC3J2GNZ1le88SIb4McqjaDBmMBsGA1UdIwQUMBKAEPl&#x2F;</span><br><span class="line">VbQnlDNiplbKb8xdGv8wGQYDVR0OBBIEEDXQBbbJ66twX&#x2F;&#x2F;RjZHc4r0wEQYDVR0R</span><br><span class="line">BAowCIIGc2VydmVyMAkGA1UdEwQCMAAwDgYDVR0PAQH&#x2F;BAQDAgDAMAwGCCqBHM9V</span><br><span class="line">AYN1BQADSQAwRgIhALEqYaJDmh24cyV3mbKt+4VHBvAirFrv&#x2F;+g&#x2F;D4OeWS3YAiEA</span><br><span class="line">jUINEpX+B9UTO4onSuOslfXpsK1ZGU28YARCOjzAUq8&#x3D;</span><br><span class="line">-----END CERTIFICATE-----</span><br><span class="line">subject&#x3D;&#x2F;C&#x3D;CN&#x2F;ST&#x3D;Beijing&#x2F;L&#x3D;Beijing&#x2F;O&#x3D;Sec&#x2F;OU&#x3D;Sec&#x2F;CN&#x3D;server&#x2F;emailAddress&#x3D;sec@email.com</span><br><span class="line">issuer&#x3D;&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line">---</span><br><span class="line">Acceptable client certificate CA names</span><br><span class="line">&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line">&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line">Client Certificate Types: RSA sign, DSA sign, ECDSA sign</span><br><span class="line">Requested Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1:SM2+SM3</span><br><span class="line">Shared Requested Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1:SM2+SM3</span><br><span class="line">Peer signing digest: SM3</span><br><span class="line">Server Temp Key: ECDH, SM2, 256 bits</span><br><span class="line">---</span><br><span class="line">SSL handshake has read 2780 bytes and written 1951 bytes</span><br><span class="line">Verification: OK</span><br><span class="line">---</span><br><span class="line">New, TLSv1.2, Cipher is ECDHE-SM2-WITH-SMS4-GCM-SM3</span><br><span class="line">Server public key is 256 bit</span><br><span class="line">Secure Renegotiation IS supported</span><br><span class="line">Compression: NONE</span><br><span class="line">Expansion: NONE</span><br><span class="line">No ALPN negotiated</span><br><span class="line">SSL-Session:</span><br><span class="line">    Protocol  : TLSv1.2</span><br><span class="line">    Cipher    : ECDHE-SM2-WITH-SMS4-GCM-SM3</span><br><span class="line">    Session-ID: 9CD7AA2E27F5E99B8F9DBAF0DE60FF4C62F779758D273569E0A9640A4389BA33</span><br><span class="line">    Session-ID-ctx: </span><br><span class="line">    Master-Key: 8D425B913570771786862AC9A8683569B02996AFE418B5A6BED6D19AFCBCC769246D38376D1F39B05242F75CB6503D0E</span><br><span class="line">    PSK identity: None</span><br><span class="line">    PSK identity hint: None</span><br><span class="line">    SRP username: None</span><br><span class="line">    TLS session ticket lifetime hint: 7200 (seconds)</span><br><span class="line">    TLS session ticket:</span><br><span class="line">    0000 - d0 fb c1 bc 3a 89 d3 45-eb 58 1a ea 53 ad f5 71   ....:..E.X..S..q</span><br><span class="line">    0010 - 92 38 35 50 f0 99 cf 92-ea cc cd 68 e1 61 08 f8   .85P.......h.a..</span><br><span class="line">    0020 - 32 c0 c1 36 af 5c 55 fb-33 9a 87 5e e5 b9 8b f8   2..6.\U.3..^....</span><br><span class="line">    0030 - f2 e8 d1 3c aa b4 d1 e7-4c 89 00 af c0 56 29 cf   ...&lt;....L....V).</span><br><span class="line">    0040 - 3e de 8a a5 a4 90 f3 41-af 85 19 26 fb 12 a5 ec   &gt;......A...&amp;....</span><br><span class="line">    0050 - 22 29 3a 98 9d 4d bd 77-ac 07 c3 bc 98 34 72 35   &quot;):..M.w.....4r5</span><br><span class="line">    0060 - d0 6f 3e 1c 56 f7 29 32-42 fb 58 19 04 01 60 62   .o&gt;.V.)2B.X...&#96;b</span><br><span class="line">    0070 - 07 26 92 dd 25 98 b0 60-c5 ea 62 53 d6 4e a0 18   .&amp;..%..&#96;..bS.N..</span><br><span class="line">    0080 - ec b8 e5 48 3c 0b 9d c4-a4 95 de 99 9c 44 df de   ...H&lt;........D..</span><br><span class="line">    0090 - b8 04 37 ed a2 57 59 6c-89 3c f2 54 a9 bb 9e 5b   ..7..WYl.&lt;.T...[</span><br><span class="line">    00a0 - 23 de e8 cd 9a cb 19 bc-c8 ff ca 28 97 3c a2 bd   #..........(.&lt;..</span><br><span class="line">    00b0 - ce 52 28 b2 45 2f 7a 2b-77 85 c8 94 d5 a3 83 83   .R(.E&#x2F;z+w.......</span><br><span class="line">    00c0 - 5f a1 d2 d3 4e 09 62 57-87 c5 fa 21 85 17 5d ad   _...N.bW...!..].</span><br><span class="line">    00d0 - c0 f5 f1 4d b0 43 ed 05-76 d1 55 7a b0 5b 19 d3   ...M.C..v.Uz.[..</span><br><span class="line">    00e0 - 00 f5 a6 43 88 80 6b b5-1f 77 ef 9f d7 d6 d4 a7   ...C..k..w......</span><br><span class="line">    00f0 - 1a 05 2a d4 d7 0b 25 c3-54 93 35 20 03 b8 3e 02   ..*...%.T.5 ..&gt;.</span><br><span class="line">    0100 - 79 f7 ff 54 95 b4 97 73-81 10 12 2c 8d bc 2d 78   y..T...s...,..-x</span><br><span class="line">    0110 - 50 5c 5f 30 32 8f 68 f4-f4 74 3c d5 26 b2 e3 4e   P\_02.h..t&lt;.&amp;..N</span><br><span class="line">    0120 - c9 72 b5 e3 df 71 7d bf-33 4a 64 39 61 aa 58 1d   .r...q&#125;.3Jd9a.X.</span><br><span class="line">    0130 - 62 6e 4d 78 16 01 97 63-6c e9 e8 49 38 f9 3a ec   bnMx...cl..I8.:.</span><br><span class="line">    0140 - 87 ee 5a d4 89 24 41 23-af 80 4f ae 01 62 9f e5   ..Z..$A#..O..b..</span><br><span class="line">    0150 - 3e 4f ca 55 f9 ba 67 d5-55 8b c9 b5 ee 90 08 92   &gt;O.U..g.U.......</span><br><span class="line">    0160 - 12 57 28 2f c1 f8 32 d6-51 8c 39 27 8f c8 d1 5a   .W(&#x2F;..2.Q.9&#39;...Z</span><br><span class="line">    0170 - 3a f5 0a ce fd 1f 72 97-e5 3b 15 29 ab 1e 20 58   :.....r..;.).. X</span><br><span class="line">    0180 - 65 aa 26 99 ef 05 fd b5-d4 05 f6 17 a3 08 3f 38   e.&amp;...........?8</span><br><span class="line">    0190 - ba 70 90 ba c9 20 22 5d-19 a5 d4 33 0c 9f ed 2b   .p... &quot;]...3...+</span><br><span class="line">    01a0 - 3a a7 c1 d3 63 f3 71 c2-a4 7c ac 7b f2 29 04 3e   :...c.q..|.&#123;.).&gt;</span><br><span class="line">    01b0 - 6b c9 bf 93 d6 d9 1d a3-6a 42 c8 48 e1 d1 f5 7b   k.......jB.H...&#123;</span><br><span class="line">    01c0 - cf 9a fe 59 f9 9d ad 3c-0b 2b 86 b5 cb 0f cb 62   ...Y...&lt;.+.....b</span><br><span class="line">    01d0 - 47 8a 8f 99 09 00 9d 9e-03 06 90 d7 4e ca 35 97   G...........N.5.</span><br><span class="line">    01e0 - 33 8e e8 77 2c 66 86 26-d6 74 8a de 00 3a 84 95   3..w,f.&amp;.t...:..</span><br><span class="line">    01f0 - e6 4b e7 83 cf c3 4d 6d-c1 65 28 a4 0c 3e bc 37   .K....Mm.e(..&gt;.7</span><br><span class="line">    0200 - b5 f3 7c cc 03 50 ad 86-0d b6 52 61 47 d9 69 e2   ..|..P....RaG.i.</span><br><span class="line">    0210 - 1c 68 e4 4e 85 f9 47 2f-46 f3 34 75 f1 5e ad 9f   .h.N..G&#x2F;F.4u.^..</span><br><span class="line">    0220 - ff 42 dd ac b9 ea 24 b0-f7 b8 26 2b 51 4e 00 45   .B....$...&amp;+QN.E</span><br><span class="line">    0230 - 82 32 df f7 29 d9 d6 a1-13 28 59 e3 03 d1 e2 4a   .2..)....(Y....J</span><br><span class="line">    0240 - bd c5 63 0c 3f 07 4d ed-3c 02 a6 11 82 76 2b 6f   ..c.?.M.&lt;....v+o</span><br><span class="line">    0250 - f4 5e 20 d3 5d e8 24 d2-0a 30 6d d7 18 7d 43 28   .^ .].$..0m..&#125;C(</span><br><span class="line">    0260 - 32 9e 2f 17 47 a7 3e e2-8d e5 d2 2e 6b cd 4e ad   2.&#x2F;.G.&gt;.....k.N.</span><br><span class="line">    0270 - e5 bd 97 ae f7 ac 18 7b-56 cb d0 67 13 17 4b 81   .......&#123;V..g..K.</span><br><span class="line">    0280 - ea df 3f a3 79 d6 cf 07-1e e8 56 37 75 31 37 f7   ..?.y.....V7u17.</span><br><span class="line">    0290 - f6 43 d4 20 fd d7 35 89-5b 4a 4d 3c 6e 95 70 be   .C. ..5.[JM&lt;n.p.</span><br><span class="line">    02a0 - 7c 89 3c 66 1b 13 7d 63-f9 14 b0 33 9d c3 72 42   |.&lt;f..&#125;c...3..rB</span><br><span class="line">    02b0 - 70 d2 1a 07 c3 3e 43 a5-77 32 4e 9f 81 f1 89 ac   p....&gt;C.w2N.....</span><br><span class="line">    02c0 - 0f b4 43 18 95 3b 12 c3-ec 10 45 5e ec 3c 19 b0   ..C..;....E^.&lt;..</span><br><span class="line">    02d0 - d8 19 ac 2f a6 24 22 71-f1 9c 37 16 c8 35 44 28   ...&#x2F;.$&quot;q..7..5D(</span><br><span class="line"></span><br><span class="line">    Start Time: 1620975768</span><br><span class="line">    Timeout   : 7200 (sec)</span><br><span class="line">    Verify return code: 0 (ok)</span><br><span class="line">    Extended master secret: yes</span><br><span class="line">---</span><br><span class="line">Hello!</span><br></pre></td></tr></table></figure>
-<p>服务器端s_server的显示如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SSL_accept:before SSL initialization</span><br><span class="line">SSL_accept:before SSL initialization</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read client hello</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write server hello</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write certificate</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write key exchange</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write certificate request</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write server done</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write server done</span><br><span class="line">depth&#x3D;2 C &#x3D; CN, O &#x3D; GMSSL, OU &#x3D; PKI&#x2F;SM2, CN &#x3D; RootCA for Test</span><br><span class="line">verify return:1</span><br><span class="line">depth&#x3D;1 C &#x3D; CN, O &#x3D; GMSSL, OU &#x3D; PKI&#x2F;SM2, CN &#x3D; MiddleCA for Test</span><br><span class="line">verify return:1</span><br><span class="line">depth&#x3D;0 C &#x3D; CN, ST &#x3D; Beijing, L &#x3D; Beijing, O &#x3D; Sec, OU &#x3D; Sec, CN &#x3D; koper, emailAddress &#x3D; sec@email.com</span><br><span class="line">verify return:1</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read client certificate</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read client key exchange</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read certificate verify</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read change cipher spec</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read finished</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write session ticket</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write change cipher spec</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write finished</span><br><span class="line">-----BEGIN SSL SESSION PARAMETERS-----</span><br><span class="line">MIICkwIBAQICAwMEAuEHBAAEMI1CW5E1cHcXhoYqyahoNWmwKZav5Bi1pr7W0Zr8</span><br><span class="line">vMdpJG04N20fObBSQvdctlA9DqEGAgRgniCYogQCAhwgo4ICNTCCAjEwggHVoAMC</span><br><span class="line">AQICBgF5ZZUapjAMBggqgRzPVQGDdQUAMEsxCzAJBgNVBAYTAkNOMQ4wDAYDVQQK</span><br><span class="line">EwVHTVNTTDEQMA4GA1UECxMHUEtJL1NNMjEaMBgGA1UEAxMRTWlkZGxlQ0EgZm9y</span><br><span class="line">IFRlc3QwIhgPMjAyMTA1MTIxNjAwMDBaGA8yMDIyMDUxMjE2MDAwMFowezELMAkG</span><br><span class="line">A1UEBhMCQ04xEDAOBgNVBAgTB0JlaWppbmcxEDAOBgNVBAcTB0JlaWppbmcxDDAK</span><br><span class="line">BgNVBAoTA1NlYzEMMAoGA1UECxMDU2VjMQ4wDAYDVQQDEwVrb3BlcjEcMBoGCSqG</span><br><span class="line">SIb3DQEJARYNc2VjQGVtYWlsLmNvbTBZMBMGByqGSM49AgEGCCqBHM9VAYItA0IA</span><br><span class="line">BOhXh8LQpC+cATyRNCSm2cEuMLoGY9mCPQCkl2v7z6ZlmsJNYw9ZHeHXKjOfzbN&#x2F;</span><br><span class="line">rZ1Fj2wQ6BDyEouRhIbZsQOjbzBtMBsGA1UdIwQUMBKAEPl&#x2F;VbQnlDNiplbKb8xd</span><br><span class="line">Gv8wGQYDVR0OBBIEEJQv2LqXmxUlo4nbIQCC+mMwGAYDVR0RBBEwD4ENc2VjQGVt</span><br><span class="line">YWlsLmNvbTAJBgNVHRMEAjAAMA4GA1UdDwEB&#x2F;wQEAwIAwDAMBggqgRzPVQGDdQUA</span><br><span class="line">A0gAMEUCIQDWC+&#x2F;sbV51DqGF8TyFDhlLzMFv198cmqH2WJt9bIiZgwIgJ1cO33LC</span><br><span class="line">cwmoPfuaXmQrseP+RmOEBjbRRCIh1LGrUhSkBgQEAQAAAK0DAgEB</span><br><span class="line">-----END SSL SESSION PARAMETERS-----</span><br><span class="line">Client certificate</span><br><span class="line">-----BEGIN CERTIFICATE-----</span><br><span class="line">MIICMTCCAdWgAwIBAgIGAXlllRqmMAwGCCqBHM9VAYN1BQAwSzELMAkGA1UEBhMC</span><br><span class="line">Q04xDjAMBgNVBAoTBUdNU1NMMRAwDgYDVQQLEwdQS0kvU00yMRowGAYDVQQDExFN</span><br><span class="line">aWRkbGVDQSBmb3IgVGVzdDAiGA8yMDIxMDUxMjE2MDAwMFoYDzIwMjIwNTEyMTYw</span><br><span class="line">MDAwWjB7MQswCQYDVQQGEwJDTjEQMA4GA1UECBMHQmVpamluZzEQMA4GA1UEBxMH</span><br><span class="line">QmVpamluZzEMMAoGA1UEChMDU2VjMQwwCgYDVQQLEwNTZWMxDjAMBgNVBAMTBWtv</span><br><span class="line">cGVyMRwwGgYJKoZIhvcNAQkBFg1zZWNAZW1haWwuY29tMFkwEwYHKoZIzj0CAQYI</span><br><span class="line">KoEcz1UBgi0DQgAE6FeHwtCkL5wBPJE0JKbZwS4wugZj2YI9AKSXa&#x2F;vPpmWawk1j</span><br><span class="line">D1kd4dcqM5&#x2F;Ns3+tnUWPbBDoEPISi5GEhtmxA6NvMG0wGwYDVR0jBBQwEoAQ+X9V</span><br><span class="line">tCeUM2KmVspvzF0a&#x2F;zAZBgNVHQ4EEgQQlC&#x2F;YupebFSWjidshAIL6YzAYBgNVHREE</span><br><span class="line">ETAPgQ1zZWNAZW1haWwuY29tMAkGA1UdEwQCMAAwDgYDVR0PAQH&#x2F;BAQDAgDAMAwG</span><br><span class="line">CCqBHM9VAYN1BQADSAAwRQIhANYL7+xtXnUOoYXxPIUOGUvMwW&#x2F;X3xyaofZYm31s</span><br><span class="line">iJmDAiAnVw7fcsJzCag9+5peZCux4&#x2F;5GY4QGNtFEIiHUsatSFA&#x3D;&#x3D;</span><br><span class="line">-----END CERTIFICATE-----</span><br><span class="line">subject&#x3D;&#x2F;C&#x3D;CN&#x2F;ST&#x3D;Beijing&#x2F;L&#x3D;Beijing&#x2F;O&#x3D;Sec&#x2F;OU&#x3D;Sec&#x2F;CN&#x3D;koper&#x2F;emailAddress&#x3D;sec@email.com</span><br><span class="line">issuer&#x3D;&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line">Shared ciphers:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-GCM-SHA256:ECDHE-SM2-WITH-SMS4-GCM-SM3:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA256:ECDHE-SM2-WITH-SMS4-SM3:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES128-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:SM9-WITH-SMS4-SM3:SM9DHE-WITH-SMS4-SM3:SM2-WITH-SMS4-SM3:SM2DHE-WITH-SMS4-SM3:AES128-SHA:RSA-WITH-SMS4-SHA1:RSA-WITH-SMS4-SM3</span><br><span class="line">Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1:SM2+SM3</span><br><span class="line">Shared Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1:SM2+SM3</span><br><span class="line">Peer signing digest: SM3</span><br><span class="line">Supported Elliptic Curve Point Formats: uncompressed:ansiX962_compressed_prime:ansiX962_compressed_char2</span><br><span class="line">Supported Elliptic Curves: SM2:X25519:P-256:P-521:P-384</span><br><span class="line">Shared Elliptic curves: SM2:X25519:P-256:P-521:P-384</span><br><span class="line">CIPHER is ECDHE-SM2-WITH-SMS4-GCM-SM3</span><br><span class="line">Secure Renegotiation IS supported</span><br><span class="line">Hello!</span><br><span class="line">ERROR</span><br><span class="line">shutting down SSL</span><br><span class="line">CONNECTION CLOSED</span><br><span class="line">ACCEPT</span><br></pre></td></tr></table></figure>
-<h3 id="双证书单向认证">双证书单向认证</h3>
-<p>抓包文件：3-two-cert-one-auth.pcapng</p>
-<p>首先打开服务器s_server，服务端命令和输出如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@localhost demoCA]# gmssl s_server -key .&#x2F;sm2.server&#x2F;sm2.server.sig.key.pem -cert .&#x2F;sm2.server&#x2F;sm2.server.sig.crt.pem -dkey .&#x2F;sm2.server&#x2F;sm2.server.enc.key.pem -dcert .&#x2F;sm2.server&#x2F;sm2.server.enc.crt.pem -CAfile sm2.trust.pem -state -accept 44330</span><br><span class="line">Using default temp DH parameters</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing certificate</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing private key</span><br><span class="line">[GMTLS_DEBUG] set sm2 encryption certificate</span><br><span class="line">[GMTLS_DEBUG] set sm2 decryption private key</span><br><span class="line">ACCEPT</span><br></pre></td></tr></table></figure>
-<p>然后s_client进行连接，客户端s_client的输出如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@localhost demoCA]# gmssl s_client -connect localhost:44330 -key .&#x2F;sm2.koper&#x2F;sm2.koper.sig.key.pem -cert .&#x2F;sm2.koper&#x2F;sm2.koper.sig.crt.pem -dkey .&#x2F;sm2.koper&#x2F;sm2.koper.enc.key.pem -dcert .&#x2F;sm2.koper&#x2F;sm2.koper.enc.crt.pem -CAfile sm2.trust.pem -state</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing certificate</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing private key</span><br><span class="line">[GMTLS_DEBUG] set sm2 encryption certificate</span><br><span class="line">[GMTLS_DEBUG] set sm2 decryption private key</span><br><span class="line">CONNECTED(00000003)</span><br><span class="line">SSL_connect:before SSL initialization</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client hello</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client hello</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server hello</span><br><span class="line">depth&#x3D;2 C &#x3D; CN, O &#x3D; GMSSL, OU &#x3D; PKI&#x2F;SM2, CN &#x3D; RootCA for Test</span><br><span class="line">verify return:1</span><br><span class="line">depth&#x3D;1 C &#x3D; CN, O &#x3D; GMSSL, OU &#x3D; PKI&#x2F;SM2, CN &#x3D; MiddleCA for Test</span><br><span class="line">verify return:1</span><br><span class="line">depth&#x3D;0 C &#x3D; CN, ST &#x3D; Beijing, L &#x3D; Beijing, O &#x3D; Sec, OU &#x3D; Sec, CN &#x3D; server, emailAddress &#x3D; sec@email.com</span><br><span class="line">verify return:1</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server certificate</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server key exchange</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server done</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client key exchange</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write change cipher spec</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write finished</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write finished</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server session ticket</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read change cipher spec</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read finished</span><br><span class="line">---</span><br><span class="line">Certificate chain</span><br><span class="line"> 0 s:&#x2F;C&#x3D;CN&#x2F;ST&#x3D;Beijing&#x2F;L&#x3D;Beijing&#x2F;O&#x3D;Sec&#x2F;OU&#x3D;Sec&#x2F;CN&#x3D;server&#x2F;emailAddress&#x3D;sec@email.com</span><br><span class="line">   i:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line"> 1 s:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line">   i:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line"> 2 s:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line">   i:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line">---</span><br><span class="line">Server certificate</span><br><span class="line">-----BEGIN CERTIFICATE-----</span><br><span class="line">MIICLDCCAc+gAwIBAgIGAXlllPWnMAwGCCqBHM9VAYN1BQAwSzELMAkGA1UEBhMC</span><br><span class="line">Q04xDjAMBgNVBAoTBUdNU1NMMRAwDgYDVQQLEwdQS0kvU00yMRowGAYDVQQDExFN</span><br><span class="line">aWRkbGVDQSBmb3IgVGVzdDAiGA8yMDIxMDUxMjE2MDAwMFoYDzIwMjIwNTEyMTYw</span><br><span class="line">MDAwWjB8MQswCQYDVQQGEwJDTjEQMA4GA1UECBMHQmVpamluZzEQMA4GA1UEBxMH</span><br><span class="line">QmVpamluZzEMMAoGA1UEChMDU2VjMQwwCgYDVQQLEwNTZWMxDzANBgNVBAMTBnNl</span><br><span class="line">cnZlcjEcMBoGCSqGSIb3DQEJARYNc2VjQGVtYWlsLmNvbTBZMBMGByqGSM49AgEG</span><br><span class="line">CCqBHM9VAYItA0IABBpkgKei2J+g3S&#x2F;qd&#x2F;KHQL2j6wVhHS+qD2oAxJ&#x2F;T05zIsBOI</span><br><span class="line">&#x2F;BC+&#x2F;xOYX86uk3D9V03zC3J2GNZ1le88SIb4McqjaDBmMBsGA1UdIwQUMBKAEPl&#x2F;</span><br><span class="line">VbQnlDNiplbKb8xdGv8wGQYDVR0OBBIEEDXQBbbJ66twX&#x2F;&#x2F;RjZHc4r0wEQYDVR0R</span><br><span class="line">BAowCIIGc2VydmVyMAkGA1UdEwQCMAAwDgYDVR0PAQH&#x2F;BAQDAgDAMAwGCCqBHM9V</span><br><span class="line">AYN1BQADSQAwRgIhALEqYaJDmh24cyV3mbKt+4VHBvAirFrv&#x2F;+g&#x2F;D4OeWS3YAiEA</span><br><span class="line">jUINEpX+B9UTO4onSuOslfXpsK1ZGU28YARCOjzAUq8&#x3D;</span><br><span class="line">-----END CERTIFICATE-----</span><br><span class="line">subject&#x3D;&#x2F;C&#x3D;CN&#x2F;ST&#x3D;Beijing&#x2F;L&#x3D;Beijing&#x2F;O&#x3D;Sec&#x2F;OU&#x3D;Sec&#x2F;CN&#x3D;server&#x2F;emailAddress&#x3D;sec@email.com</span><br><span class="line">issuer&#x3D;&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line">---</span><br><span class="line">No client certificate CA names sent</span><br><span class="line">Peer signing digest: SM3</span><br><span class="line">Server Temp Key: ECDH, SM2, 256 bits</span><br><span class="line">---</span><br><span class="line">SSL handshake has read 2000 bytes and written 322 bytes</span><br><span class="line">Verification: OK</span><br><span class="line">---</span><br><span class="line">New, TLSv1.2, Cipher is ECDHE-SM2-WITH-SMS4-GCM-SM3</span><br><span class="line">Server public key is 256 bit</span><br><span class="line">Secure Renegotiation IS supported</span><br><span class="line">Compression: NONE</span><br><span class="line">Expansion: NONE</span><br><span class="line">No ALPN negotiated</span><br><span class="line">SSL-Session:</span><br><span class="line">    Protocol  : TLSv1.2</span><br><span class="line">    Cipher    : ECDHE-SM2-WITH-SMS4-GCM-SM3</span><br><span class="line">    Session-ID: 74900E774DFC5EA731925765651AA7AE8D919A25DCC9219E4987B0B14AC20B1D</span><br><span class="line">    Session-ID-ctx: </span><br><span class="line">    Master-Key: 8B13A72CD68C5F0B8DBFF22A9C97EB67F30F8D11A38FD58DEAD255FEAADEFE426225AA2C90F77809A9853B246A6563C3</span><br><span class="line">    PSK identity: None</span><br><span class="line">    PSK identity hint: None</span><br><span class="line">    SRP username: None</span><br><span class="line">    TLS session ticket lifetime hint: 7200 (seconds)</span><br><span class="line">    TLS session ticket:</span><br><span class="line">    0000 - 94 e5 a8 ce a0 bd 7a 15-30 4e 4b bb 6c be 41 a8   ......z.0NK.l.A.</span><br><span class="line">    0010 - fb d9 d2 a1 11 d5 5a 7d-c3 9a 7d 01 c4 50 1b ad   ......Z&#125;..&#125;..P..</span><br><span class="line">    0020 - e7 2d a9 98 5f 64 06 85-0e d7 3e 46 c3 77 d8 13   .-.._d....&gt;F.w..</span><br><span class="line">    0030 - 2a 4b 4d 45 cb 04 0f 50-d8 d2 fd 94 b7 a5 38 88   *KME...P......8.</span><br><span class="line">    0040 - 61 14 f3 e3 fb b2 93 e8-16 84 bb 95 41 ee 4f bf   a...........A.O.</span><br><span class="line">    0050 - 80 c2 ef 9e 91 49 0d 23-19 07 80 ff 88 66 fb 8c   .....I.#.....f..</span><br><span class="line">    0060 - 34 b3 1f 4a db 6a 67 29-5a d2 46 aa 4d 89 00 cb   4..J.jg)Z.F.M...</span><br><span class="line">    0070 - ce 78 f5 bc c3 c0 71 c6-d9 b5 4a a0 2c 3f 95 fb   .x....q...J.,?..</span><br><span class="line">    0080 - 38 51 68 38 15 b7 c1 c6-0f 6d 1e 92 19 f9 7b ed   8Qh8.....m....&#123;.</span><br><span class="line">    0090 - 67 45 64 e6 9f c8 af 3b-57 80 a6 31 13 13 b8 d2   gEd....;W..1....</span><br><span class="line"></span><br><span class="line">    Start Time: 1620976379</span><br><span class="line">    Timeout   : 7200 (sec)</span><br><span class="line">    Verify return code: 0 (ok)</span><br><span class="line">    Extended master secret: yes</span><br><span class="line">---</span><br><span class="line">Hello!</span><br></pre></td></tr></table></figure>
-<p>服务器端s_server的显示如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SSL_accept:before SSL initialization</span><br><span class="line">SSL_accept:before SSL initialization</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read client hello</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write server hello</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write certificate</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write key exchange</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write server done</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write server done</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read client key exchange</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read change cipher spec</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read finished</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write session ticket</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write change cipher spec</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write finished</span><br><span class="line">-----BEGIN SSL SESSION PARAMETERS-----</span><br><span class="line">MFoCAQECAgMDBALhBwQABDCLE6cs1oxfC42&#x2F;8iqcl+tn8w+NEaOP1Y3q0lX+qt7+</span><br><span class="line">QmIlqiyQ93gJqYU7JGplY8OhBgIEYJ4i+6IEAgIcIKQGBAQBAAAArQMCAQE&#x3D;</span><br><span class="line">-----END SSL SESSION PARAMETERS-----</span><br><span class="line">Shared ciphers:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-GCM-SHA256:ECDHE-SM2-WITH-SMS4-GCM-SM3:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA256:ECDHE-SM2-WITH-SMS4-SM3:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES128-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:SM9-WITH-SMS4-SM3:SM9DHE-WITH-SMS4-SM3:SM2-WITH-SMS4-SM3:SM2DHE-WITH-SMS4-SM3:AES128-SHA:RSA-WITH-SMS4-SHA1:RSA-WITH-SMS4-SM3</span><br><span class="line">Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1:SM2+SM3</span><br><span class="line">Shared Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1:SM2+SM3</span><br><span class="line">Supported Elliptic Curve Point Formats: uncompressed:ansiX962_compressed_prime:ansiX962_compressed_char2</span><br><span class="line">Supported Elliptic Curves: SM2:X25519:P-256:P-521:P-384</span><br><span class="line">Shared Elliptic curves: SM2:X25519:P-256:P-521:P-384</span><br><span class="line">CIPHER is ECDHE-SM2-WITH-SMS4-GCM-SM3</span><br><span class="line">Secure Renegotiation IS supported</span><br><span class="line">Hello!</span><br><span class="line">ERROR</span><br><span class="line">shutting down SSL</span><br><span class="line">CONNECTION CLOSED</span><br><span class="line">ACCEPT</span><br></pre></td></tr></table></figure>
-<h3 id="双证书双向认证">双证书双向认证</h3>
-<p>抓包文件：4-two-cert-two-auth.pcapng</p>
-<p>首先打开服务器s_server，服务端命令和输出如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@localhost demoCA]# gmssl s_server -key .&#x2F;sm2.server&#x2F;sm2.server.sig.key.pem -cert .&#x2F;sm2.server&#x2F;sm2.server.sig.crt.pem -dkey .&#x2F;sm2.server&#x2F;sm2.server.enc.key.pem -dcert .&#x2F;sm2.server&#x2F;sm2.server.enc.crt.pem -CAfile sm2.trust.pem -state -accept 44330 -verify 1</span><br><span class="line">verify depth is 1</span><br><span class="line">Using default temp DH parameters</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing certificate</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing private key</span><br><span class="line">[GMTLS_DEBUG] set sm2 encryption certificate</span><br><span class="line">[GMTLS_DEBUG] set sm2 decryption private key</span><br><span class="line">ACCEPT</span><br></pre></td></tr></table></figure>
-<p>然后s_client进行连接，客户端s_client的输出如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@localhost demoCA]# gmssl s_client -connect localhost:44330 -key .&#x2F;sm2.koper&#x2F;sm2.koper.sig.key.pem -cert .&#x2F;sm2.koper&#x2F;sm2.koper.sig.crt.pem -dkey .&#x2F;sm2.koper&#x2F;sm2.koper.enc.key.pem -dcert .&#x2F;sm2.koper&#x2F;sm2.koper.enc.crt.pem -CAfile sm2.trust.pem -state</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing certificate</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing private key</span><br><span class="line">[GMTLS_DEBUG] set sm2 encryption certificate</span><br><span class="line">[GMTLS_DEBUG] set sm2 decryption private key</span><br><span class="line">CONNECTED(00000003)</span><br><span class="line">SSL_connect:before SSL initialization</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client hello</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client hello</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server hello</span><br><span class="line">depth&#x3D;2 C &#x3D; CN, O &#x3D; GMSSL, OU &#x3D; PKI&#x2F;SM2, CN &#x3D; RootCA for Test</span><br><span class="line">verify return:1</span><br><span class="line">depth&#x3D;1 C &#x3D; CN, O &#x3D; GMSSL, OU &#x3D; PKI&#x2F;SM2, CN &#x3D; MiddleCA for Test</span><br><span class="line">verify return:1</span><br><span class="line">depth&#x3D;0 C &#x3D; CN, ST &#x3D; Beijing, L &#x3D; Beijing, O &#x3D; Sec, OU &#x3D; Sec, CN &#x3D; server, emailAddress &#x3D; sec@email.com</span><br><span class="line">verify return:1</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server certificate</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server key exchange</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server certificate request</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server done</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client certificate</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write client key exchange</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write change cipher spec</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write finished</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS write finished</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read server session ticket</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read change cipher spec</span><br><span class="line">SSL_connect:SSLv3&#x2F;TLS read finished</span><br><span class="line">---</span><br><span class="line">Certificate chain</span><br><span class="line"> 0 s:&#x2F;C&#x3D;CN&#x2F;ST&#x3D;Beijing&#x2F;L&#x3D;Beijing&#x2F;O&#x3D;Sec&#x2F;OU&#x3D;Sec&#x2F;CN&#x3D;server&#x2F;emailAddress&#x3D;sec@email.com</span><br><span class="line">   i:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line"> 1 s:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line">   i:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line"> 2 s:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line">   i:&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line">---</span><br><span class="line">Server certificate</span><br><span class="line">-----BEGIN CERTIFICATE-----</span><br><span class="line">MIICLDCCAc+gAwIBAgIGAXlllPWnMAwGCCqBHM9VAYN1BQAwSzELMAkGA1UEBhMC</span><br><span class="line">Q04xDjAMBgNVBAoTBUdNU1NMMRAwDgYDVQQLEwdQS0kvU00yMRowGAYDVQQDExFN</span><br><span class="line">aWRkbGVDQSBmb3IgVGVzdDAiGA8yMDIxMDUxMjE2MDAwMFoYDzIwMjIwNTEyMTYw</span><br><span class="line">MDAwWjB8MQswCQYDVQQGEwJDTjEQMA4GA1UECBMHQmVpamluZzEQMA4GA1UEBxMH</span><br><span class="line">QmVpamluZzEMMAoGA1UEChMDU2VjMQwwCgYDVQQLEwNTZWMxDzANBgNVBAMTBnNl</span><br><span class="line">cnZlcjEcMBoGCSqGSIb3DQEJARYNc2VjQGVtYWlsLmNvbTBZMBMGByqGSM49AgEG</span><br><span class="line">CCqBHM9VAYItA0IABBpkgKei2J+g3S&#x2F;qd&#x2F;KHQL2j6wVhHS+qD2oAxJ&#x2F;T05zIsBOI</span><br><span class="line">&#x2F;BC+&#x2F;xOYX86uk3D9V03zC3J2GNZ1le88SIb4McqjaDBmMBsGA1UdIwQUMBKAEPl&#x2F;</span><br><span class="line">VbQnlDNiplbKb8xdGv8wGQYDVR0OBBIEEDXQBbbJ66twX&#x2F;&#x2F;RjZHc4r0wEQYDVR0R</span><br><span class="line">BAowCIIGc2VydmVyMAkGA1UdEwQCMAAwDgYDVR0PAQH&#x2F;BAQDAgDAMAwGCCqBHM9V</span><br><span class="line">AYN1BQADSQAwRgIhALEqYaJDmh24cyV3mbKt+4VHBvAirFrv&#x2F;+g&#x2F;D4OeWS3YAiEA</span><br><span class="line">jUINEpX+B9UTO4onSuOslfXpsK1ZGU28YARCOjzAUq8&#x3D;</span><br><span class="line">-----END CERTIFICATE-----</span><br><span class="line">subject&#x3D;&#x2F;C&#x3D;CN&#x2F;ST&#x3D;Beijing&#x2F;L&#x3D;Beijing&#x2F;O&#x3D;Sec&#x2F;OU&#x3D;Sec&#x2F;CN&#x3D;server&#x2F;emailAddress&#x3D;sec@email.com</span><br><span class="line">issuer&#x3D;&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line">---</span><br><span class="line">Acceptable client certificate CA names</span><br><span class="line">&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;RootCA for Test</span><br><span class="line">&#x2F;C&#x3D;CN&#x2F;O&#x3D;GMSSL&#x2F;OU&#x3D;PKI&#x2F;SM2&#x2F;CN&#x3D;MiddleCA for Test</span><br><span class="line">Client Certificate Types: RSA sign, DSA sign, ECDSA sign</span><br><span class="line">Requested Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1:SM2+SM3</span><br><span class="line">Shared Requested Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1:SM2+SM3</span><br><span class="line">Peer signing digest: SM3</span><br><span class="line">Server Temp Key: ECDH, SM2, 256 bits</span><br><span class="line">---</span><br><span class="line">SSL handshake has read 2204 bytes and written 334 bytes</span><br><span class="line">Verification: OK</span><br><span class="line">---</span><br><span class="line">New, TLSv1.2, Cipher is ECDHE-SM2-WITH-SMS4-GCM-SM3</span><br><span class="line">Server public key is 256 bit</span><br><span class="line">Secure Renegotiation IS supported</span><br><span class="line">Compression: NONE</span><br><span class="line">Expansion: NONE</span><br><span class="line">No ALPN negotiated</span><br><span class="line">SSL-Session:</span><br><span class="line">    Protocol  : TLSv1.2</span><br><span class="line">    Cipher    : ECDHE-SM2-WITH-SMS4-GCM-SM3</span><br><span class="line">    Session-ID: 8F24410489864FE9CB6688032BBB484DC641531AC1BEA0CCB256C60C06DEA4FA</span><br><span class="line">    Session-ID-ctx: </span><br><span class="line">    Master-Key: EC69FA7721F60D09C2F58EFFC5CE0061FD9D73F46A13D91BE89A593282F7DAA3534D1826D1E2B5D05EDADF6A37E60B7A</span><br><span class="line">    PSK identity: None</span><br><span class="line">    PSK identity hint: None</span><br><span class="line">    SRP username: None</span><br><span class="line">    TLS session ticket lifetime hint: 7200 (seconds)</span><br><span class="line">    TLS session ticket:</span><br><span class="line">    0000 - cc 97 5c 83 02 da d4 9c-30 03 6a 4b 12 fd 24 c2   ..\.....0.jK..$.</span><br><span class="line">    0010 - a1 80 ca ff 04 95 33 39-3c 23 a6 6c 44 95 e2 33   ......39&lt;#.lD..3</span><br><span class="line">    0020 - 23 bd 56 20 9e 25 9b 7d-52 36 7a 3b 11 c6 eb b0   #.V .%.&#125;R6z;....</span><br><span class="line">    0030 - d0 bd 7a 62 3e 12 a0 39-35 a3 03 7a 2a fc 93 2e   ..zb&gt;..95..z*...</span><br><span class="line">    0040 - d0 f0 88 a1 6b 99 f3 12-8f 37 d6 cc 6f 30 5f fb   ....k....7..o0_.</span><br><span class="line">    0050 - 78 2e 45 d8 05 d4 fd 6c-69 56 66 e9 f9 73 5c d7   x.E....liVf..s\.</span><br><span class="line">    0060 - 17 68 80 b9 53 19 d4 71-ad 97 8b df a7 3b 11 5f   .h..S..q.....;._</span><br><span class="line">    0070 - 3e 32 55 77 6d 2d 1d a0-95 2e b8 cd 44 de d5 4f   &gt;2Uwm-......D..O</span><br><span class="line">    0080 - 62 ab 1a 02 8f 47 e9 ac-63 56 15 0b 80 a3 1e 84   b....G..cV......</span><br><span class="line">    0090 - 7f 54 e7 f9 d1 39 9e 7e-67 85 d5 1a e3 6e db ad   .T...9.~g....n..</span><br><span class="line"></span><br><span class="line">    Start Time: 1620976664</span><br><span class="line">    Timeout   : 7200 (sec)</span><br><span class="line">    Verify return code: 0 (ok)</span><br><span class="line">    Extended master secret: yes</span><br><span class="line">---</span><br><span class="line">Hello!</span><br></pre></td></tr></table></figure>
-<p>服务器端s_server的显示如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SSL_accept:before SSL initialization</span><br><span class="line">SSL_accept:before SSL initialization</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read client hello</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write server hello</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write certificate</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write key exchange</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write certificate request</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write server done</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write server done</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read client certificate</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read client key exchange</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read change cipher spec</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS read finished</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write session ticket</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write change cipher spec</span><br><span class="line">SSL_accept:SSLv3&#x2F;TLS write finished</span><br><span class="line">-----BEGIN SSL SESSION PARAMETERS-----</span><br><span class="line">MFoCAQECAgMDBALhBwQABDDsafp3IfYNCcL1jv&#x2F;FzgBh&#x2F;Z1z9GoT2Rvomlkygvfa</span><br><span class="line">o1NNGCbR4rXQXtrfajfmC3qhBgIEYJ4kGKIEAgIcIKQGBAQBAAAArQMCAQE&#x3D;</span><br><span class="line">-----END SSL SESSION PARAMETERS-----</span><br><span class="line">Shared ciphers:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-GCM-SHA256:ECDHE-SM2-WITH-SMS4-GCM-SM3:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA256:ECDHE-SM2-WITH-SMS4-SM3:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES128-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:SM9-WITH-SMS4-SM3:SM9DHE-WITH-SMS4-SM3:SM2-WITH-SMS4-SM3:SM2DHE-WITH-SMS4-SM3:AES128-SHA:RSA-WITH-SMS4-SHA1:RSA-WITH-SMS4-SM3</span><br><span class="line">Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1:SM2+SM3</span><br><span class="line">Shared Signature Algorithms: RSA+SHA512:DSA+SHA512:ECDSA+SHA512:RSA+SHA384:DSA+SHA384:ECDSA+SHA384:RSA+SHA256:DSA+SHA256:ECDSA+SHA256:RSA+SHA224:DSA+SHA224:ECDSA+SHA224:RSA+SHA1:DSA+SHA1:ECDSA+SHA1:SM2+SM3</span><br><span class="line">Supported Elliptic Curve Point Formats: uncompressed:ansiX962_compressed_prime:ansiX962_compressed_char2</span><br><span class="line">Supported Elliptic Curves: SM2:X25519:P-256:P-521:P-384</span><br><span class="line">Shared Elliptic curves: SM2:X25519:P-256:P-521:P-384</span><br><span class="line">CIPHER is ECDHE-SM2-WITH-SMS4-GCM-SM3</span><br><span class="line">Secure Renegotiation IS supported</span><br><span class="line">Hello!</span><br><span class="line">ERROR</span><br><span class="line">shutting down SSL</span><br><span class="line">CONNECTION CLOSED</span><br><span class="line">ACCEPT</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1>参考：</h1>
-<h2 id="国密SSL-HTTP">国密SSL/HTTP</h2>
-<ul>
-<li>
-<p><a href="https://blog.csdn.net/WoTrusCA">沃通的CSDN官方博客</a>有许多GM相关的东西，可以多看看</p>
-<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108366659?spm=1001.2014.3001.5501">沃通：关于国密HTTPS的那些事（一）</a>：国密SSL的协议过程的图解详细分析（双证书和双向认证）。</p>
-<p><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/GM-SSL-Process.png" alt="GM-SSL-Process"></p>
-<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108398730?spm=1001.2014.3001.5501">沃通：关于国密HTTPS的那些事（二）</a>：每个协议版本和密码组件都有其对应的值（Value)，ClientHello中包含客户端本地支持的所有密码组件，以供服务端可以选择。</p>
-<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108440658?spm=1001.2014.3001.5501">沃通：关于国密HTTPS的那些事（三）</a>：12个国密组件及其对应值，简单阐述了国密SSL和Openssl的区别。</p>
-<p><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/GM-CipherSuites.png" alt="GM-CipherSuites"></p>
-</li>
-<li>
-<p><strong>GmSSL-Github-guanzhi相关：</strong></p>
-<p>CSDN-viqjeee：<a href="https://blog.csdn.net/qq_39952971/article/details/115178980">gmssl 国密ssl流程测试</a></p>
-<p>CSDN-viqjeee：<a href="https://blog.csdn.net/qq_39952971/article/details/115168241">gmssl国密双证书制作</a></p>
-<p>CSDN-viqjeee：<a href="https://blog.csdn.net/qq_39952971/article/details/115251306?spm=1001.2014.3001.5501">登录过程中密码的安全和攻击风险</a></p>
-<p>CSDN-viqjeee：<a href="https://blog.csdn.net/qq_39952971/article/details/114868960?spm=1001.2014.3001.5501">使用第三方PC对通信设备进行抓包的方法</a></p>
-<p>CSDN-小火龙呢：<a href="https://blog.csdn.net/qq_15077747/article/details/108218240">GMSSL编译及https链接(一)</a></p>
-<p>CSDN-小火龙呢：<a href="https://blog.csdn.net/qq_15077747/article/details/102501978?spm=1001.2014.3001.5501">TCP的三次握手与四次挥手理解</a></p>
-<p><a href="https://kb.cnblogs.com/page/162080/">SSL协议详解</a></p>
-<p>CSDN-小火龙呢：<a href="https://blog.csdn.net/qq_15077747/article/details/108220046?spm=1001.2014.3001.5501">编译配置nginx支持国密（二）</a></p>
-<p>CSDN-小火龙呢：<a href="https://blog.csdn.net/qq_15077747/article/details/108602988?spm=1001.2014.3001.5501">gmssl编译后不支持360浏览器双向https问题</a></p>
-<p><a href="https://www.cnblogs.com/bigben0123/p/12650545.html">OpenSSL和GmSSL在Windows下编译过程</a></p>
-<p><a href="https://www.cnblogs.com/cherishui/p/14626196.html">SSL/TLS 与国密算法</a></p>
-<p><a href="https://www.cnblogs.com/skills/p/13620478.html">GmSSL开发环境搭建及双证书生成</a>：在生成证书里面是讲的最详细也是最好的一个博客文章（注意博客生成根证书的时候命令有一处错误，Root.key应该改成CA.key）（注意里面的key和crt文件）（如果这里的证书不行，直接去国密SSL实验室进行生成就行，都有）</p>
-<p><a href="https://blog.csdn.net/mogoweb/article/details/105020965">何为单证书和双证书？</a></p>
-</li>
-</ul>
-<h2 id="初期资料">初期资料</h2>
-<p><a href="https://juejin.cn/post/6844904114879463438">掘金：浅谈国密算法</a>；</p>
-<p><a href="https://www.jianshu.com/p/3ac6d7b3cf02">简书：国密算法</a>；</p>
-<p><a href="https://github.com/PopezLotado/SM2Java">SM2的Java算法实现</a></p>
-<p><a href="https://github.com/windard/sm4/blob/master/README.md">SM4：Github的一个项目</a>；</p>
-<p><a href="https://www.huaweicloud.com/theme/484689-1-G">华为云：国产密码算法</a>；</p>
-<p><a href="https://github.com/hwyqb/SM2_SM3_SM4Encrypt">SM2/SM3/SM4的Java算法实现-Github</a>；</p>
-<p><a href="https://www.wosign.com/FAQ/faq_2019062501.htm">国密SSL协议</a>；</p>
-<p><a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/articles/3_features/36_cryptographic/index.html">国密算法和协议</a>；</p>
-<p><a href="https://patents.google.com/patent/CN106656939A/zh">专利：国密SSL协议和标准SSL协议转发系统及方法</a>；</p>
-<p><a href="https://patents.google.com/patent/CN104394179A/zh">专利：支持国密算法的安全套接层协议扩展方法</a>；</p>
-<p><a href="https://blog.csdn.net/mrpre/article/details/78015580">CSDN：国密SSL协议</a>；CSDN的源码：<a href="https://github.com/mrpre/atls">Github：ATls</a>；有wireshark抓包进行分析</p>
-<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108440658">关于国密HTTPS的那些事</a></p>
-<p><a href="https://blog.csdn.net/upset_ming/article/details/79880688">国密SSL协议开发总结（附报文详细分析）</a>：详细分析了GMSSL协议的合格部分和过程（很全了），其<a href="https://blog.csdn.net/upset_ming">大宝CA国密SSL国密TOMCAT_CSDN博客</a>有一些相关的东西，注意还有一个<a href="https://www.doubleca.com/test_toIndexPage.action">大宝CA数字证书测试平台</a>。</p>
-<p><em><strong>segmentfault平台：</strong></em><a href="https://segmentfault.com/a/1190000024448440">国密SSL性能测试</a>-可以结合前面国密SSL实验室的测试工具进行。<a href="https://segmentfault.com/a/1190000023890321?utm_source=sf-similar-article">国密SSL之Java实现</a>-有Java源码，感觉可能会存在一些问题。<a href="https://segmentfault.com/a/1190000016808783?utm_source=sf-similar-article">Bytom国密网说明和指南</a>-有Github源码。</p>
-<p><a href="https://developer.aliyun.com/article/770830">国密SSL协议之Nginx集成</a>：结合前面的<em>国密SSL实验室</em>进行，在CentOS 7环境上实验（失败）</p>
-<p><a href="https://cloud.tencent.com/developer/article/1597165">搭建国密SSL开发测试环境</a>：结合前面的<em><strong>GmSSL-关志教师-Github</strong></em>进行，在CentOS 7环境上进行实验（成功）</p>
-]]></content>
-      <tags>
-        <tag>algorithm</tag>
-        <tag>protocol</tag>
-        <tag>Industrial control</tag>
-      </tags>
-  </entry>
-  <entry>
     <title></title>
     <url>/manifest.json</url>
     <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
@@ -1108,17 +814,17 @@ HMAC_-hash(secret, A(3) + seed) + ...
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>about</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p>关于我：</p>
 <p>一名在读的打工人，每天的事就是科研科研</p>
 <p>同时分享自己在读的生活和一些日常</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>tags</title>
