@@ -169,6 +169,30 @@
       </tags>
   </entry>
   <entry>
+    <title>「送你一朵小红花」</title>
+    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
+    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg" alt=""></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC17.JPG" alt="LHC17"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC16.JPG" alt="LHC16"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC15.JPG" alt="LHC15"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC14.JPG" alt="LHC14"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC13.jpg" alt="LHC13"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC12.jpg" alt="LHC12"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC11.jpg" alt="LHC11"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC10.JPG" alt="LHC10"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC9.jpg" alt="LHC9"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC8.jpg" alt="LHC8"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC6.GIF" alt="LHC6"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC5.jpg" alt="LHC5"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC4.JPG" alt="LHC4"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC3.jpg" alt="LHC3"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/run&amp;start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
+]]></content>
+      <tags>
+        <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>TLS1.2 RFC-5246文档学习</title>
     <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
@@ -245,11 +269,11 @@ HMAC_-hash(secret, A(3) + seed) + …</p>
 <p>例子：当前需要数据长度最长的密码组件是AES_256_CBC_SHA256，该密码组件需要2个32字节长度的密钥和2个32字节长度的MAC密钥。</p>
 <h1>TLS握手协议</h1>
 <p>TLS握手协议负责协商会话，包括以下组成：会话标识符、对等证书、压缩方式、密码组件及规范、主密钥、会话恢复。</p>
-<h2 id="变更密码规范协议">变更密码规范协议</h2>
+<h2 id="Change-Cipher-Spec变更密码规范协议">Change_Cipher_Spec变更密码规范协议</h2>
 <p>该协议是为用信号通知加密策略中的转换。在当前连接状态下进行加密和压缩（注意无填充），其协议值为1，结构体如下所示：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">      <span class="class"><span class="keyword">enum</span> &#123;</span> change_cipher_spec(<span class="number">1</span>), (<span class="number">255</span>) &#125; type;</span><br><span class="line">&#125; ChangeCipherSpec;</span><br></pre></td></tr></table></figure>
 <p>客户端和服务器端都发送ChangeCipherSpec消息，告知对方将使用协商好的CipherSpec和密钥进行通信。具体的状态转换参考第6.1节（连接状态）。ChangeCipherSpec消息的发送在握手协商之后，在Finished消息之前。</p>
-<h2 id="警报协议">警报协议</h2>
+<h2 id="Alert警报协议">Alert警报协议</h2>
 <p>警报就是其字面意思，在会话发生错误时发送相应的警报消息。警报消息也是在当前连接状态下进行加密和压缩。其各种枚举类型和结构体定义如下：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span> warning(<span class="number">1</span>), fatal(<span class="number">2</span>), (<span class="number">255</span>) &#125; AlertLevel;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line">  close_notify(<span class="number">0</span>),</span><br><span class="line">  unexpected_message(<span class="number">10</span>), </span><br><span class="line">  bad_record_mac(<span class="number">20</span>), </span><br><span class="line">  decryption_failed_RESERVED(<span class="number">21</span>), </span><br><span class="line">  record_overflow(<span class="number">22</span>), </span><br><span class="line">  decompression_failure(<span class="number">30</span>), </span><br><span class="line">  handshake_failure(<span class="number">40</span>), </span><br><span class="line">  no_certificate_RESERVED(<span class="number">41</span>), </span><br><span class="line">  bad_certificate(<span class="number">42</span>), </span><br><span class="line">  unsupported_certificate(<span class="number">43</span>), </span><br><span class="line">  certificate_revoked(<span class="number">44</span>), </span><br><span class="line">  certificate_expired(<span class="number">45</span>), </span><br><span class="line">  certificate_unknown(<span class="number">46</span>), </span><br><span class="line">  illegal_parameter(<span class="number">47</span>), </span><br><span class="line">  unknown_ca(<span class="number">48</span>), </span><br><span class="line">  access_denied(<span class="number">49</span>), </span><br><span class="line">  decode_error(<span class="number">50</span>), </span><br><span class="line">  decrypt_error(<span class="number">51</span>),</span><br><span class="line">  export_restriction_RESERVED(<span class="number">60</span>), </span><br><span class="line">  protocol_version(<span class="number">70</span>), </span><br><span class="line">  insufficient_security(<span class="number">71</span>), </span><br><span class="line">  internal_error(<span class="number">80</span>), </span><br><span class="line">  user_canceled(<span class="number">90</span>), </span><br><span class="line">  no_renegotiation(<span class="number">100</span>), </span><br><span class="line">  unsupported_extension(<span class="number">110</span>), (<span class="number">255</span>)</span><br><span class="line">&#125; AlertDescription;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">  AlertLevel level;</span><br><span class="line">  AlertDescription description;</span><br><span class="line">&#125; Alert;</span><br></pre></td></tr></table></figure>
 <h3 id="关闭警报">关闭警报</h3>
@@ -274,35 +298,250 @@ HMAC_-hash(secret, A(3) + seed) + …</p>
 <p>关于会话恢复，客户端将要回复的会话ID发送给服务器，服务器检查缓存是否匹配一次来判断是否恢复会话，流程如下所示：</p>
 <p><img src="/images/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20210731165408582-7721650.png" alt=""></p>
 <p>注释：每个消息所代表内容和含义在下面的各节进行介绍。</p>
-<h2 id="握手协议">握手协议</h2>
+<h2 id="Handshake握手协议">Handshake握手协议</h2>
+<p>TLS握手协议是TLS记录协议的一个高级别的协议，握手消息被发送给记录协议，然后被封装到一个或多个TLSPlaintext消息中（前面定义的结构体），而这些消息按照当前连接状态进行传输。如下所示是Handshake和HandshakeType的结构体和枚举：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line">	hello_request(<span class="number">0</span>), </span><br><span class="line">  client_hello(<span class="number">1</span>), </span><br><span class="line">  server_hello(<span class="number">2</span>), </span><br><span class="line">  certificate(<span class="number">11</span>), </span><br><span class="line">  server_key_exchange (<span class="number">12</span>), </span><br><span class="line">  certificate_request(<span class="number">13</span>), </span><br><span class="line">  server_hello_done(<span class="number">14</span>), </span><br><span class="line">  certificate_verify(<span class="number">15</span>), </span><br><span class="line">  client_key_exchange(<span class="number">16</span>), </span><br><span class="line">  finished(<span class="number">20</span>), (<span class="number">255</span>)</span><br><span class="line">&#125; HandshakeType;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	HandshakeType msg_type; <span class="comment">/* handshake type */</span></span><br><span class="line">  uint24 length;          <span class="comment">/* bytes in message */</span></span><br><span class="line">	select (HandshakeType) &#123;</span><br><span class="line">		<span class="keyword">case</span> hello_request: HelloRequest;</span><br><span class="line">		<span class="keyword">case</span> client_hello: ClientHello;</span><br><span class="line">		<span class="keyword">case</span> server_hello: ServerHello;</span><br><span class="line">		<span class="keyword">case</span> certificate: Certificate;</span><br><span class="line">		<span class="keyword">case</span> server_key_exchange:  ServerKeyExchange;</span><br><span class="line">    <span class="keyword">case</span> certificate_request:  CertificateRequest;</span><br><span class="line">    <span class="keyword">case</span> server_hello_done:  ServerHelloDone;</span><br><span class="line">    <span class="keyword">case</span> certificate_verify:  CertificateVerify;</span><br><span class="line">    <span class="keyword">case</span> client_key_exchange:  ClientKeyExchange;</span><br><span class="line">    <span class="keyword">case</span> finished: Finished;</span><br><span class="line">    &#125; body;</span><br><span class="line">&#125; Handshake;</span><br></pre></td></tr></table></figure>
+<p>握手必须按照下面的步骤进行，不然将会出错，当然可以省略一些可选的步骤。注意只有Hello消息不受时间限制和影响，随时随地可以发送，当然在握手过程中接收到Hello消息将忽略。</p>
+<p>新的握手消息有IANA规定，详细见第12节。</p>
+<h3 id="Hello-Message（Hello消息）">Hello Message（Hello消息）</h3>
+<p>此消息用于协商或者重新协商消息。在新的会话开启的时候，此时通信的对称加密、公钥加密、MAC算法加密都被设置为NULL，也就是没有任何的加密，Hello Message消息被明文发送和接收。</p>
+<h4 id="Hello-Request（Hello请求）">Hello Request（Hello请求）</h4>
+<p>HelloRequest消息可以被服务器在任何时间发送。该消息的意义：</p>
+<ul>
+<li>HelloRequest是一个简单的通知，通知客户端重新开始协商过程。</li>
+<li>作为响应，客户端在后面发送ClientHello消息。</li>
+<li>当然，客户端不想协商或者正在进行其他协商的话可以忽略该HelloRequest消息。</li>
+<li>若服务器没有接收到客户端回应，将发送致命警报并关闭连接。</li>
+</ul>
+<p>HelloRequest消息的结构体很简单，没有数据，如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span> &#125; HelloRequest;</span><br></pre></td></tr></table></figure>
+<h4 id="Client-Hello">Client Hello</h4>
+<p>ClientHello消息可以由客户端主动发送，也可以由客户端对服务器的HelloReqest消息进行回复。</p>
+<p>ClientHello消息的Random消息结构体如下，注意opaque定义类型表示未包含数据的单字节实体。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	uint32 gmt_unix_time; </span><br><span class="line">  opaque random_bytes[<span class="number">28</span>];  <span class="comment">//由一个安全的随机数生成器生成一个28字节的随机数</span></span><br><span class="line">&#125; Random;</span><br></pre></td></tr></table></figure>
+<p>ClientHello消息的结构体定义如下，</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	ProtocolVersion client_version;</span><br><span class="line">	Random random;</span><br><span class="line">	SessionID session_id;</span><br><span class="line">	CipherSuite cipher_suites&lt;<span class="number">2.</span><span class="number">.2</span>^<span class="number">16</span><span class="number">-2</span>&gt;; </span><br><span class="line">  CompressionMethod compression_methods&lt;<span class="number">1.</span><span class="number">.2</span>^<span class="number">8</span><span class="number">-1</span>&gt;; </span><br><span class="line">  select (extensions_present) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="literal">false</span>:</span><br><span class="line">			<span class="class"><span class="keyword">struct</span> &#123;</span>&#125;;</span><br><span class="line">    <span class="keyword">case</span> <span class="literal">true</span>:</span><br><span class="line">    	Extension extensions&lt;<span class="number">0.</span><span class="number">.2</span>^<span class="number">16</span><span class="number">-1</span>&gt;;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125; ClientHello;</span><br></pre></td></tr></table></figure>
+<p>ClientHello包含一个会话标识符SessionID，其定义如下，注意SessionID是没有经过加密或者MAC保护的：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">opaque SessionID&lt;<span class="number">0.</span><span class="number">.32</span>&gt;;</span><br></pre></td></tr></table></figure>
+<p>ClientHello中包含密码算法组件的定义，他定义了客户端所支持的组件，且是按照优先级顺序来提供。每个密码套件定义了密钥交换算法、大量加密算法（包括密钥长度）、MAC算法以及一个PRF算法。服务器对这些密码组件的选择是根据优先级从高往低选择，直到选择一个自己支持的进行下一步会话，否则关闭连接并发出Hadnshake_failure错误警报。密码组件的定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">uint8 CipherSuite[<span class="number">2</span>];    <span class="comment">/* Cryptographic suite selector */</span></span><br></pre></td></tr></table></figure>
+<p>当然ClientHello还包含压缩算法的定义，其枚举定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span> null(<span class="number">0</span>), (<span class="number">255</span>) &#125; CompressionMethod;</span><br></pre></td></tr></table></figure>
+<p>TLS协议允许对消息进行拓展，这里将拓展到compression_methods后面，如果检测到compression_methods后面有字段，则说明存在TLS拓展，实际的拓展格式在后面的7.4.1.4节定义。</p>
+<h4 id="Server-Hello">Server Hello</h4>
+<p>用于回应前面的ClientHello消息，前提是服务器在ClientHello消息中选择了自己支持的密码算法组件。其消息结构体定义如下，其中的大部分定义都是自己服务器根据ClientHello进行的选择。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	ProtocolVersion server_version; </span><br><span class="line">  Random random;</span><br><span class="line">	SessionID session_id;</span><br><span class="line">	CipherSuite cipher_suite; </span><br><span class="line">  CompressionMethod compression_method; </span><br><span class="line">  select (extensions_present) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="literal">false</span>:</span><br><span class="line">			<span class="class"><span class="keyword">struct</span> &#123;</span>&#125;;</span><br><span class="line">		<span class="keyword">case</span> <span class="literal">true</span>:</span><br><span class="line">			Extension extensions&lt;<span class="number">0.</span><span class="number">.2</span>^<span class="number">16</span><span class="number">-1</span>&gt;;</span><br><span class="line">		&#125;;</span><br><span class="line">&#125; ServerHello;</span><br></pre></td></tr></table></figure>
+<h4 id="Hello-Extensions（Hello消息拓展）">Hello Extensions（Hello消息拓展）</h4>
+<p>拓展消息和其类型的结构体和枚举定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	ExtensionType extension_type; </span><br><span class="line">  opaque extension_data&lt;<span class="number">0.</span><span class="number">.2</span>^<span class="number">16</span><span class="number">-1</span>&gt;;</span><br><span class="line">&#125; Extension;</span><br><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line">	signature_algorithms(<span class="number">13</span>), (<span class="number">65535</span>)</span><br><span class="line">&#125; ExtensionType;</span><br></pre></td></tr></table></figure>
+<p>现在的消息扩展是面对客户端的，并不面向服务器，该文档定义的框架也可能在未来增加面向服务器的消息拓展。可以设计新的拓展，但是新的拓展必须遵循一定的要求和标准，这里不细讲。</p>
+<h5 id="签名算法（扩展）">签名算法（扩展）</h5>
+<p>这个扩展的目的是客户端告诉服务器签名/哈希算法将可能用于数字签名中。该扩展包含一个支持签名算法的值。下面是签名算法、Hash算法的枚举类型和结构体定义，其中SignatureAndHashAlgorithm表示客户端支持的单个Hash/签名对：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line">	none(<span class="number">0</span>), md5(<span class="number">1</span>), sha1(<span class="number">2</span>), sha224(<span class="number">3</span>), sha256(<span class="number">4</span>), sha384(<span class="number">5</span>),</span><br><span class="line">	sha512(<span class="number">6</span>), (<span class="number">255</span>)</span><br><span class="line">&#125; HashAlgorithm;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span> </span><br><span class="line">	anonymous(<span class="number">0</span>), rsa(<span class="number">1</span>), dsa(<span class="number">2</span>), ecdsa(<span class="number">3</span>), (<span class="number">255</span>) </span><br><span class="line">&#125; SignatureAlgorithm;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	HashAlgorithm hash;</span><br><span class="line">	SignatureAlgorithm signature;</span><br><span class="line">&#125; SignatureAndHashAlgorithm;</span><br><span class="line"></span><br><span class="line">SignatureAndHashAlgorithm supported_signature_algorithms&lt;<span class="number">2.</span><span class="number">.2</span>^<span class="number">16</span><span class="number">-2</span>&gt;;</span><br></pre></td></tr></table></figure>
+<p>如果客户端仅支持默认散列和签名算法(在本节中列出)，则可以省略Signature_Algorithms扩展。如果客户端不支持默认算法，或者支持其他散列和签名算法(并且它愿意使用它们来验证服务器发送的消息，即服务器证书和服务器密钥交换)，则它必须发送Signature_Algorithms扩展，列出它愿意接受的算法。</p>
+<p>如果客户端未发送Signature_Algorithms扩展，则服务器必须执行以下操作：</p>
+<ul>
+<li>如果协商的密钥交换算法是(RSA、DHE_RSA、DH_RSA、RSA_PSK、ECDH_RSA、ECDHE_RSA)之一，则表现为客户端发送了值{sha1，rsa}。</li>
+<li>如果协商的密钥交换算法是(DHE_DSS，DH_DSS)之一，则表现为客户端发送了值{SHA1，DSA}。<br>
+-如果协商的密钥交换算法是(ECDH_ECDSA，ECDHE_ECDSA)之一，则表现为客户端发送了值{sha1，ecdsa}。</li>
+</ul>
+<h3 id="Server-Certificate（服务器证书）">Server Certificate（服务器证书）</h3>
+<p>证书消息的格式如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">opaque ASN<span class="number">.1</span>Cert&lt;<span class="number">1.</span><span class="number">.2</span>^<span class="number">24</span><span class="number">-1</span>&gt;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	ASN<span class="number">.1</span>Cert certificate_list&lt;<span class="number">0.</span><span class="number">.2</span>^<span class="number">24</span><span class="number">-1</span>&gt;;</span><br><span class="line">&#125; Certificate;</span><br></pre></td></tr></table></figure>
+<p>以下规则适用于服务器发送的证书：</p>
+<ul>
+<li>
+<p>证书类型必须为X.509v3，除非另行明确协商(例如，[TLSPGP])。</p>
+</li>
+<li>
+<p>最终实体证书的公钥(及相关限制)必须与选定的密钥交换算法兼容。</p>
+<table>
+<thead>
+<tr>
+<th>密钥交换算法</th>
+<th>证书密钥类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RSA, RSA_PSK</td>
+<td>RSA公钥；证书必须允许将密钥用于加密(如果存在密钥使用扩展，则必须设置keyEncipherment位)。<br/>注意：RSA_PSK在[TLSPSK]中定义。</td>
+</tr>
+<tr>
+<td>DHE_RSA, ECDHE_RSA</td>
+<td>RSA公钥；证书必须允许使用将在服务器密钥交换消息中使用的签名方案和散列算法对密钥进行签名(如果存在密钥使用扩展，则必须设置digitalSignature位)。<br/>注意：ECDHE_RSA在[TLSECC]中定义。</td>
+</tr>
+<tr>
+<td>DHE_DSS</td>
+<td>DSA公钥；证书必须允许使用将在服务器密钥交换消息中使用的散列算法进行签名。</td>
+</tr>
+<tr>
+<td>DH_DSS, DH_RSA</td>
+<td>Diffie-Hellman公钥；如果存在密钥使用扩展，则必须设置keyAgreement位。</td>
+</tr>
+<tr>
+<td>ECDH_ECDSA, ECDH_RSA</td>
+<td>支持ECDH的公钥；公钥必须使用客户端支持的曲线和点格式，如[TLSECC]中所述。</td>
+</tr>
+<tr>
+<td>ECDHE_ECDSA</td>
+<td>支持ECDSA的公钥；证书必须允许使用将在服务器密钥交换消息中使用的散列算法进行签名。公钥必须使用客户端支持的曲线和点格式，如[TLSECC]中所述。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>“server_name”和“trusted_ca_key”扩展名[TLSEXT]用于指导证书选择。</p>
+</li>
+</ul>
+<p>如果客户端提供了SignatureAndHashAlgorithm扩展，扩展中说明了Hash/签名算法，则服务器提供的证书则必须是用客户端提供的扩展的Hash/签名算法对进行签名。</p>
+<h3 id="Server-Key-Exchange-Message（服务器密钥交换）">Server Key Exchange Message（服务器密钥交换）</h3>
+<p>该消息在服务器发送完Certificate消息或者ServerHelloDone消息之后发送。注意，仅当前面Certificate消息发送之后无法提供足够的数据与客户端进行预主密钥的交换时，才发送ServerKeyExchange消息，而这适用于这几个密钥交换算法：DHE_DSS, DHE_RSA, DH_anon。但是对与RSA, DH_DSS, DH_RSA这几个密钥交换算法，发送ServerKeyExchange消息是不合法的。至于其他的密钥交换算法，比如在「TLSECC」中定义的，必须详细说明是否发送ServerKeyExchange消息，如果发送，需指定该消息的内容。</p>
+<p>ServerKeyExchange消息的目标：该消息发送相关密码信息以让客户端发送预主密钥，该预主密钥是客户端可以用来进行密钥交换的DH公钥或者其他算法的公钥。</p>
+<p>KeyExchangeAlgorithm和服务器DH参数的枚举类型和结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span> </span><br><span class="line">  dhe_dss, dhe_rsa, dh_anon, rsa, dh_dss, dh_rsa</span><br><span class="line">	<span class="comment">/* may be extended, e.g., for ECDH -- see [TLSECC] */</span></span><br><span class="line">&#125; KeyExchangeAlgorithm;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	opaque dh_p&lt;<span class="number">1.</span><span class="number">.2</span>^<span class="number">16</span><span class="number">-1</span>&gt;;  <span class="comment">/* 用于DH运算的素数 */</span></span><br><span class="line">  opaque dh_g&lt;<span class="number">1.</span><span class="number">.2</span>^<span class="number">16</span><span class="number">-1</span>&gt;;  <span class="comment">/* 用于DH运算的生成器 */</span></span><br><span class="line">  opaque dh_Ys&lt;<span class="number">1.</span><span class="number">.2</span>^<span class="number">16</span><span class="number">-1</span>&gt;; <span class="comment">/* 服务器的DH公开值*/</span></span><br><span class="line">&#125; ServerDHParams;     <span class="comment">/* Ephemeral DH parameters 暂时的DH参数*/</span></span><br></pre></td></tr></table></figure>
+<p>ServerKeyExchange消息的结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	select (KeyExchangeAlgorithm) &#123;</span><br><span class="line">		<span class="keyword">case</span> dh_anon:</span><br><span class="line">    	ServerDHParams params;  <span class="comment">/* 服务器的密钥交换参数 */</span></span><br><span class="line">		<span class="keyword">case</span> dhe_dss: </span><br><span class="line">    <span class="keyword">case</span> dhe_rsa:</span><br><span class="line">			ServerDHParams params; </span><br><span class="line">    	digitally-<span class="keyword">signed</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">				opaque client_random[<span class="number">32</span>]; </span><br><span class="line">        opaque server_random[<span class="number">32</span>]; </span><br><span class="line">        ServerDHParams params;</span><br><span class="line">			&#125; signed_params; </span><br><span class="line">    <span class="keyword">case</span> rsa:</span><br><span class="line">		<span class="keyword">case</span> dh_dss: </span><br><span class="line">    <span class="keyword">case</span> dh_rsa:</span><br><span class="line">			<span class="class"><span class="keyword">struct</span> &#123;</span>&#125; ;</span><br><span class="line">			<span class="comment">/* message is omitted for rsa, dh_dss, and dh_rsa */</span></span><br><span class="line">		<span class="comment">/* may be extended, e.g., for ECDH -- see [TLSECC] */</span> &#125;;</span><br><span class="line">&#125; ServerKeyExchange;</span><br></pre></td></tr></table></figure>
+<h3 id="Certificate-Request（证书请求）">Certificate Request（证书请求）</h3>
+<p>该消息是服务器进行选择性的发送，用于对客户端进行身份验证，该消息紧跟着服务器发送ServerKeyExchange消息或者Certificate消息之后发送。</p>
+<p>CertificateRequest消息的枚举类型和结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line">	rsa_sign(<span class="number">1</span>), </span><br><span class="line">  dss_sign(<span class="number">2</span>), </span><br><span class="line">  rsa_fixed_dh(<span class="number">3</span>), </span><br><span class="line">  dss_fixed_dh(<span class="number">4</span>), </span><br><span class="line">  rsa_ephemeral_dh_RESERVED(<span class="number">5</span>), </span><br><span class="line">  dss_ephemeral_dh_RESERVED(<span class="number">6</span>), </span><br><span class="line">  fortezza_dms_RESERVED(<span class="number">20</span>), (<span class="number">255</span>)</span><br><span class="line">&#125; ClientCertificateType;</span><br><span class="line"></span><br><span class="line">opaque DistinguishedName&lt;<span class="number">1.</span><span class="number">.2</span>^<span class="number">16</span><span class="number">-1</span>&gt;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	ClientCertificateType certificate_types&lt;<span class="number">1.</span><span class="number">.2</span>^<span class="number">8</span><span class="number">-1</span>&gt;; </span><br><span class="line">  SignatureAndHashAlgorithm supported_signature_algorithms&lt;<span class="number">2</span>^<span class="number">16</span><span class="number">-1</span>&gt;; </span><br><span class="line">  DistinguishedName certificate_authorities&lt;<span class="number">0.</span><span class="number">.2</span>^<span class="number">16</span><span class="number">-1</span>&gt;;</span><br><span class="line">&#125; CertificateRequest;</span><br></pre></td></tr></table></figure>
+<p>结构体定义中的certificate_types字段，客户端可以提供的证书类型的列表，包括如下表格所列：</p>
+<table>
+<thead>
+<tr>
+<th>证书类型</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rsa_sign</td>
+<td>包含RSA密钥的证书</td>
+</tr>
+<tr>
+<td>dss_sign</td>
+<td>包含DSA密钥的证书</td>
+</tr>
+<tr>
+<td>rsa_fixed_dh</td>
+<td>包含静态DH密钥的证书</td>
+</tr>
+<tr>
+<td>dss_fixed_dh</td>
+<td>包含静态DH密钥的证书</td>
+</tr>
+</tbody>
+</table>
+<p>注意，新的ClientCertificateType值由IANA发布，在后面的第12节中有介绍。</p>
+<h3 id="Server-Hello-Done">Server Hello Done</h3>
+<p>服务器发送此消息意味着服务器已完成发送消息以支持密钥交换，客户端可以继续起密钥交换阶段。该消息的结构体定义没有数据字段，<code>struct &#123; &#125; ServerHelloDone;</code></p>
+<h3 id="Client-Certificate（客户端证书）">Client Certificate（客户端证书）</h3>
+<p>这是客户端收到ServerHelloDone消息之后可以发送的第一条消息，而仅当服务器发送CertificateRequest消息时，客户端才发送该消息，用于客户端身份验证。客户端如果没有所支持的证书，可以发送空白的证书消息，然后服务器自己决定是否继续会话或者发送Handshake_failure警报中断会话连接。</p>
+<p>客户端证书采用第7.4.2节中的证书定义。</p>
+<p>此消息将客户端的证书链传递给服务器；服务器将在验证CertificateVerify消息时使用它(当客户端身份验证基于签名时)或计算预主密钥(对于非短暂Diffie-Hellman)。证书必须适用于协商的密码套件的密钥交换算法以及任何协商的扩展。</p>
+<h3 id="Client-Key-Exchange-Message（客户端密钥交换）">Client Key Exchange Message（客户端密钥交换）</h3>
+<p>利用该消息，客户端将通过RSA密钥或者DH参数来设置预主密钥。</p>
+<p>消息的选择取决于用了哪种密钥交换算法，可以参考7.4.3节的KeyExchangeAlgorithm定义。该消息的结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	select (KeyExchangeAlgorithm) &#123;</span><br><span class="line">		<span class="keyword">case</span> rsa:</span><br><span class="line">			EncryptedPreMasterSecret;</span><br><span class="line">		<span class="keyword">case</span> dhe_dss: </span><br><span class="line">		<span class="keyword">case</span> dhe_rsa: </span><br><span class="line">		<span class="keyword">case</span> dh_dss: </span><br><span class="line">		<span class="keyword">case</span> dh_rsa: </span><br><span class="line">		<span class="keyword">case</span> dh_anon:</span><br><span class="line">			ClientDiffieHellmanPublic; </span><br><span class="line">	&#125; exchange_keys;</span><br><span class="line">&#125; ClientKeyExchange;</span><br></pre></td></tr></table></figure>
+<h4 id="RSA加密的预主密钥信息">RSA加密的预主密钥信息</h4>
+<p>如果RSA用于密钥协商和身份验证，客户端将生成一个48字节的预主密钥，使用服务器证书中的公钥对其进行加密，然后将结果以加密的预主秘密消息的形式发送。此结构是ClientKeyExchange消息的变体，本身不是消息。此消息的结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	ProtocolVersion client_version; </span><br><span class="line">  opaque random[<span class="number">46</span>]; <span class="comment">/* 46个安全生成的随机数字节 */</span></span><br><span class="line">&#125; PreMasterSecret;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="keyword">public</span>-key-encrypted PreMasterSecret pre_master_secret; <span class="comment">/*此随机值由客户端生成，并用于生成主密钥，如8.1节所述。*/</span></span><br><span class="line">&#125; EncryptedPreMasterSecret;</span><br></pre></td></tr></table></figure>
+<h4 id="客户端DH公开值">客户端DH公开值</h4>
+<p>如果客户端的证书中尚未包含Diffie-Hellman公开值(YC)，则此结构传递客户端的Diffie-Hellman公开值(YC)。<br>
+YC使用的编码由枚举的PublicValueEncoding确定。该结构是客户端密钥交换消息的变体，而不是消息本身。</p>
+<p>该消息的枚举类型和结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span> implicit, <span class="keyword">explicit</span> &#125; PublicValueEncoding;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	select (PublicValueEncoding) &#123;</span><br><span class="line">		<span class="keyword">case</span> implicit:   <span class="comment">/*隐性，无需发送Yc*/</span></span><br><span class="line">    	<span class="class"><span class="keyword">struct</span> &#123;</span> &#125;;</span><br><span class="line">		<span class="keyword">case</span> <span class="keyword">explicit</span>:   <span class="comment">/*显性，需要发送Yc*/</span></span><br><span class="line">    	opaque dh_Yc&lt;<span class="number">1.</span><span class="number">.2</span>^<span class="number">16</span><span class="number">-1</span>&gt;; &#125; dh_public;</span><br><span class="line">&#125; ClientDiffieHellmanPublic;</span><br></pre></td></tr></table></figure>
+<h3 id="Certificate-Verify（证书查证）">Certificate Verify（证书查证）</h3>
+<p>该消息必须紧跟ClientKeyExchange消息之后发送。其结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	digitally-<span class="keyword">signed</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">		opaque handshake_messages[handshake_messages_length]; </span><br><span class="line">  &#125;</span><br><span class="line">&#125; CertificateVerify;</span><br></pre></td></tr></table></figure>
+<p>在该签名中使用的Hash和签名算法必须是之前服务器发送的CertificateRequest消息中提供的Hash和签名算法。</p>
+<h3 id="Finished消息">Finished消息</h3>
+<p>该消息总是在ChangeCipherSpec消息之后立即发送，用来验证密钥交换和身份验证的过程是否成功，</p>
+<p>Finished消息是第一个使用刚刚协商的算法、密钥和机密进行加密保护的消息。在发送该消息且得到对等方的成功验证，且对等方也发送了Finsihed消息，就可以进行双方的数据传输了。</p>
+<p>Finished消息的结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	opaque verify_data[verify_data_length];</span><br><span class="line">  <span class="comment">/*PRF(master_secret, finished_label, Hash(handshake_messages)) [0..verify_data_length-1];*/</span></span><br><span class="line">  <span class="comment">/*finished_label可以是sever和client标识*/</span></span><br><span class="line">  <span class="comment">/*handshake_messages包含从ClientHello之后到Finished消息之前的所有消息的串联*/</span></span><br><span class="line">&#125; Finished;</span><br></pre></td></tr></table></figure>
+<h1>密码计算</h1>
+<p>为了开始连接保护，TLS记录协议需要指定一套算法、主密钥以及客户端和服务器随机值。身份验证、加密和MAC算法由服务器选择并在ServerHello消息中显示的cipher_Suite确定。压缩算法在Hello消息中协商，随机值在Hello消息中交换。剩下的就是计算主秘密了。</p>
+<h2 id="计算主秘密（Master-Secret）">计算主秘密（Master Secret）</h2>
+<p>对于所有密钥交换方法，使用相同的算法将PRE_MASTER_SECRET（预主秘密）转换为MASTER_SECRET（主秘密）。一旦计算出MASTER_SECRET，就应该从内存中删除PRE_MASTER_SECRET。主秘密的计算公式如下：</p>
+<p>master_secret = PRF(pre_master_secret, “master secret”, ClientHello.random + ServerHello.random) [0…47];</p>
+<p>注意：主秘密的长度总是固定为48字节大小，但是预主秘密的大小根据密钥交换时的协商而定。</p>
+<h3 id="RSA">RSA</h3>
+<p>当RSA用于服务器身份验证和密钥交换时，客户端将生成48字节的PRE_MASTER_SECRET，使用服务器的公钥进行加密，然后发送到服务器。服务器使用其私钥来解密PRE_MASTER_SECRET。然后双方将PRE_MASTER_SECRET转换为MASTER_SECRET，如上所述。</p>
+<h3 id="Diffie-Hellman（DH）">Diffie-Hellman（DH）</h3>
+<p>执行常规的Diffie-Hellman计算。如上所述，协商密钥(Z)用作PRE_MASTER_SECRET，并被转换为MASTER_SECRET。包含全部零位的Z的前导字节在用作PRE_MASTER_SECRET之前被剥离。</p>
+<p>注意：Diffie-Hellman参数由服务器指定，可以是暂时的，也可以包含在服务器的证书中。</p>
+<h1>强制加密组件</h1>
+<p>在没有另有规定的应用程序配置文件标准的情况下，符合TLS标准的应用程序必须实现密码套件TLS_RSA_WITH_AES_128_CBC_SHA(定义见附录A.5)。</p>
+<h1>Application_Date应用数据协议</h1>
+<p>应用数据消息由记录层承载，并根据当前连接状态进行分段、压缩和加密。这些消息被视为对记录层透明的数据。</p>
+<h1>安全考虑</h1>
+<p>本文档通篇讨论了安全问题，特别是在附录D、E和F中。</p>
+<h1>IANA考虑</h1>
+<p>本文档使用了最初在[TLS1.1]中创建的几个注册表。IANA已更新这些内容以参考本文档。以下列出了注册表及其分配策略(与[TLS1.1]相同)。</p>
+<ul>
+<li>TLS ClientCertificateType标识符注册表：0-63(十进制)范围内的未来值通过标准操作[RFC2434]赋值。64-223(十进制)范围内的值通过所需规格[RFC2434]进行赋值。224-255(十进制)之间的值保留为专用[RFC2434]。</li>
+<li>TLS密码套件注册表：第一个字节在0-191(十进制)范围内(含十进制)的未来值通过标准操作[RFC2434]分配。第一个字节在192-254(十进制)范围内的值通过所需规范[RFC2434]赋值。第一个字节255(十进制)的值保留为专用[RFC2434]。</li>
+<li>本文档定义了几个新的基于HMAC-SHA256的密码套件，它们的值(在附录A.5中)是从TLS密码套件注册表分配的。</li>
+<li>TLS Content Type注册表：未来值通过标准操作[RFC2434]分配。</li>
+<li>TLS警报注册表：未来值通过标准操作[RFC2434]分配。</li>
+<li>TLS HandshakeType注册表：未来值通过标准操作[RFC2434]分配。</li>
+</ul>
+<p>本文档还使用最初在[RFC4366]中创建的注册表。IANA已对其进行更新，以参考本文档。注册表及其分配策略(与[RFC4366]相同)如下所示：</p>
+<ul>
+<li>TLS ExtensionType注册表：未来值通过IETF共识分配[RFC2434]。IANA已更新此注册表，以包括Signature_ALGRATIONS扩展名及其相应值(请参阅第7.4.1.4节)。</li>
+</ul>
+<p>此外，本文件还定义了IANA将维护的两个新登记册：</p>
+<ul>
+<li>TLS SignatureAlgorithm注册表：注册表已初始填充第7.4.1.4.1节中描述的值。0-63(十进制)范围内的未来值通过标准操作[RFC2434]分配。64-223(十进制)范围内的值通过所需规格[RFC2434]进行赋值。224-255(十进制)之间的值保留为专用[RFC2434]。</li>
+<li>TLS HashAlgorithm注册表：注册表已初始填充7.4.1.4.1节中描述的值。0-63(十进制)范围内的未来值通过标准操作[RFC2434]分配。64-223(十进制)范围内的值通过所需规格[RFC2434]进行赋值。224-255(十进制)之间的值保留为专用[RFC2434]。</li>
+<li>本文还使用了[RFC3749]中定义的TLS压缩方法标识符注册表。IANA已为“NULL”压缩方法分配值0。</li>
+</ul>
+<h1>附录</h1>
+<h2 id="附录A-协议数据结构和常量值">附录A.协议数据结构和常量值</h2>
+<h3 id="A-1-记录层（Record-Layer）">A.1.记录层（Record Layer）</h3>
+<h3 id="A-2-更改密码规范消息（ChangeCipherSpec）">A.2.更改密码规范消息（ChangeCipherSpec）</h3>
+<h3 id="A-3-警报消息（Alert）">A.3.警报消息（Alert）</h3>
+<h3 id="A-4-握手协议（Handshake）">A.4.握手协议（Handshake）</h3>
+<h4 id="A-4-1-Hello消息">A.4.1.Hello消息</h4>
+<h4 id="A-4-2-服务器认证和密钥交换消息（ServerKeyExchange）">A.4.2.服务器认证和密钥交换消息（ServerKeyExchange）</h4>
+<h4 id="A-4-3-客户端认证和密钥交换消息（ClientKeyExchange）">A.4.3.客户端认证和密钥交换消息（ClientKeyExchange）</h4>
+<h4 id="A-4-4-握手完成消息">A.4.4.握手完成消息</h4>
+<h3 id="A-5-密码组件（CipherSuites）">A.5.密码组件（CipherSuites）</h3>
+<h3 id="A-6-安全参数">A.6.安全参数</h3>
+<h3 id="A-7-对RFC-4492文档的更改">A.7.对RFC-4492文档的更改</h3>
+<h2 id="附录B-术语词汇">附录B.术语词汇</h2>
+<h2 id="附录C-密码组件定义">附录C.密码组件定义</h2>
+<h2 id="附录D-实现注意事项">附录D.实现注意事项</h2>
+<h3 id="D-1-随机数生成和种子">D.1.随机数生成和种子</h3>
+<h3 id="D-2-证书和认证">D.2.证书和认证</h3>
+<h3 id="D-3-密码组件">D.3.密码组件</h3>
+<h3 id="D-4-实现的陷阱">D.4.实现的陷阱</h3>
+<h2 id="附录E-向后兼容性">附录E.向后兼容性</h2>
+<h3 id="E-1-与SSLv3-0和TLS1-0-1-1的兼容性">E.1.与SSLv3.0和TLS1.0/1.1的兼容性</h3>
+<h3 id="E-2-与SSLv2-0的兼容性">E.2.与SSLv2.0的兼容性</h3>
+<h3 id="E-3-避免MITM攻击的协议版本回滚">E.3.避免MITM攻击的协议版本回滚</h3>
+<h2 id="附录F-安全分析">附录F.安全分析</h2>
+<h3 id="F-1-握手协议">F.1.握手协议</h3>
+<h4 id="F-1-1-认证和密钥交换">F.1.1.认证和密钥交换</h4>
+<h5 id="F-1-1-1-密名密钥交换">F.1.1.1.密名密钥交换</h5>
+<h5 id="F-1-1-2-RSA密钥交换和认证">F.1.1.2.RSA密钥交换和认证</h5>
+<h5 id="F-1-1-3-DH密钥交换和认证">F.1.1.3.DH密钥交换和认证</h5>
+<h4 id="F-1-2-协议版本回滚攻击">F.1.2.协议版本回滚攻击</h4>
+<h4 id="F-1-3-检测针对握手协议的攻击">F.1.3.检测针对握手协议的攻击</h4>
+<h4 id="F-1-4-恢复会话">F.1.4.恢复会话</h4>
+<h3 id="F-2-保护应用数据">F.2.保护应用数据</h3>
+<h3 id="F-3-清楚的IV初始向量">F.3.清楚的IV初始向量</h3>
+<h3 id="F-4-混合密码模式的安全">F.4.混合密码模式的安全</h3>
+<h3 id="F-5-拒绝服务">F.5.拒绝服务</h3>
+<h3 id="F-6-最后注意事项">F.6.最后注意事项</h3>
+<h2 id="规范性参考文献">规范性参考文献</h2>
+<h2 id="信息性参考文献">信息性参考文献</h2>
 ]]></content>
       <tags>
         <tag>RFC6246</tag>
         <tag>TLS1.2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>「送你一朵小红花」</title>
-    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
-    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg" alt=""></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC17.JPG" alt="LHC17"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC16.JPG" alt="LHC16"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC15.JPG" alt="LHC15"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC14.JPG" alt="LHC14"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC13.jpg" alt="LHC13"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC12.jpg" alt="LHC12"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC11.jpg" alt="LHC11"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC10.JPG" alt="LHC10"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC9.jpg" alt="LHC9"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC8.jpg" alt="LHC8"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC6.GIF" alt="LHC6"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC5.jpg" alt="LHC5"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC4.JPG" alt="LHC4"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC3.jpg" alt="LHC3"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/run&amp;start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
-]]></content>
-      <tags>
-        <tag>movie</tag>
       </tags>
   </entry>
   <entry>
@@ -629,11 +868,6 @@ HMAC_-hash(secret, A(3) + seed) + …</p>
     <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
   </entry>
   <entry>
-    <title>archives</title>
-    <url>/archives/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>about</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p>关于我：</p>
@@ -642,13 +876,18 @@ HMAC_-hash(secret, A(3) + seed) + …</p>
 ]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
+    <title>archives</title>
+    <url>/archives/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
