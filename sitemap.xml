@@ -151,6 +151,13 @@
   </url>
   
   <url>
+    <loc>https://koper.top/tags/movie/</loc>
+    <lastmod>2021-08-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://koper.top/tags/RFC6246/</loc>
     <lastmod>2021-08-25</lastmod>
     <changefreq>daily</changefreq>
@@ -159,13 +166,6 @@
   
   <url>
     <loc>https://koper.top/tags/TLS1-2/</loc>
-    <lastmod>2021-08-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://koper.top/tags/movie/</loc>
     <lastmod>2021-08-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
