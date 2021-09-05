@@ -126,6 +126,11 @@
       </tags>
   </entry>
   <entry>
+    <title>Papers</title>
+    <url>/2021/09/05/Papers/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Roadmap of Java Learning</title>
     <url>/2021/08/26/Roadmap-of-Java-Learning/</url>
     <content><![CDATA[<p><img src="/images/Roadmap-of-Java-Learning/2021%E5%B9%B4Java%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E8%B7%AF%E7%BA%BF%E5%9B%BE.png" alt="2021 Java Developer RoadMap"></p>
@@ -196,24 +201,42 @@
   <entry>
     <title>SSL/TLS相关</title>
     <url>/2021/05/19/SSL-TLS%E7%9B%B8%E5%85%B3/</url>
-    <content><![CDATA[<h1>协议底层</h1>
+    <content><![CDATA[<h1>TLS分析第一类：协议顶层设计</h1>
 <h2 id="密码算法相关">密码算法相关</h2>
 <h3 id="Bulk-Ciphers">Bulk Ciphers</h3>
 <p><a href="https://www.ibm.com/docs/en/ztpf/2021?topic=cryptography-bulk-ciphers">IBM对其的解释</a>：有Stream和Block两种cipher类型。</p>
+<h1>TLS分析第二类：协议的具体实现（主流/问题多）</h1>
 <h1>Papers</h1>
+<blockquote>
+<p>站在巨人的肩膀上</p>
+</blockquote>
+<p>2020学术安全会议排行榜-<a href="https://feysh.com/ranking/2020/">G.O.S.S.I.P</a>；<a href="https://zhuanlan.zhihu.com/p/27853093">信息安全相关学术会议列表</a>；</p>
+<p>谷歌学术搜索TLS相关文章索引作者<a href="https://scholar.google.com/citations?hl=zh-CN&amp;view_op=search_authors&amp;mauthors=label:tls">排行</a>；</p>
 <h2 id="Systematic-Fuzzing-and-Testing-of-TLS-Libraries">Systematic Fuzzing and Testing of TLS Libraries</h2>
-<p>[15]A Tool for Testing TLS Implementations</p>
-<p>[25]Protocol State Fuzzing of TLS Implementations</p>
-<p>[43]20 Years of SSL/TLS Research An Analysis of the Internet’s Security Foundation</p>
+<ol>
+<li>[15]A Tool for Testing TLS Implementations：FlexTLS工具，</li>
+<li>[25]Protocol State Fuzzing of TLS Implementations：（USS2015）
+<ul>
+<li>全自动黑盒测试（协议状态模糊测试），找到TLS库的实现缺陷；源码：<a href="https://github.com/praseodym/TLSTestService">TLSTestServices</a>；<a href="https://zhuanlan.zhihu.com/p/68058146">知乎论文分析</a>；作者找到了3中TLS具体实现中的漏洞。</li>
+<li>该论文的相关论文：“Analysis of DTLS Implementations Using Protocol State Fuzzing”：（USS2020）拓展了TLS-Attacker框架，对DTLS实现进行自动机学习。Github开源项目-<a href="https://github.com/assist-project/dtls-fuzzer">dtls-fuzzer</a>；</li>
+<li>相关论文：“Exploiting Dissent: Towards Fuzzing-Based Differential Black-Box Testing of TLS Implementations”：（IEEE TDSC2020-CCA A类期刊）改论文的新方法和其他三个方法（<a href="https://lcamtuf.coredump.cx/afl/">American Fzuuy Lop</a>–<a href="https://github.com/google/AFL">Github/AFL</a>、TLS-Attacker、<a href="https://github.com/nezha-dt/nezha">NEZHA</a>）做了比较，将该方法用到了很多TLS的具体实现上；论文做了Github软件开源-<a href="https://github.com/hso-esk/tls-diff-testing">tls-diff-fuzzing</a>；</li>
+<li>相关论文：“The Closer You Look, The More You Learn: A Grey-box Approach to Protocol State Machine Learning”：（arXiv）对协议自动机学习的灰盒测试方法；作者<a href="https://scholar.google.de/citations?user=KP0lXigAAAAJ&amp;hl=zh-CN">Joeri de Ruiter</a>在通信领域（协议分析）发的文章多，特别是自动机学习这一方向。上上篇的作者也是他。</li>
+</ul>
+</li>
+<li>[43]20 Years of SSL/TLS Research An Analysis of the Internet’s Security Foundation</li>
+</ol>
 <h2 id="Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities">Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities</h2>
-<p>[6]Efficient Padding Oracle Attacks on Cryptographic Hardware</p>
-<p>[6]Efficient Padding Oracle Attacks on Cryptographic Hardware-PPT</p>
-<p>[16]A Search Engine Backed by Internet-Wide Scanning</p>
-<p>[16]A Search Engine Backed by Internet-Wide Scanning-PPT</p>
-<p>[33]Practical padding oracle attacks</p>
-<p>[33]Practical padding oracle attacks-PPT</p>
-<p>[36]A Long Way to the Top- Significance, Structure, and Stability of Internet Top Lists</p>
-<p>[36]A Long Way to the Top- Significance, Structure, and Stability of Internet Top Lists-PPT</p>
+<ol>
+<li>[6]Efficient Padding Oracle Attacks on Cryptographic Hardware</li>
+<li>[6]Efficient Padding Oracle Attacks on Cryptographic Hardware-PPT</li>
+<li>[16]A Search Engine Backed by Internet-Wide Scanning</li>
+<li>[16]A Search Engine Backed by Internet-Wide Scanning-PPT</li>
+<li>[33]Practical padding oracle attacks</li>
+<li>[33]Practical padding oracle attacks-PPT</li>
+<li>[36]A Long Way to the Top- Significance, Structure, and Stability of Internet Top Lists</li>
+<li>[36]A Long Way to the Top- Significance, Structure, and Stability of Internet Top Lists-PPT</li>
+<li>Analysis of DTLS Implementations Using Protocol State Fuzzing：（USS2020）拓展了TLS-Attacker框架</li>
+</ol>
 <h1>RFC官方文档（PDF|HTML）</h1>
 <p><a href="https://www.rfc-editor.org/info/rfc2246">RFC-2246</a>：TLS1.0</p>
 <p><a href="https://www.rfc-editor.org/info/rfc4346">RFC-4346</a>：TLS1.1</p>
@@ -237,7 +260,10 @@
 <h1>工具&amp;&amp;其他</h1>
 <p><a href="https://botan.randombit.net/">Botan：现代TLS加密库</a>，一个工具包一样，和<a href="https://www.openssl.org">OpensSSL</a>以及MatrixSSL一样，可以被调用;<a href="https://www.gnutls.org/">GnuTLS：TLS库</a>，同上一样;<a href="https://github.com/matrixssl/matrixssl">MatrixSSL</a>；<a href="https://tls.mbed.org/">Mbed TLS</a>；<a href="https://www.wolfssl.com/">wolfSSL: Embedded TLS Library</a>；</p>
 <p>TLS模糊测试（前沿的测试方法）：<a href="https://github.com/tlsfuzzer/tlsfuzzer">Github: TLSFuzzer</a>；<a href="https://github.com/tintinweb/scapy-ssl_tls">Github: Scapy-SSL/TLS</a>；</p>
+<p>对TLS协议配置信息进行分析的工具：<a href="https://github.com/iphelix/sslmap">sslmap</a>：用于TLS密码组件的扫描；</p>
 <p>一个在线SSL服务器检测工具：<a href="https://www.ssllabs.com/ssltest/">SSLabs: SSL Server Test</a>；</p>
+<p>X509证书分析工具：<a href="https://github.com/yymax/x509test">x509test</a>；</p>
+<p>Fuzze工具：<a href="https://lcamtuf.coredump.cx/afl/">American Fzuuy Lop</a>–<a href="https://github.com/google/AFL">Github/AFL</a>、<a href="https://github.com/nezha-dt/nezha">NEZHA</a>；<a href="https://github.com/hso-esk/tls-diff-testing">tls-diff-fuzzing</a>；</p>
 <p><a href="https://github.com/prbinu/tls-scan">tls-scan</a>：一个github上的TLS扫描工具；</p>
 <p>在线国密SSL扫描<a href="https://myssl.com/">MySSL</a>；</p>
 <p>开源TLS库检测工具-Python：<a href="https://github.com/nabla-c0d3/sslyze">sslyze</a>，其<a href="https://nabla-c0d3.github.io/sslyze/documentation/">官方文档</a></p>
