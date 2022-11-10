@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Blender Learning</title>
+    <url>/2022/11/10/Blender-Learning/</url>
+    <content><![CDATA[<p>Blender入门</p>
+<p>1.基础操作，素材导入</p>
+<p>2.建造简单的房屋模型</p>
+]]></content>
+      <tags>
+        <tag>blender</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Writing with Latex</title>
+    <url>/2022/11/09/WritingWithLatex/</url>
+    <content><![CDATA[<h2 id="References">References</h2>
+<h5 id="For-IEEE-Journal-or-Trans-Papers">For IEEE Journal or Trans Papers:</h5>
+<p>Overleaf gives some samples about the <a href="https://www.overleaf.com/learn/latex/Natbib_bibliography_styles">Natbib bibliography styles</a>.</p>
+<p>Problem: <code>\citet&#123;xxx&#125;</code> shows “(<strong>author ?</strong>) [x]”</p>
+<p>Solution:</p>
+<ul>
+<li>Input the package: <code>\usepackage[author, year, numbers, ...]&#123;natbib&#125;</code></li>
+<li>Input the correct bibstyle file: <code>\bibliographystyle&#123;IEEEtranN&#125;</code>(Notice: “IEEEtranN.bst” not “IEEEtran.bst”)</li>
+</ul>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="comment">% \usepackage[author, year, numbers, ...]&#123;natbib&#125;</span></span><br><span class="line"><span class="keyword">\usepackage</span>[numbers]&#123;natbib&#125; <span class="comment">% [numbers] only shows &#x27;author et al.&#x27; and index &#x27;[x]&#x27;</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">\bibliographystyle</span>&#123;IEEEtranN&#125;</span><br><span class="line"><span class="keyword">\bibliography</span>&#123;ref<span class="built_in">_</span>name&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">\citet</span>&#123;xxx, ...&#125;</span><br></pre></td></tr></table></figure>
+<p>Compile result: XXX et al. [x], …</p>
+]]></content>
+      <tags>
+        <tag>skill</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客搭建记录</title>
+    <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1>
+<p>最开始，我使用的是Next主题，在网上找过许多答案，其中一种针对Next主题以前的一个问题所进行的修改：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214">vendors文件修改</a>，但是vendors文件夹问题在随后的Next版本中得到了解决。</p>
+<p>如今又出现这样的问题，我根据网上的各种回答进行了许多地方的一个修改，这里做个总结：</p>
+<ol>
+<li>首先是在本地deploy之前，先执行<strong>hexo clean</strong>，来清除相关缓存，然后hexo g &amp;&amp; hexo d（可以多执行几遍）</li>
+<li>在之前搭建github主页时，github默认给我设置的分支是main，看到过网上的一个解决方案是将分支名从main改成master（github分支权限问题？？？）</li>
+<li><strong>清除浏览器的缓存</strong>，在我的实际刷新来看，这个办法应该是最有用的，我用chrome和safari都验证过了。<a href="https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html">清除Chrome浏览器指定网页缓存</a>，每次加载网站都能重新载入。</li>
+<li>Hexo本地网站根目录下面的_config.yml文件配置不对。在deploy设置中branch选项的值应该和你在github项目的分支保持一致。至于配置文件的url设置，个人认为没影响，在我的使用来看，这个url主要是影响网站sitemap.xml文件的生成和有效性。</li>
+</ol>
+<h1>问题2:Hexo博客页面加载缓慢或者卡顿</h1>
+<p>现在，我使用的是<a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly主题</a>，所做的更改基本都是<a href="https://butterfly.js.org/">Jerry的教程</a>建议的</p>
+<ol>
+<li>
+<p>最直观的方法就是在加载网页后，F12打开浏览器的开发者模式，选到Console，然后就能看到加载Hexo网页时出现了哪些错误。下图是我第一次打开Console时出现的错误图：</p>
+<p><img src="/images/Hexo-blog-build-record/chrome-F12-Console-errors.jpg" alt=""></p>
+<p>然后就可以根据错误对主题或者站点配置文件进行响应的改动，记得改动之前备份。</p>
+</li>
+<li>
+<p>删除一些无关的插件，<a href="https://www.dazhuanlan.com/2019/10/12/5da110cdd9a7b/">卸载 hexo 插件</a></p>
+</li>
+</ol>
+<h1>问题3:Hexo和Typora图像存储和设置问题</h1>
+<p>已解决-个人觉得很好的一个回答：<a href="https://yinyoupoet.github.io/2019/09/03/hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">typora + hexo博客中插入图片</a></p>
+<h1>问题4:Hexo d上传时缓存大小限制导致无法上传图片</h1>
+<p>搜索了好多都没有对应的解决方法，这里通过自己的关键字搜索找到了需要修改的文件</p>
+<ol>
+<li>首先进入自己Hexo博客的根目录下面，找到<code>node_modules</code>文件夹并进入</li>
+<li>然后进入<code>workbox-build</code>文件夹</li>
+<li>接下来进入<code>build</code>文件夹，最后进入<code>options</code>文件夹</li>
+<li>在进入的文件夹下面有一个js文件<code>defaults.js</code>，打开该文件修改其中<strong>maximumFileSizeToCacheInBytes</strong>后面的值为更大的值，如下：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">maximumFileSizeToCacheInBytes: <span class="number">10</span> * <span class="number">1024</span> * <span class="number">1024</span>,</span><br><span class="line"><span class="comment">// 其中10 * 1024 * 1024表示缓存大小为10MB</span></span><br></pre></td></tr></table></figure>
+<h1>增加数学Math公式的CSS样式</h1>
+<p>这里我添加KaTex数学公式编辑器，根据ButterFly主体配置文档的<a href="https://butterfly.js.org/posts/ceeb73f/#Math-%E6%95%B8%E5%AD%B8">Math数学</a>进行KaTex配置安装。</p>
+<p>问题：似乎Typora设置Katex公式使得软件本身很卡</p>
+<h1>参考：</h1>
+<ol>
+<li><a href="https://www.jianshu.com/p/c9d3a53fb8e3">Hexo页面加载性能优化</a></li>
+<li><a href="https://link.jianshu.com/?t=http://www.ieclipse.cn/2016/08/29/Web/Hexo-deploy-lines/">Hexo博客双线部署</a></li>
+<li><a href="https://gaomf.cn/2015/11/01/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/">Hexo博客优化加载速度</a></li>
+<li><a href="https://blog.csdn.net/weixin_44676935/article/details/107440479">Hexo博客因图标失效导致加载过慢（icarus主题）</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>archives</title>
+    <url>/archives/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/manifest.json</url>
+    <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/images/siteicon/README.html</url>
+    <content><![CDATA[<h1>Your Favicon Package</h1>
+<p>This package was generated with <a href="https://realfavicongenerator.net/">RealFaviconGenerator</a> <a href="https://realfavicongenerator.net/change_log#v0.16">v0.16</a></p>
+<h2 id="Install-instructions">Install instructions</h2>
+<p>To install this package:</p>
+<p>Extract this package in <code>&lt;web site&gt;/images/siteicon/</code>. If your site is <code><a href="http://www.example.com">http://www.example.com</a></code>, you should be able to access a file named <code><a href="http://www.example.com/images/siteicon/favicon.ico">http://www.example.com/images/siteicon/favicon.ico</a></code>.</p>
+<p>Insert the following code in the <code>head</code> section of your pages:</p>
+<pre><code>&lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;180x180&quot; href=&quot;/images/siteicon/apple-touch-icon.png&quot;&gt;
+&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; href=&quot;/images/siteicon/favicon-32x32.png&quot;&gt;
+&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; href=&quot;/images/siteicon/favicon-16x16.png&quot;&gt;
+&lt;link rel=&quot;manifest&quot; href=&quot;/images/siteicon/site.webmanifest&quot;&gt;
+&lt;link rel=&quot;mask-icon&quot; href=&quot;/images/siteicon/safari-pinned-tab.svg&quot; color=&quot;#5bbad5&quot;&gt;
+&lt;link rel=&quot;shortcut icon&quot; href=&quot;/images/siteicon/favicon.ico&quot;&gt;
+&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;Koper&quot;&gt;
+&lt;meta name=&quot;application-name&quot; content=&quot;Koper&quot;&gt;
+&lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#c4bdc5&quot;&gt;
+&lt;meta name=&quot;msapplication-config&quot; content=&quot;/images/siteicon/browserconfig.xml&quot;&gt;
+&lt;meta name=&quot;theme-color&quot; content=&quot;#ffffff&quot;&gt;
+</code></pre>
+<p><em>Optional</em> - Check your favicon with the <a href="https://realfavicongenerator.net/favicon_checker">favicon checker</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p>关于我：</p>
+<p>一名在读的打工人，每天的事就是科研科研</p>
+<p>同时分享自己在读的生活和一些日常</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Hexo博客搭建记录</title>
+    <url>/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95.html</url>
+    <content><![CDATA[<h1>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1>
+<p>最开始，我使用的是Next主题，在网上找过许多答案，其中一种针对Next主题以前的一个问题所进行的修改：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214">vendors文件修改</a>，但是vendors文件夹问题在随后的Next版本中得到了解决。</p>
+<p>如今又出现这样的问题，我根据网上的各种回答进行了许多地方的一个修改，这里做个总结：</p>
+<ol>
+<li>首先是在本地deploy之前，先执行<strong>hexo clean</strong>，来清除相关缓存，然后hexo g &amp;&amp; hexo d（可以多执行几遍）</li>
+<li>在之前搭建github主页时，github默认给我设置的分支是main，看到过网上的一个解决方案是将分支名从main改成master（github分支权限问题？？？）</li>
+<li><strong>清除浏览器的缓存</strong>，在我的实际刷新来看，这个办法应该是最有用的，我用chrome和safari都验证过了。<a href="https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html">清除Chrome浏览器指定网页缓存</a>，每次加载网站都能重新载入。</li>
+<li>Hexo本地网站根目录下面的_config.yml文件配置不对。在deploy设置中branch选项的值应该和你在github项目的分支保持一致。至于配置文件的url设置，个人认为没影响，在我的使用来看，这个url主要是影响网站sitemap.xml文件的生成和有效性。</li>
+</ol>
+<h1>问题2:Hexo博客页面加载缓慢或者卡顿</h1>
+<p>现在，我使用的是<a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly主题</a>，所做的更改基本都是<a href="https://butterfly.js.org/">Jerry的教程</a>建议的</p>
+<ol>
+<li>
+<p>最直观的方法就是在加载网页后，F12打开浏览器的开发者模式，选到Console，然后就能看到加载Hexo网页时出现了哪些错误。下图是我第一次打开Console时出现的错误图：</p>
+<p><img src="/images/Hexo-blog-build-record/chrome-F12-Console-errors.jpg" alt=""></p>
+<p>然后就可以根据错误对主题或者站点配置文件进行响应的改动，记得改动之前备份。</p>
+</li>
+<li>
+<p>删除一些无关的插件，<a href="https://www.dazhuanlan.com/2019/10/12/5da110cdd9a7b/">卸载 hexo 插件</a></p>
+</li>
+</ol>
+<h1>问题3:Hexo和Typora图像存储和设置问题</h1>
+<p>已解决-个人觉得很好的一个回答：<a href="https://yinyoupoet.github.io/2019/09/03/hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">typora + hexo博客中插入图片</a></p>
+<h1>问题4:Hexo d上传时缓存大小限制导致无法上传图片</h1>
+<p>搜索了好多都没有对应的解决方法，这里通过自己的关键字搜索找到了需要修改的文件</p>
+<ol>
+<li>首先进入自己Hexo博客的根目录下面，找到<code>node_modules</code>文件夹并进入</li>
+<li>然后进入<code>workbox-build</code>文件夹</li>
+<li>接下来进入<code>build</code>文件夹，最后进入<code>options</code>文件夹</li>
+<li>在进入的文件夹下面有一个js文件<code>defaults.js</code>，打开该文件修改其中<strong>maximumFileSizeToCacheInBytes</strong>后面的值为更大的值，如下：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">maximumFileSizeToCacheInBytes: <span class="number">10</span> * <span class="number">1024</span> * <span class="number">1024</span>,</span><br><span class="line"><span class="comment">// 其中10 * 1024 * 1024表示缓存大小为10MB</span></span><br></pre></td></tr></table></figure>
+<h1>增加数学Math公式的CSS样式</h1>
+<p>这里我添加KaTex数学公式编辑器，根据ButterFly主体配置文档的<a href="https://butterfly.js.org/posts/ceeb73f/#Math-%E6%95%B8%E5%AD%B8">Math数学</a>进行KaTex配置安装。</p>
+<p>问题：似乎Typora设置Katex公式使得软件本身很卡</p>
+<h1>参考：</h1>
+<ol>
+<li><a href="https://www.jianshu.com/p/c9d3a53fb8e3">Hexo页面加载性能优化</a></li>
+<li><a href="https://link.jianshu.com/?t=http://www.ieclipse.cn/2016/08/29/Web/Hexo-deploy-lines/">Hexo博客双线部署</a></li>
+<li><a href="https://gaomf.cn/2015/11/01/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/">Hexo博客优化加载速度</a></li>
+<li><a href="https://blog.csdn.net/weixin_44676935/article/details/107440479">Hexo博客因图标失效导致加载过慢（icarus主题）</a></li>
+</ol>
+]]></content>
+  </entry>
+</search>
