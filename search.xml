@@ -15,8 +15,9 @@
     <title>Writing with Latex</title>
     <url>/2022/11/09/WritingWithLatex/</url>
     <content><![CDATA[<h2 id="References">References</h2>
-<h5 id="For-IEEE-Journal-or-Trans-Papers">For IEEE Journal or Trans Papers:</h5>
-<p>Overleaf gives some samples about the <a href="https://www.overleaf.com/learn/latex/Natbib_bibliography_styles">Natbib bibliography styles</a>.</p>
+<h3 id="Problem-1：">Problem 1：</h3>
+<p><strong>For IEEE Journal or Trans Papers:</strong></p>
+<p>Overleaf gives some samples of the <a href="https://www.overleaf.com/learn/latex/Natbib_bibliography_styles">Natbib bibliography styles</a>.</p>
 <p>Problem: <code>\citet&#123;xxx&#125;</code> shows “(<strong>author ?</strong>) [x]”</p>
 <p>Solution:</p>
 <ul>
@@ -81,56 +82,9 @@
       </tags>
   </entry>
   <entry>
-    <title>archives</title>
-    <url>/archives/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title></title>
     <url>/manifest.json</url>
     <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
-  </entry>
-  <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/images/siteicon/README.html</url>
-    <content><![CDATA[<h1>Your Favicon Package</h1>
-<p>This package was generated with <a href="https://realfavicongenerator.net/">RealFaviconGenerator</a> <a href="https://realfavicongenerator.net/change_log#v0.16">v0.16</a></p>
-<h2 id="Install-instructions">Install instructions</h2>
-<p>To install this package:</p>
-<p>Extract this package in <code>&lt;web site&gt;/images/siteicon/</code>. If your site is <code><a href="http://www.example.com">http://www.example.com</a></code>, you should be able to access a file named <code><a href="http://www.example.com/images/siteicon/favicon.ico">http://www.example.com/images/siteicon/favicon.ico</a></code>.</p>
-<p>Insert the following code in the <code>head</code> section of your pages:</p>
-<pre><code>&lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;180x180&quot; href=&quot;/images/siteicon/apple-touch-icon.png&quot;&gt;
-&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; href=&quot;/images/siteicon/favicon-32x32.png&quot;&gt;
-&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; href=&quot;/images/siteicon/favicon-16x16.png&quot;&gt;
-&lt;link rel=&quot;manifest&quot; href=&quot;/images/siteicon/site.webmanifest&quot;&gt;
-&lt;link rel=&quot;mask-icon&quot; href=&quot;/images/siteicon/safari-pinned-tab.svg&quot; color=&quot;#5bbad5&quot;&gt;
-&lt;link rel=&quot;shortcut icon&quot; href=&quot;/images/siteicon/favicon.ico&quot;&gt;
-&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;Koper&quot;&gt;
-&lt;meta name=&quot;application-name&quot; content=&quot;Koper&quot;&gt;
-&lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#c4bdc5&quot;&gt;
-&lt;meta name=&quot;msapplication-config&quot; content=&quot;/images/siteicon/browserconfig.xml&quot;&gt;
-&lt;meta name=&quot;theme-color&quot; content=&quot;#ffffff&quot;&gt;
-</code></pre>
-<p><em>Optional</em> - Check your favicon with the <a href="https://realfavicongenerator.net/favicon_checker">favicon checker</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>about</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<p>关于我：</p>
-<p>一名在读的打工人，每天的事就是科研科研</p>
-<p>同时分享自己在读的生活和一些日常</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Hexo博客搭建记录</title>
@@ -177,6 +131,53 @@
 <li><a href="https://gaomf.cn/2015/11/01/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/">Hexo博客优化加载速度</a></li>
 <li><a href="https://blog.csdn.net/weixin_44676935/article/details/107440479">Hexo博客因图标失效导致加载过慢（icarus主题）</a></li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>archives</title>
+    <url>/archives/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p>关于我：</p>
+<p>一名在读的打工人，每天的事就是科研科研</p>
+<p>同时分享自己在读的生活和一些日常</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/images/siteicon/README.html</url>
+    <content><![CDATA[<h1>Your Favicon Package</h1>
+<p>This package was generated with <a href="https://realfavicongenerator.net/">RealFaviconGenerator</a> <a href="https://realfavicongenerator.net/change_log#v0.16">v0.16</a></p>
+<h2 id="Install-instructions">Install instructions</h2>
+<p>To install this package:</p>
+<p>Extract this package in <code>&lt;web site&gt;/images/siteicon/</code>. If your site is <code><a href="http://www.example.com">http://www.example.com</a></code>, you should be able to access a file named <code><a href="http://www.example.com/images/siteicon/favicon.ico">http://www.example.com/images/siteicon/favicon.ico</a></code>.</p>
+<p>Insert the following code in the <code>head</code> section of your pages:</p>
+<pre><code>&lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;180x180&quot; href=&quot;/images/siteicon/apple-touch-icon.png&quot;&gt;
+&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; href=&quot;/images/siteicon/favicon-32x32.png&quot;&gt;
+&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; href=&quot;/images/siteicon/favicon-16x16.png&quot;&gt;
+&lt;link rel=&quot;manifest&quot; href=&quot;/images/siteicon/site.webmanifest&quot;&gt;
+&lt;link rel=&quot;mask-icon&quot; href=&quot;/images/siteicon/safari-pinned-tab.svg&quot; color=&quot;#5bbad5&quot;&gt;
+&lt;link rel=&quot;shortcut icon&quot; href=&quot;/images/siteicon/favicon.ico&quot;&gt;
+&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;Koper&quot;&gt;
+&lt;meta name=&quot;application-name&quot; content=&quot;Koper&quot;&gt;
+&lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#c4bdc5&quot;&gt;
+&lt;meta name=&quot;msapplication-config&quot; content=&quot;/images/siteicon/browserconfig.xml&quot;&gt;
+&lt;meta name=&quot;theme-color&quot; content=&quot;#ffffff&quot;&gt;
+</code></pre>
+<p><em>Optional</em> - Check your favicon with the <a href="https://realfavicongenerator.net/favicon_checker">favicon checker</a></p>
 ]]></content>
   </entry>
 </search>
