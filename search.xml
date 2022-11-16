@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Blender Learning</title>
+    <url>/2022/11/10/Blender-Learning/</url>
+    <content><![CDATA[<h2 id="1-基础操作：">1.基础操作：</h2>
+<h3 id="快捷键">快捷键</h3>
+<p>选中进入拖拽：G键，配合X、Y和Z键锁定坐标轴移动</p>
+<p>进入“编辑模式”：Tab键</p>
+<p>模型框选：Shift加选，Ctrl减选，A键全选</p>
+<p>2.建造简单的房屋模型</p>
+<h2 id="2-计划">2.计划</h2>
+<h3 id="1-1-搭建我的桌面">1.1 搭建我的桌面</h3>
+<h3 id="1-2-搭建实验室">1.2 搭建实验室</h3>
+]]></content>
+      <tags>
+        <tag>blender</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客搭建记录</title>
     <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h1>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1>
@@ -51,23 +68,6 @@
 ]]></content>
       <tags>
         <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Blender Learning</title>
-    <url>/2022/11/10/Blender-Learning/</url>
-    <content><![CDATA[<h2 id="1-基础操作：">1.基础操作：</h2>
-<h3 id="快捷键">快捷键</h3>
-<p>选中进入拖拽：G键，配合X、Y和Z键锁定坐标轴移动</p>
-<p>进入“编辑模式”：Tab键</p>
-<p>模型框选：Shift加选，Ctrl减选，A键全选</p>
-<p>2.建造简单的房屋模型</p>
-<h2 id="2-计划">2.计划</h2>
-<h3 id="1-1-搭建我的桌面">1.1 搭建我的桌面</h3>
-<h3 id="1-2-搭建实验室">1.2 搭建实验室</h3>
-]]></content>
-      <tags>
-        <tag>blender</tag>
       </tags>
   </entry>
   <entry>
@@ -150,13 +150,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>archives</title>
-    <url>/archives/index.html</url>
+    <title>categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
+    <title>archives</title>
+    <url>/archives/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
