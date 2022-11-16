@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://titus.pub/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2022-11-16</lastmod>
+  </url>
+  <url>
     <loc>https://titus.pub/2022/11/10/Blender-Learning/</loc>
     <lastmod>2022-11-16</lastmod>
   </url>
   <url>
     <loc>https://titus.pub/2022/11/09/WritingWithLatex/</loc>
     <lastmod>2022-11-12</lastmod>
-  </url>
-  <url>
-    <loc>https://titus.pub/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2022-11-09</lastmod>
   </url>
 </urlset> 

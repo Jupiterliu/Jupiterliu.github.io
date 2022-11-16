@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Blender Learning</title>
+    <url>/2022/11/10/Blender-Learning/</url>
+    <content><![CDATA[<h2 id="1-基础操作：">1.基础操作：</h2>
+<h3 id="快捷键">快捷键</h3>
+<p>选中进入拖拽：G键，配合X、Y和Z键锁定坐标轴移动</p>
+<p>进入“编辑模式”：Tab键</p>
+<p>模型框选：Shift加选，Ctrl减选，A键全选</p>
+<p>2.建造简单的房屋模型</p>
+<h2 id="2-计划">2.计划</h2>
+<h3 id="1-1-搭建我的桌面">1.1 搭建我的桌面</h3>
+<h3 id="1-2-搭建实验室">1.2 搭建实验室</h3>
+]]></content>
+      <tags>
+        <tag>blender</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Writing with Latex</title>
     <url>/2022/11/09/WritingWithLatex/</url>
     <content><![CDATA[<h2 id="References">References</h2>
@@ -17,23 +34,6 @@
 ]]></content>
       <tags>
         <tag>writing latex</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Blender Learning</title>
-    <url>/2022/11/10/Blender-Learning/</url>
-    <content><![CDATA[<h2 id="1-基础操作：">1.基础操作：</h2>
-<h3 id="快捷键">快捷键</h3>
-<p>选中进入拖拽：G键，配合X、Y和Z键锁定坐标轴移动</p>
-<p>进入“编辑模式”：Tab键</p>
-<p>模型框选：Shift加选，Ctrl减选，A键全选</p>
-<p>2.建造简单的房屋模型</p>
-<h2 id="2-计划">2.计划</h2>
-<h3 id="1-1-搭建我的桌面">1.1 搭建我的桌面</h3>
-<h3 id="1-2-搭建实验室">1.2 搭建实验室</h3>
-]]></content>
-      <tags>
-        <tag>blender</tag>
       </tags>
   </entry>
   <entry>
@@ -74,6 +74,9 @@
 <h1>增加数学Math公式的CSS样式</h1>
 <p>这里我添加KaTex数学公式编辑器，根据ButterFly主体配置文档的<a href="https://butterfly.js.org/posts/ceeb73f/#Math-%E6%95%B8%E5%AD%B8">Math数学</a>进行KaTex配置安装。</p>
 <p>问题：似乎Typora设置Katex公式使得软件本身很卡</p>
+<h1>SEO：网站被谷歌、百度以及必应收录</h1>
+<p>SEO参考：<a href="https://github.com/Lete114/Hexo-SEO-AutoPush">Hexo-SEO-AutoPush</a></p>
+<p>博客搭建參考：<a href="https://juejin.cn/post/7095323643277738014">Hexo+Github</a></p>
 <h1>参考：</h1>
 <ol>
 <li><a href="https://www.jianshu.com/p/c9d3a53fb8e3">Hexo页面加载性能优化</a></li>
@@ -87,14 +90,17 @@
       </tags>
   </entry>
   <entry>
+    <title>about</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p>关于我：</p>
+<p>一名在读的打工人，每天的事就是科研科研</p>
+<p>同时分享自己在读的生活和一些日常</p>
+]]></content>
+  </entry>
+  <entry>
     <title></title>
     <url>/manifest.json</url>
     <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
-  </entry>
-  <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>archives</title>
@@ -102,12 +108,9 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>about</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<p>关于我：</p>
-<p>一名在读的打工人，每天的事就是科研科研</p>
-<p>同时分享自己在读的生活和一些日常</p>
-]]></content>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>tags</title>
