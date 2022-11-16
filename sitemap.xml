@@ -2,78 +2,98 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jupiterliu.github.io/2022/11/10/Blender-Learning/</loc>
+    <loc>https://titus.pub/2022/11/10/Blender-Learning/</loc>
     
     <lastmod>2022-11-16</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jupiterliu.github.io/2022/11/09/WritingWithLatex/</loc>
+    <loc>https://titus.pub/2022/11/09/WritingWithLatex/</loc>
     
     <lastmod>2022-11-12</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jupiterliu.github.io/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://titus.pub/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2022-11-09</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jupiterliu.github.io/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95.html</loc>
+    <loc>https://titus.pub/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95.html</loc>
     
     <lastmod>2022-11-09</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jupiterliu.github.io/manifest.json</loc>
+    <loc>https://titus.pub/manifest.json</loc>
     
     <lastmod>2021-04-26</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jupiterliu.github.io/images/siteicon/README.html</loc>
+    <loc>https://titus.pub/images/siteicon/README.html</loc>
     
     <lastmod>2021-04-26</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jupiterliu.github.io/about/index.html</loc>
+    <loc>https://titus.pub/about/index.html</loc>
     
     <lastmod>2021-04-24</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jupiterliu.github.io/tags/index.html</loc>
+    <loc>https://titus.pub/tags/index.html</loc>
     
     <lastmod>2021-04-24</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jupiterliu.github.io/archives/index.html</loc>
+    <loc>https://titus.pub/archives/index.html</loc>
     
     <lastmod>2021-04-24</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jupiterliu.github.io/categories/index.html</loc>
+    <loc>https://titus.pub/categories/index.html</loc>
     
     <lastmod>2021-04-24</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
 
   <url>
-    <loc>https://jupiterliu.github.io/</loc>
+    <loc>https://titus.pub/</loc>
     <lastmod>2022-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -81,24 +101,24 @@
 
   
   <url>
-    <loc>https://jupiterliu.github.io/tags/blender/</loc>
+    <loc>https://titus.pub/tags/blender/</loc>
     <lastmod>2022-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jupiterliu.github.io/tags/writing-latex/</loc>
+    <loc>https://titus.pub/tags/writing-latex/</loc>
     <lastmod>2022-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jupiterliu.github.io/tags/blog/</loc>
+    <loc>https://titus.pub/tags/blog/</loc>
     <lastmod>2022-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
 
