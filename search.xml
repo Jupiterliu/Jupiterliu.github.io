@@ -150,16 +150,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>about</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p>关于我：</p>
@@ -170,6 +160,11 @@
   <entry>
     <title>archives</title>
     <url>/archives/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -195,5 +190,10 @@
 </code></pre>
 <p><em>Optional</em> - Check your favicon with the <a href="https://realfavicongenerator.net/favicon_checker">favicon checker</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
