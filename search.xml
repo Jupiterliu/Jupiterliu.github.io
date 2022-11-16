@@ -3,9 +3,15 @@
   <entry>
     <title>Blender Learning</title>
     <url>/2022/11/10/Blender-Learning/</url>
-    <content><![CDATA[<p>Blender入门</p>
-<p>1.基础操作，素材导入</p>
+    <content><![CDATA[<h2 id="1-基础操作：">1.基础操作：</h2>
+<h3 id="快捷键">快捷键</h3>
+<p>选中进入拖拽：G键，配合X、Y和Z键锁定坐标轴移动</p>
+<p>进入“编辑模式”：Tab键</p>
+<p>模型框选：Shift加选，Ctrl减选，A键全选</p>
 <p>2.建造简单的房屋模型</p>
+<h2 id="2-计划">2.计划</h2>
+<h3 id="1-1-搭建我的桌面">1.1 搭建我的桌面</h3>
+<h3 id="1-2-搭建实验室">1.2 搭建实验室</h3>
 ]]></content>
       <tags>
         <tag>blender</tag>
@@ -70,8 +76,8 @@
 <p>Overleaf gives some samples of the <a href="https://www.overleaf.com/learn/latex/Natbib_bibliography_styles">Natbib bibliography styles</a>.</p>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Check whether input the package: <code>\usepackage[author, year, numbers, ...]&#123;natbib&#125;</code></li>
-<li>Check the correct bibstyle file is loaded: <code>\bibliographystyle&#123;IEEEtranN&#125;</code>(Notice: “IEEEtranN.bst” not “IEEEtran.bst”, you can download in <a href="https://ctan.math.illinois.edu/biblio/bibtex/contrib/IEEEtran/">IEEE Bib</a>)</li>
+<li>Check whether import the package: <code>\usepackage[author, year, numbers, ...]&#123;natbib&#125;</code></li>
+<li>Check the correct bibstyle file is loaded: <code>\bibliographystyle&#123;IEEEtranN&#125;</code> (Notice: “IEEEtranN.bst” not “IEEEtran.bst”, you can download in <a href="https://ctan.math.illinois.edu/biblio/bibtex/contrib/IEEEtran/">IEEEtran</a>)</li>
 </ul>
 <figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="comment">% \usepackage[author, year, numbers, ...]&#123;natbib&#125;</span></span><br><span class="line"><span class="comment">% [numbers] only shows &#x27;author et al.&#x27; and index &#x27;[x]&#x27;</span></span><br><span class="line"><span class="comment">% For more details, please see &quot;https://www.overleaf.com/learn/latex/Bibliography_management_with_natbib&quot;</span></span><br><span class="line"><span class="keyword">\usepackage</span>[numbers]&#123;batbib&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">\bibliographystyle</span>&#123;IEEEtranN&#125;</span><br><span class="line"><span class="keyword">\bibliography</span>&#123;ref<span class="built_in">_</span>name&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">\citet</span>&#123;xxx, ...&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>Compile result</strong>:  XXX et al. [x], …</p>
@@ -128,8 +134,18 @@
 ]]></content>
   </entry>
   <entry>
+    <title></title>
+    <url>/manifest.json</url>
+    <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
+  </entry>
+  <entry>
     <title>archives</title>
     <url>/archives/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -139,11 +155,6 @@
 <p>一名在读的打工人，每天的事就是科研科研</p>
 <p>同时分享自己在读的生活和一些日常</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>tags</title>
@@ -173,10 +184,5 @@
 </code></pre>
 <p><em>Optional</em> - Check your favicon with the <a href="https://realfavicongenerator.net/favicon_checker">favicon checker</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/manifest.json</url>
-    <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
   </entry>
 </search>
