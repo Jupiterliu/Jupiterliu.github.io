@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://titus.pub/2022/11/09/WritingWithLatex/</loc>
+    
+    <lastmod>2022-11-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://titus.pub/2022/11/16/Security-in-Robotic-Vehicle/</loc>
     
     <lastmod>2022-11-16</lastmod>
@@ -23,15 +32,6 @@
     <loc>https://titus.pub/2022/11/10/Blender-Learning/</loc>
     
     <lastmod>2022-11-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://titus.pub/2022/11/09/WritingWithLatex/</loc>
-    
-    <lastmod>2022-11-12</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -103,36 +103,36 @@
 
   <url>
     <loc>https://titus.pub/</loc>
-    <lastmod>2022-11-17</lastmod>
+    <lastmod>2022-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://titus.pub/tags/security-robot-drone-vehicle/</loc>
-    <lastmod>2022-11-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://titus.pub/tags/writing-latex/</loc>
-    <lastmod>2022-11-17</lastmod>
+    <loc>https://titus.pub/tags/blender/</loc>
+    <lastmod>2022-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://titus.pub/tags/blog/</loc>
-    <lastmod>2022-11-17</lastmod>
+    <lastmod>2022-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://titus.pub/tags/blender/</loc>
-    <lastmod>2022-11-17</lastmod>
+    <loc>https://titus.pub/tags/security-robot-drone-vehicle/</loc>
+    <lastmod>2022-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://titus.pub/tags/writing-latex/</loc>
+    <lastmod>2022-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
