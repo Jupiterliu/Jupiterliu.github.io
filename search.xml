@@ -18,51 +18,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Writing with Latex</title>
-    <url>/2022/11/09/WritingWithLatex/</url>
-    <content><![CDATA[<h2 id="总结第一次写SCI论文的经验">总结第一次写SCI论文的经验</h2>
-<h3 id="工具：">工具：</h3>
-<blockquote>
-<p>工欲善其事，必先利其器</p>
-</blockquote>
-<p>ps：当然，我认为最重要不是依赖这些工具，而是积累写作经验，最终脱离工具也能写出一篇优秀的SCI论文。</p>
-<p>1.词汇：有道词典，欧路词典</p>
-<p>2.语法：Grammarly</p>
-<p>3.润色：QuillBot</p>
-<p>4.续写：</p>
-<p>5.查重：</p>
-<p>Waiting to add…</p>
-<h2 id="References">References</h2>
-<h3 id="Problem-1：Compile-citet-xxx-shows-“-author-x-”">Problem 1：Compile <code>\citet&#123;xxx&#125;</code> shows “(<strong>author ?</strong>) [x]”</h3>
-<p><strong>For IEEE Journal or Trans Papers:</strong></p>
-<p>Overleaf gives some samples of the <a href="https://www.overleaf.com/learn/latex/Natbib_bibliography_styles">Natbib bibliography styles</a>.</p>
-<p><strong>Solution</strong>:</p>
-<ul>
-<li>Check whether import the package: <code>\usepackage[author, year, numbers, ...]&#123;natbib&#125;</code></li>
-<li>Check the correct bibstyle file is loaded: <code>\bibliographystyle&#123;IEEEtranN&#125;</code> (Notice: “IEEEtranN.bst” not “IEEEtran.bst”, you can download in <a href="https://ctan.math.illinois.edu/biblio/bibtex/contrib/IEEEtran/">IEEEtran</a>)</li>
-</ul>
-<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="comment">% \usepackage[author, year, numbers, ...]&#123;natbib&#125;</span></span><br><span class="line"><span class="comment">% [numbers] only shows &#x27;author et al.&#x27; and index &#x27;[x]&#x27;</span></span><br><span class="line"><span class="comment">% For more details, please see &quot;https://www.overleaf.com/learn/latex/Bibliography_management_with_natbib&quot;</span></span><br><span class="line"><span class="keyword">\usepackage</span>[numbers]&#123;batbib&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">\bibliographystyle</span>&#123;IEEEtranN&#125;</span><br><span class="line"><span class="keyword">\bibliography</span>&#123;ref<span class="built_in">_</span>name&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">\citet</span>&#123;xxx, ...&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Compile result</strong>:  XXX et al. [x], …</p>
-]]></content>
-      <tags>
-        <tag>writing latex</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Security in Robotic Vehicle</title>
-    <url>/2022/11/16/Security-in-Robotic-Vehicle/</url>
-    <content><![CDATA[<h1>自动驾驶汽车(Autonomous Drivings)</h1>
-<h3 id="研究团队：">研究团队：</h3>
-<h1>无人机(UAVs or Drones)</h1>
-<h3 id="研究团队：-2">研究团队：</h3>
-<h1>机器人(Robots)</h1>
-<h3 id="研究团队：-3">研究团队：</h3>
-]]></content>
-      <tags>
-        <tag>security robot drone vehicle</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo博客搭建记录</title>
     <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h1>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1>
@@ -116,9 +71,49 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/manifest.json</url>
-    <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
+    <title>Writing with Latex</title>
+    <url>/2022/11/09/WritingWithLatex/</url>
+    <content><![CDATA[<h2 id="总结第一次写SCI论文的经验">总结第一次写SCI论文的经验</h2>
+<h3 id="工具：">工具：</h3>
+<blockquote>
+<p>工欲善其事，必先利其器</p>
+</blockquote>
+<p>ps：当然，我认为最重要不是依赖这些工具，而是积累写作经验，最终脱离工具也能写出一篇优秀的SCI论文。</p>
+<p>1.词汇：有道词典，欧路词典</p>
+<p>2.语法：Grammarly</p>
+<p>3.润色：QuillBot</p>
+<p>4.续写：</p>
+<p>5.查重：</p>
+<p>Waiting to add…</p>
+<h2 id="References">References</h2>
+<h3 id="Problem-1：Compile-citet-xxx-shows-“-author-x-”">Problem 1：Compile <code>\citet&#123;xxx&#125;</code> shows “(<strong>author ?</strong>) [x]”</h3>
+<p><strong>For IEEE Journal or Trans Papers:</strong></p>
+<p>Overleaf gives some samples of the <a href="https://www.overleaf.com/learn/latex/Natbib_bibliography_styles">Natbib bibliography styles</a>.</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Check whether import the package: <code>\usepackage[author, year, numbers, ...]&#123;natbib&#125;</code></li>
+<li>Check the correct bibstyle file is loaded: <code>\bibliographystyle&#123;IEEEtranN&#125;</code> (Notice: “IEEEtranN.bst” not “IEEEtran.bst”, you can download in <a href="https://ctan.math.illinois.edu/biblio/bibtex/contrib/IEEEtran/">IEEEtran</a>)</li>
+</ul>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="comment">% \usepackage[author, year, numbers, ...]&#123;natbib&#125;</span></span><br><span class="line"><span class="comment">% [numbers] only shows &#x27;author et al.&#x27; and index &#x27;[x]&#x27;</span></span><br><span class="line"><span class="comment">% For more details, please see &quot;https://www.overleaf.com/learn/latex/Bibliography_management_with_natbib&quot;</span></span><br><span class="line"><span class="keyword">\usepackage</span>[numbers]&#123;batbib&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">\bibliographystyle</span>&#123;IEEEtranN&#125;</span><br><span class="line"><span class="keyword">\bibliography</span>&#123;ref<span class="built_in">_</span>name&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">\citet</span>&#123;xxx, ...&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Compile result</strong>:  XXX et al. [x], …</p>
+]]></content>
+      <tags>
+        <tag>writing latex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Security in Robotic Vehicle</title>
+    <url>/2022/11/16/Security-in-Robotic-Vehicle/</url>
+    <content><![CDATA[<h1>自动驾驶汽车(Autonomous Drivings)</h1>
+<h3 id="研究团队：">研究团队：</h3>
+<h1>无人机(UAVs or Drones)</h1>
+<h3 id="研究团队：-2">研究团队：</h3>
+<h1>机器人(Robots)</h1>
+<h3 id="研究团队：-3">研究团队：</h3>
+]]></content>
+      <tags>
+        <tag>security robot drone vehicle</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hexo博客搭建记录</title>
@@ -168,6 +163,11 @@
 ]]></content>
   </entry>
   <entry>
+    <title></title>
+    <url>/manifest.json</url>
+    <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
+  </entry>
+  <entry>
     <title>about</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p>关于我：</p>
@@ -176,18 +176,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>archives</title>
-    <url>/archives/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
+    <title>archives</title>
+    <url>/archives/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -213,5 +208,10 @@
 </code></pre>
 <p><em>Optional</em> - Check your favicon with the <a href="https://realfavicongenerator.net/favicon_checker">favicon checker</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
