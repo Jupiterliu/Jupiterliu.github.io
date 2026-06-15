@@ -11,9 +11,11 @@
         <div class="col-md-9 col-xl-10 p-3 pl-md-0">
             <h5 class="mt-0 mb-1 font-weight-normal">{{ item.title }}</h5>
             <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
-            <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span></p>
+            <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }}{% if item.semantic_scholar_id %} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span>{% endif %}</p>
+            {% if item.abstract %}
             <p class="mt-0 mb-0 small text-muted">{{ item.abstract }}</p>
-            
+            {% endif %}
+            {% if item.links %}
             <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
                 {% for link in item.links %}
                 {% if link[1].url %}
@@ -23,6 +25,7 @@
                 {% endif %}
                 {% endfor %}
             </p>
+            {% endif %}
 
         </div>
     </div>
@@ -35,9 +38,11 @@
             <div>
                 <h5 class="mt-0 mb-1 font-weight-normal">{{ item.title }}</h5>
                 <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
-                <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span></p>
+                <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }}{% if item.semantic_scholar_id %} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span>{% endif %}</p>
+                {% if item.abstract %}
                 <p class="mt-0 mb-0 small text-muted">{{ item.abstract }}</p>
-                
+                {% endif %}
+                {% if item.links %}
                 <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
                     {% for link in item.links %}
                     {% if link[1].url %}
@@ -47,6 +52,7 @@
                     {% endif %}
                     {% endfor %}
                 </p>
+                {% endif %}
             </div>
         </div>
     </div>
