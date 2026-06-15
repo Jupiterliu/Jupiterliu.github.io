@@ -5,7 +5,7 @@
             <div class="card-body p-4">
                 <div class="row px-3 pt-3">
                     <div class="col h3">
-                        About Me
+                        {{ site.data.profile.primary_name }}
                     </div>
                 </div>
                 <div class="row p-3">
@@ -13,9 +13,6 @@
                         <div class="text-profile-bio mt-0" {% if site.data.profile.short_bio_text_justify %}style="text-align: justify;"{% endif %}>
                             {{ site.data.profile.short_bio }}
                         </div>
-                        {% if site.data.profile.cv_link %}
-                            <a target="_blank" href="{{ site.data.profile.cv_link | relative_url }}"><i class="fas fa-file-alt"></i> Curriculum Vitae</a> <br/>
-                        {% endif %}
                     </div>
         
                 </div>

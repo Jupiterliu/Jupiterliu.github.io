@@ -17,4 +17,6 @@ authors:
   - Jiakang Dong
   - Zuobin Ying
   - Zhuo Ma
+links:
+  Paper: https://doi.org/10.1109/JIOT.2024.3386670
 ---

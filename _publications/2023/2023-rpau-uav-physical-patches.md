@@ -16,4 +16,6 @@ authors:
   - Xinjing Liu
   - Ruidong Han
   - Jianfeng Ma
+links:
+  Paper: https://doi.org/10.1109/TITS.2023.3317054
 ---

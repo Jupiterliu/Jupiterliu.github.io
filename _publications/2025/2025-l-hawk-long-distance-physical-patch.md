@@ -17,4 +17,7 @@ authors:
   - Xinjing Liu
   - Teng Li
   - Jianfeng Ma
+links:
+  Paper: https://www.ndss-symposium.org/wp-content/uploads/2025-26-paper.pdf
+  Code: https://github.com/Jupiterliu/L-Hawk
 ---

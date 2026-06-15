@@ -29,10 +29,23 @@
                 <div class="row small">
                     <div class="col text-center">
                         {% for position in site.data.profile.positions %}
-                        {{ position.name }}<br/>
+                        <div>
+                            {{ position.name }}
+                            {% if position.logo %}
+                            <img src="{{ position.logo | relative_url }}" alt="{{ position.name }}" class="inline-badge">
+                            {% endif %}
+                        </div>
                         {% endfor %}
                     </div>
                 </div>
+
+                {% if site.data.profile.location %}
+                <div class="row small">
+                    <div class="col text-center text-muted">
+                        {{ site.data.profile.location }}
+                    </div>
+                </div>
+                {% endif %}
 
                 <div class="row small">
                     <div class="col text-center">
